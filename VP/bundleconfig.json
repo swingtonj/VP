@@ -1,0 +1,26 @@
+[
+  {
+    "outputFileName": "Assets/js/bootstrap.min.js",
+    "inputFiles": [
+      "Assets/js/bootstrap.js"
+    ]
+  },
+  {
+    "outputFileName": "Assets/css/bootstrap.min.css",
+    "inputFiles": [
+      "Assets/css/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "Assets/js/jquery-3.3.1.min.js",
+    "inputFiles": [
+      "Assets/js/jquery-3.3.1.js"
+    ]
+  },
+  {
+    "outputFileName": "Assets/css/font-awesome.min.css",
+    "inputFiles": [
+      "Assets/css/font-awesome.css"
+    ]
+  }
+]
