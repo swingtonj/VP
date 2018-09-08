@@ -12,20 +12,23 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">Container</a>
+                <a class="navbar-brand" href="#">Analytics Value Predictor</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbars">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#">Register</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Specify</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Results</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Sensitivty</a>
                         </li>
                     </ul>
                 </div>
@@ -34,12 +37,65 @@
     </header>
     <div class="body-content">
         @RenderBody()
-        <div style="height:500px;width:100%;">
-
-        </div>
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="bg-dark " style="padding:20px 10px 10px 10px;">
+            <div class="container">
+                <div class="row text-left">
+                    <div class="col-md-3">
+                        <div class="row py-2">
+                            <div class="col-sm-3 hidden-md-down">
+                                <a class="bg-circle bg-info" href="#">
+                                    <i class="fa fa-2x fa-fw fa-info" aria-hidden="true "></i>
+                                </a>
+                            </div>
+                            <div class="col-sm-9">
+                                <h4>Info</h4>
+                                <p>About us.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row py-2">
+                            <div class="col-sm-3 hidden-md-down">
+                                <a class="bg-circle bg-info" href="#">
+                                    <i class="fa fa-2x fa-fw fa-eye" aria-hidden="true "></i>
+                                </a>
+                            </div>
+                            <div class="col-sm-9">
+                                <h4>Privacy</h4>
+                                <p>Are we?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row py-2">
+                            <div class="col-sm-3 hidden-md-down">
+                                <a class="bg-circle bg-info" href="#">
+                                    <i class="fa fa-2x fa-fw fa-edit" aria-hidden="true "></i>
+                                </a>
+                            </div>
+                            <div class="col-sm-9">
+                                <h4>Terms & Condition</h4>
+                                <p>Should we?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row py-2">
+                            <div class="col-sm-3 hidden-md-down">
+                                <a class="bg-circle bg-info" href="#">
+                                    <i class="fa fa-2x fa-fw fa-address-card" aria-hidden="true "></i>
+                                </a>
+                            </div>
+                            <div class="col-sm-9">
+                                <h4>Contact us</h4>
+                                <p>Why not?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center"></div>
+                <p>&copy; @DateTime.Now.Year - Cabot Partners Group. Inc.</p>
+            </div>
         </footer>
     </div>
     @RenderSection("scripts", required: false)

@@ -15,6 +15,7 @@ namespace VP
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Assets/css/bootstrap.min.css",
                 "~/Assets/css/font-awesome.min.css",
+                "~/Assets/css/style.css",
                       "~/Assets/css/master.min.css"));
         }
     }

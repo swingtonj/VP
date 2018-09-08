@@ -1,0 +1,217 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Assets/css/Specify.css" rel="stylesheet" />
+<div class="container" style="margin-top:70px;">
+    <div class="row headertest">
+        Your Personalized Results
+    </div>
+    <div class="row">
+        <p class="headersubtext">
+            Here are your personalized results for your specific situation. Results are reported for both the IBM System Z14 and an x86 system that has the same acquisition cost.
+        </p>
+        <p class="headersubtext">
+            The model uses industry and best practices data for your industry, analytics type and business imperative. It also considers your investment size, risks, and other value drivers including specific cost and value drivers: system costs, software costs, operations costs, staff productivity by roles, organization productivity, faster time to value, improved revenues, trusted experiences, lower downtime, better security, governance and compliance.
+        </p>
+    </div>
+</div>
+
+
+<div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+            <a href="#step-1" class="bg-circle btn-primary">
+                <i class="fa fa-2x fa-fw fa-industry"></i>
+            </a>
+            <p>Industry</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-2" class="bg-circle" disabled="disabled">
+                <i class="fa fa-2x fa-fw fa-bar-chart-o"></i>
+            </a>
+            <p>Business Imperative</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-3" class="bg-circle" disabled="disabled">
+                <i class="fa fa-2x fa-fw fa-money"></i>
+            </a>
+            <p>Investment</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-4" class="bg-circle" disabled="disabled">
+                <i class="fa fa-2x fa-fw fa-line-chart"></i>
+            </a>
+            <p>Type of Analytics</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-4" class="bg-circle" disabled="disabled">
+                <i class="fa fa-2x fa-fw fa-newspaper-o"></i>
+            </a>
+            <p>Result</p>
+        </div>
+    </div>
+</div>
+
+
+<form role="form">
+    <section class="industry setup-content" id="step-1">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 subheader">
+                    Select Industry
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Industry/finance.png" />
+                    <div>Finance</div>
+                </div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Industry/retail.png" />
+                    <div>Retail</div>
+                </div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Industry/healthcare.png" />
+                    <div>Healthcare</div>
+                </div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Industry/telecom.png" />
+                    <div>Telecom</div>
+                </div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Industry/others.png" />
+                    <div>Others</div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </section>
+    <section class="industry setup-content" id="step-2">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 subheader">
+                    Select Business Imperative
+                </div>
+            </div>
+            <div class="row align">
+                <div class="col-md-2"></div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Business/EOP.png" />
+                    <div>End of period processing</div>
+                </div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Business/rfue.png" />
+                    <div>Revenue from user experience</div>
+                </div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Business/co.png" />
+                    <div>Improve cliams optimization</div>
+                </div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Business/pcc.png" />
+                    <div>Prevent customer churn</div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </section>
+    <section class="industry setup-content" id="step-3">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 subheader">
+                    Select Investment
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="range" class="form-control-range" id="formControlRange">
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </section>
+    <section class="industry setup-content" id="step-4">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 subheader">
+                    Select Type of Analytics
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Analytics/oda.png" />
+                    <div>Open Data Analytics</div>
+                </div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Analytics/ibmdb2.png" />
+                    <div>IBM DB2 Analytics Accelarator</div>
+                </div>
+                <div class="col-md-2 nextBtn">
+                    <img src="~/Assets/Images/Analytics/iml.png" />
+                    <div>IBM Machine learning</div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </section>
+</form>
+<script>
+    $(document).ready(function () {
+
+        var navListItems = $('div.setup-panel div a'),
+            allWells = $('.setup-content'),
+            allNextBtn = $('.nextBtn');
+
+        allWells.hide();
+
+        navListItems.click(function (e) {
+            e.preventDefault();
+            var $target = $($(this).attr('href')),
+                $item = $(this);
+
+            if (!$item.hasClass('disabled')) {
+                navListItems.removeClass('btn-primary').addClass('btn-default');
+                $item.addClass('btn-primary');
+                allWells.hide();
+                $target.show();
+                $target.find('input:eq(0)').focus();
+            }
+        });
+
+        allNextBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url']"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+
+            if (isValid)
+                nextStepWizard.removeAttr('disabled').trigger('click');
+        });
+
+        $('div.setup-panel div a.btn-primary').trigger('click');
+    });
+</script>
