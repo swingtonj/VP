@@ -152,10 +152,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\bootstrap-slider.css" />
     <Content Include="Assets\css\bootstrap.css" />
     <Content Include="Assets\css\bootstrap.min.css">
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
+    <Content Include="Assets\css\chartist-plugin-legend.css" />
+    <Content Include="Assets\css\chartist.css" />
     <Content Include="Assets\css\font-awesome.css" />
     <Content Include="Assets\css\font-awesome.min.css">
       <DependentUpon>font-awesome.css</DependentUpon>
@@ -180,10 +183,15 @@
     <Content Include="Assets\Images\Industry\healthcare.png" />
     <Content Include="Assets\Images\Industry\retail.png" />
     <Content Include="Assets\Images\Industry\finance.png" />
+    <Content Include="Assets\js\bootstrap-slider.js" />
     <Content Include="Assets\js\bootstrap.js" />
     <Content Include="Assets\js\bootstrap.min.js">
       <DependentUpon>bootstrap.js</DependentUpon>
     </Content>
+    <Content Include="Assets\js\chartist-plugin-legend.min.js" />
+    <Content Include="Assets\js\chartist-plugin-pointlabels.min.js" />
+    <Content Include="Assets\js\Chartist-pointlabels.js" />
+    <Content Include="Assets\js\chartist.js" />
     <Content Include="Assets\js\jquery-3.3.1.js" />
     <Content Include="Assets\js\jquery-3.3.1.min.js">
       <DependentUpon>jquery-3.3.1.js</DependentUpon>

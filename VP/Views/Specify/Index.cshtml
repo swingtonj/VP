@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Assets/css/Specify.css" rel="stylesheet" />
+<link href="~/Assets/css/chartist.css" rel="stylesheet" />
+<link href="~/Assets/css/bootstrap-slider.css" rel="stylesheet" />
+<link href="~/Assets/css/chartist-plugin-legend.css" rel="stylesheet" />
 <div class="container" style="margin-top:70px;">
     <div class="row headertest">
         Your Personalized Results
@@ -46,7 +49,7 @@
             <p>Type of Analytics</p>
         </div>
         <div class="stepwizard-step">
-            <a href="#step-4" class="bg-circle" disabled="disabled">
+            <a href="#step-5" class="bg-circle" disabled="disabled">
                 <i class="fa fa-2x fa-fw fa-newspaper-o"></i>
             </a>
             <p>Result</p>
@@ -133,11 +136,15 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="range" class="form-control-range" id="formControlRange">
+                    <br />
+                    <input id="slider" data-slider-id='ex1Slider' type="text" />
                 </div>
             </div>
             <div class="row">
-
+                <div class="col-md-12 text-center" style="height:100px;margin-top:30px;">
+                    <button type="button" class="btn btn-lg btn-primary nextBtn">Next</button>
+                    <br />
+                </div>
             </div>
         </div>
     </section>
@@ -169,9 +176,271 @@
             </div>
         </div>
     </section>
+    <section class="industry setup-content charts" id="step-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 subheader ">
+                   Results
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divRoiChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Return on Investment - ROI(%)
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divPaybackChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Payback Period (Months)
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row quad">
+                <div class="col-md-12 quadrant-box-align-center quadrant-display-none">
+                    <div class="bluebox quadrant-box">Direct</div>
+                </div>
+                <div class="col-md-6 br-right br-bottom br-right-green br-bottom-blue">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divProductivityChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                2. Productivity
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 br-bottom br-bottom-blue">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divCostsChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                1. Costs
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 br-right br-right-green">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divRevenuesProfitChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">3. Revenues/Profits</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divRisksChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">4. Risks</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 quadrant-box-align-center quadrant-display-none">
+                    <div class="bluebox-light quadrant-box">Derived</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+    <br />
 </form>
+<script src="~/Assets/js/chartist.js"></script>
+<script src="~/Assets/js/bootstrap-slider.js"></script>
+<script src="~/Assets/js/chartist-plugin-legend.min.js"></script>
+<script src="~/Assets/js/Chartist-pointlabels.js"></script>
 <script>
+    function loadchart() {
+        dataProductivityChart = {
+            labels: ['C-level executive', 'IT personnel ', 'Organizational'],
+            series: [
+                {
+                    name: 'X86',
+                    data: [179.2, 877.8, 897]
+                }, {
+                    name: 'Z14',
+                    data: [216, 997.5, 975]
+                }
+            ]
+        };
+        dataCostsChart = {
+            labels: ['System Acquisition', 'Software Acquisition', 'Operations'],
+            series: [
+                {
+                    name: 'X86',
+                    data: [957, 1682.2, 546.1]
+                }, {
+                    name: 'Z14',
+                    data: [668.9, 399.4, 205.4]
+                }
+            ]
+        };
+        dataRevenuesProfitChart = {
+            labels: ['Improved Revenue', 'Faster-time-to-value', 'Trusted Experiences'],
+
+            series: [
+                {
+                    name: 'X86',
+                    data: [1512, 840, 186.4]
+                }, {
+                    name: 'Z14',
+                    data: [1680, 1064, 207.2]
+                }
+            ]
+        };
+        dataRisksChart = {
+            labels: ['End-to-End Security', 'Improved governance and compliance', 'Reduced downtime'],
+            series: [
+                {
+                    name: 'X86',
+                    data: [846.8, 801, 546.4]
+                }, {
+                    name: 'Z14',
+                    data: [1004.5, 885, 764.9]
+                }
+            ]
+        };
+        dataRoiChart = {
+            labels: ['X86', 'Z14'],
+            series:
+                [56, 363]
+        };
+        dataPaybackChart = {
+            labels: ['X86', 'Z14'],
+            series:
+                [17.15, 5.88]
+        };
+
+        optionsChart = {
+            chartPadding: {
+                top: 30,
+                right: 0,
+                bottom: 20,
+                left: 0
+            },
+            seriesBarDistance: 40,
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+
+            axisY: {
+                labelInterpolationFnc: function (value) {
+                    return '$' + value
+                }, offset: 50
+            }
+            ,
+            plugins: [
+                Chartist.plugins.legend({
+                    position: 'top'
+                })
+                ,
+                Chartist.plugins.ctBarLabels()
+            ]
+        };
+
+        optionsChartdistributed_ROI = {
+            chartPadding: {
+                top: 50,
+                right: 0,
+                bottom: 0,
+                left: 0
+            },
+            seriesBarDistance: 50,
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            distributeSeries: true,
+            axisY: {
+                labelInterpolationFnc: function (value) {
+                    return value + '%'
+                }, offset: 50
+            }
+            ,
+            plugins: [
+                Chartist.plugins.ctBarLabels_percentage()
+            ]
+        };
+        optionsChartdistributed_PB = {
+            chartPadding: {
+                top: 50,
+                right: 0,
+                bottom: 0,
+                left: 0
+            },
+            seriesBarDistance: 50,
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            distributeSeries: true,
+            axisY: {
+                labelInterpolationFnc: function (value) {
+                    return value
+                }, offset: 50
+            }
+            ,
+            plugins: [
+                Chartist.plugins.ctBarLabels_null()
+            ]
+        };
+
+
+        //var divProductivityChart =
+        new Chartist.Bar('#divProductivityChart', dataProductivityChart, optionsChart);
+        //var divCostsChart =
+        new Chartist.Bar('#divCostsChart', dataCostsChart, optionsChart);
+        //var divRevenuesProfitChart =
+        new Chartist.Bar('#divRevenuesProfitChart', dataRevenuesProfitChart, optionsChart);
+        //var divRisksChart =
+        new Chartist.Bar('#divRisksChart', dataRisksChart, optionsChart);
+
+        //var divRoiChart = 
+        new Chartist.Bar('#divRoiChart', dataRoiChart, optionsChartdistributed_ROI);
+        //var divPaybackChart = 
+        new Chartist.Bar('#divPaybackChart', dataPaybackChart, optionsChartdistributed_PB);
+
+
+
+        //md.startAnimationForLineChart(divProductivityChart);
+        //md.startAnimationForLineChart(divCostsChart);
+        //md.startAnimationForLineChart(divRevenuesProfitChart);
+        //md.startAnimationForLineChart(divRisksChart);
+        //md.startAnimationForLineChart(divRoiChart);
+        //md.startAnimationForLineChart(divPaybackChart);
+
+    }
     $(document).ready(function () {
+        $("#slider").slider({
+            id: "slider", min: 0, max: 1000000, range: false, value: 500000, tooltip_split: false, tooltip_position: 'top', tooltip: 'show',
+            formatter: function (val) {
+                if (Array.isArray(val)) {
+                    return "$" + val[0];
+                } else {
+                    return "$" + val;
+                }
+            },
+
+        });
 
         var navListItems = $('div.setup-panel div a'),
             allWells = $('.setup-content'),
@@ -190,6 +459,8 @@
                 allWells.hide();
                 $target.show();
                 $target.find('input:eq(0)').focus();
+                if ($target.attr('id') == "step-5")
+                    loadchart();
             }
         });
 
@@ -211,7 +482,12 @@
             if (isValid)
                 nextStepWizard.removeAttr('disabled').trigger('click');
         });
-
+        if (window.location.hash == "#step-5") {
+            var clickid = window.location.hash;
+            $('#step-4 .nextBtn').trigger('click');
+        }
+        else
         $('div.setup-panel div a.btn-primary').trigger('click');
     });
 </script>
+
