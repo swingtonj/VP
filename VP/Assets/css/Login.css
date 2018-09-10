@@ -119,22 +119,22 @@
     color: #ececec;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
     .banner-responsive {
         position:inherit;
-        margin-top:60px;
+        padding-top:60px;
     }
     .contain-res {
         margin-top: 20px;
         background-color: #FAF8F8;
     }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1200px) {
     .banner-responsive {
         position: absolute;
     }
     .contain-res {
-        margin-top: 60px;
+        padding-top: 60px;
     }
 }
 
