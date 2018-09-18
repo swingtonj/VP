@@ -29,13 +29,14 @@
 }
 
 .aligncontent-middle {
-    display: flex;
+    /*display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-end;*/
+    margin-top:50px;
 }
 
 .mark-header {
-    background-color: rgba(0, 123, 255,0.4);
+    background-color: rgba(0, 123, 255,0.9);
     color: black;
     text-align: center;
     font-size: 25px;
@@ -44,7 +45,7 @@
 }
 
 .mark-text {
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.9);
     color: black;
     text-align: center;
     padding: 5px;
@@ -138,3 +139,7 @@
     }
 }
 
+.svg{
+    width:100px;
+    padding:10px;
+}

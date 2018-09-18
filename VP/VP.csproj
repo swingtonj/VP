@@ -196,6 +196,12 @@
     <Content Include="Assets\js\jquery-3.3.1.min.js">
       <DependentUpon>jquery-3.3.1.js</DependentUpon>
     </Content>
+    <Content Include="Assets\svg\data-encryption.svg" />
+    <Content Include="Assets\svg\delivery-truck.svg" />
+    <Content Include="Assets\svg\full-size.svg" />
+    <Content Include="Assets\svg\money.svg" />
+    <Content Include="Assets\svg\multitask.svg" />
+    <Content Include="Assets\svg\save-energy.svg" />
     <Content Include="Assets\videos\banner1.mp4" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
