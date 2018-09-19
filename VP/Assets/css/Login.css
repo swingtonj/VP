@@ -29,28 +29,28 @@
 }
 
 .aligncontent-middle {
-    /*display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: flex-end;*/
+    justify-content: center;
     margin-top:50px;
 }
 
 .mark-header {
-    background-color: rgba(0, 123, 255,0.9);
+    /*background-color: rgba(0, 123, 255,0.9);*/
     color: black;
-    text-align: center;
-    font-size: 25px;
+    text-align: left;
+    font-size: 40px;
     padding: 5px;
     color: white;
 }
 
 .mark-text {
-    background-color: rgba(255,255,255,0.9);
-    color: black;
-    text-align: center;
+    /*background-color: rgba(255,255,255,0.9);*/
+    color: white;
+    text-align: left;
     padding: 5px;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 15px;
+    line-height: 25px;
 }
 
 .section-header {
@@ -142,4 +142,17 @@
 .svg{
     width:100px;
     padding:10px;
+}
+
+body {
+    background: #665fee;
+    /* Old browsers */
+    background: -moz-linear-gradient(45deg, #665fee 0%, #27c2de 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #665fee 0%, #27c2de 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #665fee 0%, #27c2de 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#665fee', endColorstr='#27c2de',GradientType=1 );
+    /* IE6-9 fallback on horizontal gradient */
 }

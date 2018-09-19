@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;
-    color: #888;
+    color: black;
     line-height: 30px;
     text-align: center;
 }
@@ -36,6 +36,14 @@ h3 {
     color: #555;
     line-height: 20px;
 }
+.navbar {
+    background: #266AD1;
+    background: -moz-linear-gradient(45deg, #665fee -50%, #27c2de 100%);
+    background: -webkit-linear-gradient(45deg, #665fee -50%, #27c2de 100%);
+    background: linear-gradient(45deg, #665fee -50%, #27c2de 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#665fee', endColorstr='#27c2de',GradientType=1 );
+}
+
 
 img {
     max-width: 100%;
@@ -315,4 +323,15 @@ footer {
     }
 h4 {
     font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 1200px) {
+    .navbar-brand {
+        font-size: 20px;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .navbar-brand {
+        font-size: 40px;
+    }
 }
