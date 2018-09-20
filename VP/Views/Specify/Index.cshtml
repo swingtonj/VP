@@ -8,16 +8,40 @@
 <link href="~/Assets/css/bootstrap-slider.css" rel="stylesheet" />
 <link href="~/Assets/css/chartist-plugin-legend.css" rel="stylesheet" />
 <div class="container" style="margin-top:70px;">
-    <div class="row headertest">
-        Your Personalized Results
+    <div id="divSpecify">
+        <div class="row headertest">
+            Specify Your Analytics Initiative
+        </div>
+        <div class="row">
+            <p class="headersubtext">
+                Analytics can significantly transform your business by giving you the ability to deliver
+                exceptional customer experience, enhance marketing effectiveness, increase operational
+                efficiencies, reduce financial risks, improve product quality and reliability, and more. But there
+                are implementation challenges and risks that must be managed and overcome to build a
+                compelling financial business case for your Analytics initiative.
+            </p>
+            <p class="headersubtext">
+                Here you can personalize your Analytics initiative and specify your industry, analytics type,
+                business imperative and hardware investment. Once you submit your input, the Value Predictor
+                builds a personalized model using data specific to your situation. Then, your personalized
+                results summarizing your business case – including additional value provided by IBM Z14 over
+                an equivalent x86 system – are reported back to you. You will also get an additional detailed
+                personalized report for your records including the key assumptions made by the model.
+            </p>
+        </div>
     </div>
-    <div class="row">
-        <p class="headersubtext">
-            Here are your personalized results for your specific situation. Results are reported for both the IBM System Z14 and an x86 system that has the same acquisition cost.
-        </p>
-        <p class="headersubtext">
-            The model uses industry and best practices data for your industry, analytics type and business imperative. It also considers your investment size, risks, and other value drivers including specific cost and value drivers: system costs, software costs, operations costs, staff productivity by roles, organization productivity, faster time to value, improved revenues, trusted experiences, lower downtime, better security, governance and compliance.
-        </p>
+    <div id="divResults" style="display:none;">
+        <div class="row headertest">
+            Your Personalized Results
+        </div>
+        <div class="row">
+            <p class="headersubtext">
+                Here are your personalized results for your specific situation. Results are reported for both the IBM System Z14 and an x86 system that has the same acquisition cost.
+            </p>
+            <p class="headersubtext">
+                The model uses industry and best practices data for your industry, analytics type and business imperative. It also considers your investment size, risks, and other value drivers including specific cost and value drivers: system costs, software costs, operations costs, staff productivity by roles, organization productivity, faster time to value, improved revenues, trusted experiences, lower downtime, better security, governance and compliance.
+            </p>
+        </div>
     </div>
 </div>
 
@@ -180,7 +204,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-12 subheader ">
-                   Results
+                    Results
                 </div>
             </div>
             <div class="row">
@@ -414,9 +438,9 @@
         //var divRisksChart =
         new Chartist.Bar('#divRisksChart', dataRisksChart, optionsChart);
 
-        //var divRoiChart = 
+        //var divRoiChart =
         new Chartist.Bar('#divRoiChart', dataRoiChart, optionsChartdistributed_ROI);
-        //var divPaybackChart = 
+        //var divPaybackChart =
         new Chartist.Bar('#divPaybackChart', dataPaybackChart, optionsChartdistributed_PB);
 
 
@@ -459,8 +483,15 @@
                 allWells.hide();
                 $target.show();
                 $target.find('input:eq(0)').focus();
-                if ($target.attr('id') == "step-5")
+                if ($target.attr('id') == "step-5") {
+                    $('#divResults').attr('Style', '');
+                    $('#divSpecify').attr('Style', 'display:none;');
                     loadchart();
+                }
+                else {
+                    $('#divResults').attr('Style', 'display:none;');
+                    $('#divSpecify').attr('Style', '');
+                }
             }
         });
 
@@ -487,7 +518,7 @@
             $('#step-4 .nextBtn').trigger('click');
         }
         else
-        $('div.setup-panel div a.btn-primary').trigger('click');
+            $('div.setup-panel div a.btn-primary').trigger('click');
     });
 </script>
 
