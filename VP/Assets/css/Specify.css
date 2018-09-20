@@ -3,9 +3,10 @@
     width:100%;
     max-width:120px;
 }
-.headertest{
-    font-size:30px;
-    margin-bottom:15px;
+.headertest {
+    font-size: 35px;
+    margin-bottom: 15px;
+    color: #0069d9;
 }
 .headersubtext {
     font-size: 14px;
@@ -233,7 +234,7 @@
 }
 
     @media only screen and (min-width: 1025px) {
-        .quad:before {
+        /*.quad:before {
             content: 'Business';
             color: white;
             font-size: 20px;
@@ -265,6 +266,38 @@
             vertical-align: middle;
             top: 158%;
             right: 70px;
+        }*/
+        .quadafter {
+            content: 'Technical';
+            color: white;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            height: 150px;
+            writing-mode: vertical-lr;
+            margin: auto 0;
+            border-radius: 5px;
+            background: #00ca4c;
+            position: absolute;
+            vertical-align: middle;
+            top: -75px;
+            right: -30px;
+        }
+        .quadbefore {
+            content: 'Technical';
+            color: white;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            height: 150px;
+            writing-mode: vertical-lr;
+            margin: auto 0;
+            border-radius: 5px;
+            background: rgba(0, 202, 76, 0.5);
+            position: absolute;
+            vertical-align: middle;
+            top: -95px;
+            left: -45px;
         }
     }
 
@@ -272,3 +305,23 @@
         padding-bottom: 20px;
         padding-top: 20px;
     }
+
+
+.count
+{
+    position:absolute;
+    left:50%;
+    right:50%;
+    margin-left:-5px;
+    top:-30px;
+}
+.footer {
+    color: black;
+}
+
+    .footer a {
+        color: black;
+    }
+        .footer a:hover {
+            color: #0069d9
+        }

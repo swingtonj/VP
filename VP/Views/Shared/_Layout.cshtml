@@ -25,11 +25,11 @@
                             <a class="nav-link btn btn-lg btn-primary" href="@Url.Action("index","specify")">Specify</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link btn btn-lg btn-primary" href="@Url.Action("index","specify")#step-5">Results</a>
+                            <a class="nav-link btn btn-lg btn-primary" href="@Url.Action("result","specify")">Results</a>
                         </li>
-                        @*<li class="nav-item active">
-                            <a class="nav-link" href="#">Sensitivty</a>
-                        </li>*@
+                        <li class="nav-item active">
+                            <a class="nav-link btn btn-lg btn-primary" href="@Url.Action("index","sensitivity")">Sensitivity</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -37,9 +37,15 @@
     </header>
     <div class="body-content">
         @RenderBody()
-        <footer class="bg-dark " style="padding:20px 10px 10px 10px;">
+        <footer class="footer"  style="padding:20px 10px 10px 10px;margin-top:30px;">
             <div class="container">
-                <div class="row text-left">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="http://www.cabotpartners.com/" target="_blank">About us</a> | <a  href="http://www.ibm.com/privacy/us/en/?lnk=flg-priv-usen?lnk=flg" target="_blank">Privacy</a> | <a  href="http://www.ibm.com/legal/us/en/?lnk=flg-tous-usen?lnk=flg" target="_blank">Terms & Condition</a> | Contact : <a href="mailto:info@cabotpartner.com<">info@cabotpartner.com</a> | Copyright® @DateTime.Now.Year - Cabot Partners Group. Inc.
+                    </div>
+
+                </div>
+                @*<div class="row text-left">
                     <div class="col-md-3" >
                         <div class="row py-2">
                             <div class="col-sm-5 col-lg-3 hidden-md-down">
@@ -94,7 +100,7 @@
                     </div>
                 </div>
                 <div class="row text-center"></div>
-                <p>&copy; @DateTime.Now.Year - Cabot Partners Group. Inc.</p>
+                <p>&copy; @DateTime.Now.Year - Cabot Partners Group. Inc.</p>*@
             </div>
         </footer>
     </div>

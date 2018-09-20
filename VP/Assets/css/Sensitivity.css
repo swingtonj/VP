@@ -1,0 +1,21 @@
+﻿
+.header1 {
+    font-size: 35px;
+    color: #0069d9;
+}
+.header2 {
+    font-size: 25px;
+    color: #0069d9;
+}
+.subcontent {
+    font-size: 16px;
+}
+.footer{
+    color:black;
+}
+.footer a{
+    color: black;
+}
+    .footer a:hover {
+        color: #0069d9
+    }

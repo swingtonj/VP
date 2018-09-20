@@ -6,6 +6,7 @@ body {
     color: black;
     line-height: 30px;
     text-align: center;
+    min-height:100vh;
 }
 
 strong {
@@ -331,10 +332,12 @@ h4 {
 @media only screen and (max-width: 1200px) {
     .navbar-brand {
         font-size: 20px;
+        font-weight:bold;
     }
 }
 @media only screen and (min-width: 1200px) {
     .navbar-brand {
         font-size: 40px;
+        font-weight: bold;
     }
 }

@@ -13,5 +13,9 @@ namespace VP.Controllers
         {
             return View();
         }
+        public ActionResult Result()
+        {
+            return RedirectToAction("Index", "Specify", new { input = "#step-5" });
+        }
     }
 }

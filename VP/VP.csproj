@@ -145,6 +145,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SensitivityController.cs" />
     <Compile Include="Controllers\SpecifyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -167,6 +168,7 @@
     <Content Include="Assets\css\ionicons.min.css" />
     <Content Include="Assets\css\Login.css" />
     <Content Include="Assets\css\master.css" />
+    <Content Include="Assets\css\Sensitivity.css" />
     <Content Include="Assets\css\Specify.css" />
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\fonts\fontawesome-webfont.svg" />
@@ -197,6 +199,7 @@
     <Content Include="Assets\js\jquery-3.3.1.min.js">
       <DependentUpon>jquery-3.3.1.js</DependentUpon>
     </Content>
+    <Content Include="Assets\js\kinetic.js" />
     <Content Include="Assets\svg\data-encryption.svg" />
     <Content Include="Assets\svg\delivery-truck.svg" />
     <Content Include="Assets\svg\full-size.svg" />
@@ -291,6 +294,7 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Views\Specify\Index.cshtml" />
     <Content Include="Views\Home\Benefits.cshtml" />
+    <Content Include="Views\Sensitivity\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
