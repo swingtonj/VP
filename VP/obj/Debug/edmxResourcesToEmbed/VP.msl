@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CP_Analytics_predictorModelStoreContainer" CdmEntityContainer="CP_Analytics_predictorEntities">
+    <EntitySetMapping Name="Tbl_M_Business_Imperative">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Business_Imperative">
+        <MappingFragment StoreEntitySet="Tbl_M_Business_Imperative">
+          <ScalarProperty Name="BM_Id" ColumnName="BM_Id" />
+          <ScalarProperty Name="BM_Name" ColumnName="BM_Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="image_url" ColumnName="image_url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_M_Industry">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Industry">
+        <MappingFragment StoreEntitySet="Tbl_M_Industry">
+          <ScalarProperty Name="Industry_id" ColumnName="Industry_id" />
+          <ScalarProperty Name="Industry_name" ColumnName="Industry_name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Image_url" ColumnName="Image_url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_M_Mailer_Template">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Mailer_Template">
+        <MappingFragment StoreEntitySet="Tbl_M_Mailer_Template">
+          <ScalarProperty Name="Template_Id" ColumnName="Template_Id" />
+          <ScalarProperty Name="Template" ColumnName="Template" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_T_UserManagement">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_T_UserManagement">
+        <MappingFragment StoreEntitySet="Tbl_T_UserManagement">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_name" ColumnName="User_name" />
+          <ScalarProperty Name="Email_id" ColumnName="Email_id" />
+          <ScalarProperty Name="Mobile_no" ColumnName="Mobile_no" />
+          <ScalarProperty Name="Organisation_name" ColumnName="Organisation_name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Registered_on" ColumnName="Registered_on" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Approved_on" ColumnName="Approved_on" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Is_Admin" ColumnName="Is_Admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_Registration" FunctionName="CP_Analytics_predictorModel.Store.SP_Registration" />
+    <FunctionImportMapping FunctionImportName="SP_Validate_Login" FunctionName="CP_Analytics_predictorModel.Store.SP_Validate_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CP_Analytics_predictorModel.SP_Validate_Login_Result">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_name" ColumnName="User_name" />
+          <ScalarProperty Name="Email_id" ColumnName="Email_id" />
+          <ScalarProperty Name="Mobile_no" ColumnName="Mobile_no" />
+          <ScalarProperty Name="Organisation_name" ColumnName="Organisation_name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Registered_on" ColumnName="Registered_on" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Approved_on" ColumnName="Approved_on" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Is_Admin" ColumnName="Is_Admin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

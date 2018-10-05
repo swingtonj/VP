@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CP_Analytics_predictorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_M_Business_Imperative">
+    <Key>
+      <PropertyRef Name="BM_Id" />
+    </Key>
+    <Property Name="BM_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BM_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="image_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_M_Industry">
+    <Key>
+      <PropertyRef Name="Industry_id" />
+    </Key>
+    <Property Name="Industry_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Industry_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Image_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_M_Mailer_Template">
+    <Key>
+      <PropertyRef Name="Template_Id" />
+    </Key>
+    <Property Name="Template_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Template" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Tbl_T_UserManagement">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Email_id" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile_no" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Organisation_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Registered_on" Type="DateTime" Precision="3" />
+    <Property Name="Approved" Type="Boolean" />
+    <Property Name="Approved_on" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Is_Admin" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="CP_Analytics_predictorEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_M_Business_Imperative" EntityType="Self.Tbl_M_Business_Imperative" />
+    <EntitySet Name="Tbl_M_Industry" EntityType="Self.Tbl_M_Industry" />
+    <EntitySet Name="Tbl_M_Mailer_Template" EntityType="Self.Tbl_M_Mailer_Template" />
+    <EntitySet Name="Tbl_T_UserManagement" EntityType="Self.Tbl_T_UserManagement" />
+    <FunctionImport Name="SP_Registration" ReturnType="Collection(Int32)">
+      <Parameter Name="organisation_name" Mode="In" Type="String" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="passowrd" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="mobile" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Validate_Login" ReturnType="Collection(CP_Analytics_predictorModel.SP_Validate_Login_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="passowrd" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_Validate_Login_Result">
+    <Property Type="Int32" Name="User_Id" Nullable="false" />
+    <Property Type="String" Name="User_name" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="Email_id" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="Mobile_no" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Organisation_name" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="300" />
+    <Property Type="DateTime" Name="Registered_on" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Approved" Nullable="true" />
+    <Property Type="DateTime" Name="Approved_on" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="Boolean" Name="Is_Admin" Nullable="true" />
+  </ComplexType>
+</Schema>
