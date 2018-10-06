@@ -1,4 +1,4 @@
-﻿
+﻿@model VP.Models.Specify
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -102,28 +102,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-2 nextBtn" data-industry="1" >
-                    <img src="~/Assets/Images/Industry/finance.png" />
-                    <div>Finance</div>
-                </div>
-                <div class="col-md-2 nextBtn" data-industry="2">
-                    <img src="~/Assets/Images/Industry/retail.png" />
-                    <div>Retail</div>
-                </div>
-                <div class="col-md-2 nextBtn" data-industry="3">
-                    <img src="~/Assets/Images/Industry/healthcare.png" />
-                    <div>Healthcare</div>
-                </div>
-                <div class="col-md-2 nextBtn" data-industry="4">
-                    <img src="~/Assets/Images/Industry/telecom.png" />
-                    <div>Telecom</div>
-                </div>
-                <div class="col-md-2 nextBtn" data-industry="2">
-                    <img src="~/Assets/Images/Industry/others.png" />
-                    <div>Others</div>
-                </div>
-                <div class="col-md-1"></div>
+                @foreach (var item in Model.Lst_Industry)
+                {
+                    <div class="col-md-2 nextBtn" data-industry="@item.Id">
+                        <img src="@item.Img_url" />
+                        <div>@item.Text</div>
+                    </div>
+                }
             </div>
             <div class="row">
 
@@ -138,24 +123,13 @@
                 </div>
             </div>
             <div class="row align">
-                <div class="col-md-2"></div>
-                <div class="col-md-2 nextBtn" data-business="1">
-                    <img src="~/Assets/Images/Business/EOP.png" />
-                    <div>End of period processing</div>
-                </div>
-                <div class="col-md-2 nextBtn"  data-business="2">
-                    <img src="~/Assets/Images/Business/rfue.png" />
-                    <div>Revenue from user experience</div>
-                </div>
-                <div class="col-md-2 nextBtn">
-                    <img src="~/Assets/Images/Business/co.png"  />
-                    <div>Improve cliams optimization</div>
-                </div>
-                <div class="col-md-2 nextBtn">
-                    <img src="~/Assets/Images/Business/pcc.png" />
-                    <div>Prevent customer churn</div>
-                </div>
-                <div class="col-md-2"></div>
+                @foreach (var item in Model.Lst_BusinessImperative)
+                {
+                    <div class="col-md-2 nextBtn" data-business="@item.Id">
+                        <img src="@item.Img_url" />
+                        <div>@item.Text</div>
+                    </div>
+                }
             </div>
             <div class="row">
 
@@ -191,20 +165,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-2 nextBtn">
-                    <img src="~/Assets/Images/Analytics/oda.png" />
-                    <div>Open Data Analytics</div>
-                </div>
-                <div class="col-md-2 nextBtn">
-                    <img src="~/Assets/Images/Analytics/ibmdb2.png" />
-                    <div>IBM DB2 Analytics Accelerator</div>
-                </div>
-                <div class="col-md-2 nextBtn">
-                    <img src="~/Assets/Images/Analytics/iml.png" />
-                    <div>IBM Machine learning</div>
-                </div>
-                <div class="col-md-3"></div>
+                @foreach (var item in Model.Lst_TypesOfAnalytics)
+                {
+                    <div class="col-md-2 nextBtn" data-business="@item.Id">
+                        <img src="@item.Img_url" />
+                        <div>@item.Text</div>
+                    </div>
+                }
             </div>
             <div class="row">
 
@@ -545,5 +512,18 @@
         else
             $('div.setup-panel div a.btn-primary').trigger('click');
     });
+
+
+    function generate_result() {
+        $.ajax({
+            url: "@Url.Action("Result_report", "specify")",
+            type: "POST",
+            data: { industry: "Finance", businessimperative: "End of period processing", amount: "1100000", analytics: "Open Data Analytics" },
+            dataType: "html",
+            success: function (html) {
+
+            }
+        });
+    }
 </script>
 

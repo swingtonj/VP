@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_M_Industry" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_M_Mailer_Template" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_T_UserManagement" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_M_Analytics" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

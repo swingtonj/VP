@@ -27,14 +27,16 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form role="form" action="@Url.Action("index","home")" method="post" class="login-form">
+                    @using (Html.BeginForm("index", "home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "frm_login", @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <i class="fa fa-user"></i>
                                 </span>
                             </div>
-                            @Html.TextBoxFor(model => model.L_Username, new { @class = "form-control", @placeholder = "Username" })
+                            @Html.TextBoxFor(model => model.L_Username, new { @id = "txtUserName", @class = "form-control", @placeholder = "Email" })
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -42,21 +44,23 @@
                                     <i class="fa fa-key"></i>
                                 </span>
                             </div>
-                            @Html.PasswordFor(model => model.L_Password, new { @class = "form-control", @placeholder = "Password" })
+                            @Html.PasswordFor(model => model.L_Password, new { @id = "txtPassword", @class = "form-control", @placeholder = "Password" })
                         </div>
 
-                        <button type="submit" class="btn btn-lg btn-primary">Sign in!</button>
-                    </form>
+                        <button type="button" id="btnlogin" class="btn btn-lg btn-primary">Sign in!</button>
+                    }
                     <hr data-content="or" class="hr-text" />
                     <div class="registertext">Register</div>
-                    <form role="form" action="@Url.Action("register","home")" method="post" class="registration-form">
+                    @using (Html.BeginForm("register", "home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "frm_Register", @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <i class="fa fa-group"></i>
                                 </span>
                             </div>
-                            @Html.TextBoxFor(model => model.R_Organisation_Name, new { @class = "form-control", @placeholder = "Organization Name" })
+                            @Html.TextBoxFor(model => model.R_Organisation_Name, new { @id = "txtOrganisationName", @class = "form-control", @placeholder = "Organization Name" })
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -64,7 +68,7 @@
                                     <i class="fa fa-user"></i>
                                 </span>
                             </div>
-                            @Html.TextBoxFor(model => model.R_User_Name, new { @class = "form-control", @placeholder = "First & Last Name" })
+                            @Html.TextBoxFor(model => model.R_User_Name, new { @id = "txtRUserName", @class = "form-control", @placeholder = "First & Last Name" })
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -72,7 +76,7 @@
                                     <i class="fa fa-envelope"></i>
                                 </span>
                             </div>
-                            @Html.TextBoxFor(model => model.R_Email, new { @class = "form-control", @placeholder = "Email" })
+                            @Html.TextBoxFor(model => model.R_Email, new { @id = "txtEmail", @class = "form-control", @placeholder = "Email" })
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -80,7 +84,7 @@
                                     <i class="fa fa-key"></i>
                                 </span>
                             </div>
-                            @Html.TextBoxFor(model => model.R_Passsword, new { @class = "form-control", @placeholder = "Password" })
+                            @Html.PasswordFor(model => model.R_Passsword, new { @id = "txtRPassword", @class = "form-control", @placeholder = "Password" })
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -88,10 +92,10 @@
                                     <i class="fa fa-mobile"></i>
                                 </span>
                             </div>
-                            @Html.TextBoxFor(model => model.R_Mobile, new { @class = "form-control", @placeholder = "Mobile" })
+                            @Html.TextBoxFor(model => model.R_Mobile, new { @id = "txtMobile", @class = "form-control", @placeholder = "Mobile" })
                         </div>
-                        <button type="submit" class="btn btn-lg btn-primary">Sign me up!</button>
-                    </form>
+                        <button id="btnRegister" type="button" class="btn btn-lg btn-primary">Sign me up!</button>
+                    }
                 </div>
             </div>
         </div>
@@ -104,5 +108,55 @@
         if (alert_text != '') {
             alert(alert_text);
         }
+
+        $('#btnlogin').click(function () {
+            if ($('#txtUserName').val().trim() == '') {
+                alert('Please enter username');
+                $('#txtUserName').focus();
+                return;
+            }
+            if ($('#txtPassword').val().trim() == '') {
+                alert('Please enter password');
+                $('#txtPassword').focus();
+                return;
+            }
+            $('#frm_login').submit();
+        });
+
+        $('#btnRegister').click(function () {
+            if ($('#txtOrganisationName').val().trim() == '') {
+                alert('Please enter organisation name');
+                $('#txtOrganisationName').focus();
+                return;
+            }
+            if ($('#txtRUserName').val().trim() == '') {
+                alert('Please enter first & last name ');
+                $('#txtRUserName').focus();
+                return;
+            }
+            if ($('#txtEmail').val().trim() == '') {
+                alert('Please enter email');
+                $('#txtEmail').focus();
+                return;
+            }
+            if (!validateEmail($('#txtEmail').val())) {
+                alert('Please enter valid email');
+                $('#txtEmail').focus();
+                return;
+            }
+            if ($('#txtRPassword').val().trim() == '') {
+                alert('Please enter password');
+                $('#txtRPassword').focus();
+                return;
+            }
+            if ($('#txtMobile').val().trim() == '') {
+                alert('Please enter mobile number');
+                $('#txtMobile').focus();
+                return;
+            }
+            $('#frm_Register').submit();
+        });
+
     });
+
 </script>

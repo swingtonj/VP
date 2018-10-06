@@ -17,6 +17,9 @@ namespace VP
                 "~/Assets/css/font-awesome.min.css",
                 "~/Assets/css/style.css",
                       "~/Assets/css/master.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/common").Include(
+    "~/Assets/js/Common.js"));
         }
     }
 }

@@ -65,5 +65,15 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="Tbl_M_Analytics">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Analytics">
+        <MappingFragment StoreEntitySet="Tbl_M_Analytics">
+          <ScalarProperty Name="Image_url" ColumnName="Image_url" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Analytics_Name" ColumnName="Analytics_Name" />
+          <ScalarProperty Name="Analytics_Id" ColumnName="Analytics_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

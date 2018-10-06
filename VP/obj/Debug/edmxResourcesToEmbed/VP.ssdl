@@ -1,6 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="CP_Analytics_predictorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <!--Errors Found During Generation:
+warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_M_Analytics' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tbl_M_Analytics">
+    <Key>
+      <PropertyRef Name="Analytics_Id" />
+    </Key>
+    <Property Name="Analytics_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Analytics_Name" Type="varchar" MaxLength="300" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Image_url" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_M_Business_Imperative' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Tbl_M_Business_Imperative">
     <Key>
@@ -32,6 +43,15 @@ warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
     <Property Name="Template" Type="text" />
     <Property Name="Status" Type="bit" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_T_UserLog' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Tbl_T_UserLog">
+          <Property Name="User_id" Type="int" />
+          <Property Name="Login_Datetime" Type="datetime" />
+          <Property Name="Ip_address" Type="varchar" MaxLength="20" />
+          <Property Name="Browser" Type="varchar" MaxLength="300" />
+          <Property Name="Logout_Datetime" Type="datetime" />
+        </EntityType>-->
   <EntityType Name="Tbl_T_UserManagement">
     <Key>
       <PropertyRef Name="User_Id" />
@@ -61,6 +81,14 @@ warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
   </Function>
   <EntityContainer Name="CP_Analytics_predictorModelStoreContainer">
     <EntitySet Name="Tbl_T_UserManagement" EntityType="Self.Tbl_T_UserManagement" Schema="CP_Analytics_predictor" store:Type="Tables" />
+    <EntitySet Name="Tbl_M_Analytics" EntityType="Self.Tbl_M_Analytics" store:Type="Tables" store:Schema="CP_Analytics_predictor">
+      <DefiningQuery>SELECT 
+    [Tbl_M_Analytics].[Analytics_Id] AS [Analytics_Id], 
+    [Tbl_M_Analytics].[Analytics_Name] AS [Analytics_Name], 
+    [Tbl_M_Analytics].[Status] AS [Status], 
+    [Tbl_M_Analytics].[Image_url] AS [Image_url]
+    FROM [CP_Analytics_predictor].[Tbl_M_Analytics] AS [Tbl_M_Analytics]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="Tbl_M_Business_Imperative" EntityType="Self.Tbl_M_Business_Imperative" store:Type="Tables" store:Schema="CP_Analytics_predictor">
       <DefiningQuery>SELECT 
     [Tbl_M_Business_Imperative].[BM_Id] AS [BM_Id], 

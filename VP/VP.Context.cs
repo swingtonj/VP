@@ -31,6 +31,7 @@ namespace VP
         public virtual DbSet<Tbl_M_Industry> Tbl_M_Industry { get; set; }
         public virtual DbSet<Tbl_M_Mailer_Template> Tbl_M_Mailer_Template { get; set; }
         public virtual DbSet<Tbl_T_UserManagement> Tbl_T_UserManagement { get; set; }
+        public virtual DbSet<Tbl_M_Analytics> Tbl_M_Analytics { get; set; }
     
         public virtual ObjectResult<Nullable<int>> SP_Registration(string organisation_name, string username, string passowrd, string email, string mobile)
         {

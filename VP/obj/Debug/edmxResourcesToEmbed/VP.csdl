@@ -58,6 +58,7 @@
       <Parameter Name="username" Mode="In" Type="String" />
       <Parameter Name="passowrd" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="Tbl_M_Analytics" EntityType="CP_Analytics_predictorModel.Tbl_M_Analytics" />
   </EntityContainer>
   <ComplexType Name="SP_Validate_Login_Result">
     <Property Type="Int32" Name="User_Id" Nullable="false" />
@@ -72,4 +73,13 @@
     <Property Type="Boolean" Name="Status" Nullable="true" />
     <Property Type="Boolean" Name="Is_Admin" Nullable="true" />
   </ComplexType>
+  <EntityType Name="Tbl_M_Analytics">
+    <Key>
+      <PropertyRef Name="Analytics_Id" />
+    </Key>
+    <Property Name="Analytics_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Analytics_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Image_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>
