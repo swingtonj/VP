@@ -104,7 +104,7 @@
             <div class="row">
                 @foreach (var item in Model.Lst_Industry)
                 {
-                    <div class="col-md-2 nextBtn" data-industry="@item.Id">
+                    <div class="col-md-2 nextBtn" data-industry="@item.Text">
                         <img src="@item.Img_url" />
                         <div>@item.Text</div>
                     </div>
@@ -125,7 +125,7 @@
             <div class="row align">
                 @foreach (var item in Model.Lst_BusinessImperative)
                 {
-                    <div class="col-md-2 nextBtn" data-business="@item.Id">
+                    <div class="col-md-2 nextBtn" data-business="@item.Text">
                         <img src="@item.Img_url" />
                         <div>@item.Text</div>
                     </div>
@@ -167,7 +167,7 @@
             <div class="row">
                 @foreach (var item in Model.Lst_TypesOfAnalytics)
                 {
-                    <div class="col-md-2 nextBtn" data-business="@item.Id">
+                    <div class="col-md-2 nextBtn" data-analytics="@item.Text">
                         <img src="@item.Img_url" />
                         <div>@item.Text</div>
                     </div>
@@ -288,16 +288,17 @@
 <script src="~/Assets/js/chartist-plugin-legend.min.js"></script>
 <script src="~/Assets/js/Chartist-pointlabels.js"></script>
 <script>
-    function loadchart() {
+    var industry, businessimperative, analytics, amount, myslider;
+    function loadchart(x86_lst_dataProductivityChart, z14_lst_dataProductivityChart, x86_lst_dataCostsChart, z14_lst_dataCostsChart, x86_lst_dataRevenuesProfitChart, z14_lst_dataRevenuesProfitChart, x86_lst_dataRisksChart, z14_lst_dataRisksChart, lst_dataRoiChart, lst_dataPaybackChart) {
         dataProductivityChart = {
             labels: ['C-level executive', 'IT personnel ', 'Organizational'],
             series: [
                 {
                     name: 'X86',
-                    data: [179.2, 877.8, 897]
+                    data: x86_lst_dataProductivityChart.split(",")
                 }, {
                     name: 'Z14',
-                    data: [216, 997.5, 975]
+                    data: z14_lst_dataProductivityChart.split(",")
                 }
             ]
         };
@@ -306,10 +307,10 @@
             series: [
                 {
                     name: 'X86',
-                    data: [957, 1682.2, 546.1]
+                    data: x86_lst_dataCostsChart.split(",")
                 }, {
                     name: 'Z14',
-                    data: [668.9, 399.4, 205.4]
+                    data: z14_lst_dataCostsChart.split(",")
                 }
             ]
         };
@@ -319,10 +320,10 @@
             series: [
                 {
                     name: 'X86',
-                    data: [1512, 840, 186.4]
+                    data: x86_lst_dataRevenuesProfitChart.split(",")
                 }, {
                     name: 'Z14',
-                    data: [1680, 1064, 207.2]
+                    data: z14_lst_dataRevenuesProfitChart.split(",")
                 }
             ]
         };
@@ -331,22 +332,22 @@
             series: [
                 {
                     name: 'X86',
-                    data: [846.8, 801, 546.4]
+                    data: x86_lst_dataRisksChart.split(",")
                 }, {
                     name: 'Z14',
-                    data: [1004.5, 885, 764.9]
+                    data: z14_lst_dataRisksChart.split(",")
                 }
             ]
         };
         dataRoiChart = {
             labels: ['X86', 'Z14'],
             series:
-                [56, 363]
+                lst_dataRoiChart.split(",")
         };
         dataPaybackChart = {
             labels: ['X86', 'Z14'],
             series:
-                [17.15, 5.88]
+                lst_dataPaybackChart.split(",")
         };
 
         optionsChart = {
@@ -356,7 +357,7 @@
                 bottom: 20,
                 left: 0
             },
-            seriesBarDistance: 40,
+            seriesBarDistance: 50,
             lineSmooth: Chartist.Interpolation.cardinal({
                 tension: 0
             }),
@@ -364,7 +365,7 @@
             axisY: {
                 labelInterpolationFnc: function (value) {
                     return '$' + value
-                }, offset: 50
+                }, offset: 80
             }
             ,
             plugins: [
@@ -436,18 +437,9 @@
         //var divPaybackChart =
         new Chartist.Bar('#divPaybackChart', dataPaybackChart, optionsChartdistributed_PB);
 
-
-
-        //md.startAnimationForLineChart(divProductivityChart);
-        //md.startAnimationForLineChart(divCostsChart);
-        //md.startAnimationForLineChart(divRevenuesProfitChart);
-        //md.startAnimationForLineChart(divRisksChart);
-        //md.startAnimationForLineChart(divRoiChart);
-        //md.startAnimationForLineChart(divPaybackChart);
-
     }
     $(document).ready(function () {
-        $("#slider").slider({
+       myslider= $("#slider").slider({
             id: "slider", min: 600000, max: 2200000, range: false, value: 1100000, tooltip_split: false, tooltip_position: 'top', tooltip: 'show',
             formatter: function (val) {
                 if (Array.isArray(val)) {
@@ -455,7 +447,7 @@
                 } else {
                     return "$" + val;
                 }
-            },
+            }
 
         });
 
@@ -476,10 +468,12 @@
                 allWells.hide();
                 $target.show();
                 $target.find('input:eq(0)').focus();
+
                 if ($target.attr('id') == "step-5") {
                     $('#divResults').attr('Style', '');
                     $('#divSpecify').attr('Style', 'display:none;');
-                    loadchart();
+                    //loadchart();
+                    generate_result();
                 }
                 else {
                     $('#divResults').attr('Style', 'display:none;');
@@ -489,6 +483,17 @@
         });
 
         allNextBtn.click(function () {
+
+            if ($(this).attr('data-industry')!=null) {
+                industry = $(this).attr('data-industry');
+            }
+            if ($(this).attr('data-business')!=null) {
+                businessimperative = $(this).attr('data-business');
+            }
+            if ($(this).attr('data-analytics')!=null) {
+                analytics = $(this).attr('data-analytics');
+            }
+
             var curStep = $(this).closest(".setup-content"),
                 curStepBtn = curStep.attr("id"),
                 nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
@@ -518,10 +523,11 @@
         $.ajax({
             url: "@Url.Action("Result_report", "specify")",
             type: "POST",
-            data: { industry: "Finance", businessimperative: "End of period processing", amount: "1100000", analytics: "Open Data Analytics" },
+            data: { industry: industry, businessimperative: businessimperative, amount: myslider.attr('value'), analytics:analytics },
             dataType: "html",
-            success: function (html) {
-
+            success: function (data) {
+                data = JSON.parse(data);
+                loadchart(data.x86_dataProductivityChart, data.z14_dataProductivityChart, data.x86_dataCostsChart, data.z14_dataCostsChart, data.x86_dataRevenuesProfitChart, data.z14_dataRevenuesProfitChart, data.x86_dataRisksChart, data.z14_dataRisksChart, data.dataRoiChart, data.dataPaybackChart);
             }
         });
     }

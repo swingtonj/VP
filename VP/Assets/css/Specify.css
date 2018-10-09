@@ -141,6 +141,9 @@
 }
 
 /*.ct-label {
+    font-size: 0.6rem;
+}*/
+    /*.ct-label {
     text-align: center;
     justify-content: center;
     display: flex;
@@ -149,8 +152,7 @@
     text-anchor: end;
     font-size: 0.7rem;
 }*/
-
-.pbheader {
+    .pbheader {
     background: linear-gradient(60deg, #26c6da, #00acc1);
 }
 

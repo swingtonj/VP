@@ -369,3 +369,13 @@ F:\Projects\CABOT\Code\VP\VP\VP\bin\Spire.Pdf.xml
 F:\Projects\CABOT\Code\VP\VP\VP\bin\Spire.XLS.xml
 F:\Projects\CABOT\Code\VP\VP\VP\bin\EPPlus.dll
 F:\Projects\CABOT\Code\VP\VP\VP\bin\EPPlus.xml
+D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\EPPlus.dll
+D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.Common.dll
+D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.License.dll
+D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.Pdf.dll
+D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.XLS.dll
+D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Microsoft.mshtml.dll
+D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\EPPlus.xml
+D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.Common.xml
+D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.Pdf.xml
+D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.XLS.xml
