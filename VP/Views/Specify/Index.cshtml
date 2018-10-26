@@ -101,12 +101,12 @@
                     Select Industry
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 @foreach (var item in Model.Lst_Industry)
                 {
                     <div class="col-md-2 nextBtn" data-industry="@item.Text">
                         <img src="@item.Img_url" />
-                        <div>@item.Text</div>
+                        <div class="image_text">@item.Text</div>
                     </div>
                 }
             </div>
@@ -122,12 +122,12 @@
                     Select Business Imperative
                 </div>
             </div>
-            <div class="row align">
+            <div class="row align justify-content-center">
                 @foreach (var item in Model.Lst_BusinessImperative)
                 {
                     <div class="col-md-2 nextBtn" data-business="@item.Text">
                         <img src="@item.Img_url" />
-                        <div>@item.Text</div>
+                        <div  class="image_text">@item.Text</div>
                     </div>
                 }
             </div>
@@ -164,12 +164,12 @@
                     Select Type of Analytics
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 @foreach (var item in Model.Lst_TypesOfAnalytics)
                 {
                     <div class="col-md-2 nextBtn" data-analytics="@item.Text">
                         <img src="@item.Img_url" />
-                        <div>@item.Text</div>
+                        <div  class="image_text">@item.Text</div>
                     </div>
                 }
             </div>
@@ -213,7 +213,7 @@
             </div>
             <div class="row" style="margin-top:30px;">
                 <div class="col-md-12 subheader ">
-                    Distribution of Benefits and Costs
+                    Distribution of Benefits and Costs (K)
                 </div>
             </div>
             <div class="row quad">
@@ -283,6 +283,9 @@
     <br />
     <br />
 </form>
+<div class="overlay">
+        <img class="loader" src="~/Assets/Images/loader.gif" />
+</div>
 <script src="~/Assets/js/chartist.js"></script>
 <script src="~/Assets/js/bootstrap-slider.js"></script>
 <script src="~/Assets/js/chartist-plugin-legend.min.js"></script>
@@ -454,6 +457,7 @@
         var navListItems = $('div.setup-panel div a'),
             allWells = $('.setup-content'),
             allNextBtn = $('.nextBtn');
+        $('#aSpecify').addClass('current');
 
         allWells.hide();
 
@@ -520,6 +524,7 @@
 
 
     function generate_result() {
+            $(".overlay").show();
         $.ajax({
             url: "@Url.Action("Result_report", "specify")",
             type: "POST",
@@ -528,6 +533,7 @@
             success: function (data) {
                 data = JSON.parse(data);
                 loadchart(data.x86_dataProductivityChart, data.z14_dataProductivityChart, data.x86_dataCostsChart, data.z14_dataCostsChart, data.x86_dataRevenuesProfitChart, data.z14_dataRevenuesProfitChart, data.x86_dataRisksChart, data.z14_dataRisksChart, data.dataRoiChart, data.dataPaybackChart);
+                    $(".overlay").hide();
             }
         });
     }

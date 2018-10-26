@@ -246,6 +246,7 @@
     <Content Include="Assets\Images\Industry\healthcare.png" />
     <Content Include="Assets\Images\Industry\retail.png" />
     <Content Include="Assets\Images\Industry\finance.png" />
+    <Content Include="Assets\Images\loader.gif" />
     <Content Include="Assets\js\bootstrap-slider.js" />
     <Content Include="Assets\js\bootstrap.js" />
     <Content Include="Assets\js\bootstrap.min.js">
@@ -345,6 +346,7 @@
     <Content Include="Document\z14.xlsm" />
     <Content Include="Documents\z14.xlsm" />
     <Content Include="Documents\z14636744473039121471.xlsm" />
+    <Content Include="Documents\calc.xlsm" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

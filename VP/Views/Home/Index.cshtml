@@ -11,7 +11,7 @@
         <div class="col-lg-6 col-md-12 col-sm-12 section-header aligncontent-middle">
             <div class="mark-header">Accelerate and Amplify Value from Your Information Technology Solution</div>
             <div class="mark-text">
-                Are you considering investing in Analytics solutions for your digital transformation? To help you build a business case for this journey, this Value Predictor quantifies the expected value from your investment using a model tailored for your industry and business objectives. A personalized report will help you assess how the IBM Z14 can help you accelerate and amplify value from your hardware investment compared to x86 systems.
+                Are you considering investing in analytics solutions for your digital transformation? To help you build a business case for this journey, this Value Predictor quantifies the expected value from your investment using a model tailored for your industry and business objectives. A personalized report will help you assess how the IBM Z14 can help you accelerate and amplify value from your hardware investment compared to x86 systems.
             </div>
         </div>
         <div class="col-lg-2 col-md-12 col-sm-12"></div>
@@ -157,6 +157,19 @@
             $('#frm_Register').submit();
         });
 
+    });
+
+    //var input = document.getElementById("btnlogin");
+
+    // Execute a function when the user releases a key on the keyboard
+    document.addEventListener("keyup", function (event) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Trigger the button element with a click
+            document.getElementById("btnlogin").click();
+        }
     });
 
 </script>

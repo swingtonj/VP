@@ -25,6 +25,7 @@ namespace VP.Controllers
                     Session["Username"] = o_validate.User_name;
                     Session["Userid"] = o_validate.User_Id;
                     Session["IsAdmin"] = o_validate.Is_Admin;
+                    ViewBag.alert = string.Empty;
                     return RedirectToAction("index", "specify");
                 }
                 else
@@ -67,7 +68,9 @@ namespace VP.Controllers
                     Session["Username"] = insert_user.User_name;
                     Session["Userid"] = insert_user.User_Id;
                     Session["IsAdmin"] = insert_user.Is_Admin;
+                    ViewBag.alert = string.Empty;
                     return RedirectToAction("index", "specify");
+
 
                 }
             }
