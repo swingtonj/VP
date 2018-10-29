@@ -13,7 +13,13 @@ Chartist.plugins.ctBarLabels = function (options) {
                     value = data.element.attr('ct:value');
                     if (value !== '0') {
                         label = new Chartist.Svg('text');
-                        label.text('$'+value);
+                        label.text( parseInt(value).toLocaleString('en', {
+                            // We are inside a config object
+                            style: 'currency',
+                            // Try different currencies, e.g: 'SEK' <-- Swedish krona
+                            currency: 'USD',
+                            minimumFractionDigits: 0
+                        }));
                         label.addClass("ct-barlabel");
                         label.attr({
                             x: barHorizontalCenter,

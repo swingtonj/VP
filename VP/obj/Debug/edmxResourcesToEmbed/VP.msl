@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Tbl_M_Business_Imperative">
       <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Business_Imperative">
         <MappingFragment StoreEntitySet="Tbl_M_Business_Imperative">
+          <ScalarProperty Name="Industry_id" ColumnName="Industry_id" />
           <ScalarProperty Name="BM_Id" ColumnName="BM_Id" />
           <ScalarProperty Name="BM_Name" ColumnName="BM_Name" />
           <ScalarProperty Name="Status" ColumnName="Status" />

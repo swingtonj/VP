@@ -18,5 +18,6 @@ namespace VP
         public string BM_Name { get; set; }
         public Nullable<bool> Status { get; set; }
         public string image_url { get; set; }
+        public Nullable<int> Industry_id { get; set; }
     }
 }

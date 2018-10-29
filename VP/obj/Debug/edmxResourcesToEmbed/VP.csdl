@@ -8,6 +8,7 @@
     <Property Name="BM_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <Property Name="Status" Type="Boolean" />
     <Property Name="image_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Industry_id" Type="Int32" />
   </EntityType>
   <EntityType Name="Tbl_M_Industry">
     <Key>

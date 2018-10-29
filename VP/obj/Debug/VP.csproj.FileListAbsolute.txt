@@ -256,7 +256,6 @@ D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\obj\Debug\VP.csproj.C
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\obj\Debug\VP.csproj.CopyComplete
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\obj\Debug\VP.dll
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\obj\Debug\VP.pdb
-D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\obj\Debug\VP.csprojAssemblyReference.cache
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\EntityFramework.dll
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\EntityFramework.SqlServer.dll
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\EntityFramework.xml
@@ -379,3 +378,4 @@ D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\EPPlus.xml
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.Common.xml
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.Pdf.xml
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.XLS.xml
+D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\obj\Debug\VP.csprojAssemblyReference.cache

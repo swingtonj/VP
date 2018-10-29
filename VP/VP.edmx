@@ -26,6 +26,7 @@ warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
           <Property Name="BM_Name" Type="varchar" MaxLength="300" />
           <Property Name="Status" Type="bit" />
           <Property Name="image_url" Type="varchar" MaxLength="500" />
+          <Property Name="Industry_id" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_M_Industry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -48,15 +49,6 @@ warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
           <Property Name="Template" Type="text" />
           <Property Name="Status" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_T_UserLog' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Tbl_T_UserLog">
-          <Property Name="User_id" Type="int" />
-          <Property Name="Login_Datetime" Type="datetime" />
-          <Property Name="Ip_address" Type="varchar" MaxLength="20" />
-          <Property Name="Browser" Type="varchar" MaxLength="300" />
-          <Property Name="Logout_Datetime" Type="datetime" />
-        </EntityType>-->
         <EntityType Name="Tbl_T_UserManagement">
           <Key>
             <PropertyRef Name="User_Id" />
@@ -99,7 +91,8 @@ warning 6013: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
     [Tbl_M_Business_Imperative].[BM_Id] AS [BM_Id], 
     [Tbl_M_Business_Imperative].[BM_Name] AS [BM_Name], 
     [Tbl_M_Business_Imperative].[Status] AS [Status], 
-    [Tbl_M_Business_Imperative].[image_url] AS [image_url]
+    [Tbl_M_Business_Imperative].[image_url] AS [image_url], 
+    [Tbl_M_Business_Imperative].[Industry_id] AS [Industry_id]
     FROM [CP_Analytics_predictor].[Tbl_M_Business_Imperative] AS [Tbl_M_Business_Imperative]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Tbl_M_Industry" EntityType="Self.Tbl_M_Industry" store:Type="Tables" store:Schema="CP_Analytics_predictor">
@@ -130,6 +123,7 @@ warning 6013: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
           <Property Name="BM_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Boolean" />
           <Property Name="image_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Industry_id" Type="Int32" />
         </EntityType>
         <EntityType Name="Tbl_M_Industry">
           <Key>
@@ -213,6 +207,7 @@ warning 6013: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
           <EntitySetMapping Name="Tbl_M_Business_Imperative">
             <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Business_Imperative">
               <MappingFragment StoreEntitySet="Tbl_M_Business_Imperative">
+                <ScalarProperty Name="Industry_id" ColumnName="Industry_id" />
                 <ScalarProperty Name="BM_Id" ColumnName="BM_Id" />
                 <ScalarProperty Name="BM_Name" ColumnName="BM_Name" />
                 <ScalarProperty Name="Status" ColumnName="Status" />

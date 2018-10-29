@@ -36,13 +36,14 @@ namespace VP.Controllers
             {
                 if (Convert.ToString(Session["FileId"]) != "")
                     System.IO.File.Delete(Convert.ToString(Session["FileId"]));
-            }catch(Exception ee)
+            }
+            catch (Exception ee)
             {
 
             }
             Session["FileId"] = DateTime.Now.Ticks.ToString();
-            System.IO.File.Copy(Server.MapPath("~/Documents/calc.xlsm"), Server.MapPath("~/Documents/z14" + Convert.ToString(Session["FileId"]) + ".xlsm"));
-            String excelFile = Convert.ToString(Server.MapPath("~/Documents/z14" + Convert.ToString(Session["FileId"]) + ".xlsm"));
+            System.IO.File.Copy(Server.MapPath("~/Documents/calc.xlsx"), Server.MapPath("~/Documents/z14" + Convert.ToString(Session["FileId"]) + ".xlsx"));
+            String excelFile = Convert.ToString(Server.MapPath("~/Documents/z14" + Convert.ToString(Session["FileId"]) + ".xlsx"));
             FileInfo file = new FileInfo(excelFile);
             using (ExcelPackage excelPackage = new ExcelPackage(file))
             {
@@ -52,14 +53,15 @@ namespace VP.Controllers
                 excelWorksheet.Cells[12, 6].Value = businessimperative;
                 excelWorksheet.Cells[14, 6].Value = Convert.ToDouble(amount);
                 excelWorksheet.Cells[16, 6].Value = analytics;
-
+                excelWorksheet.Calculate();
+                excelWorksheet.Workbook.Calculate();
                 excelPackage.Save();
             }
             using (ExcelPackage excelPackage = new ExcelPackage(file))
             {
                 ExcelWorkbook excelWorkBook = excelPackage.Workbook;
                 ExcelWorksheet excelWorksheet = excelWorkBook.Worksheets["Results"];
-
+                excelWorksheet.Calculate();
                 var z14_roi = excelWorksheet.Cells[5, 4].Value;
                 var z14_pp = excelWorksheet.Cells[9, 4].Value;
                 var z14_sa = excelWorksheet.Cells[14, 4].Value;
@@ -102,19 +104,20 @@ namespace VP.Controllers
                     //x86_dataRisksChart =  Convert.ToString(Convert.ToDecimal(x86_es).ToString("0.##")) + "," + Convert.ToString(Convert.ToDecimal(x86_gc).ToString("0.##")) + "," + Convert.ToString(Convert.ToDecimal(x86_rd).ToString("0.##")) ,
 
 
-                    z14_dataProductivityChart = Convert.ToString(Convert.ToInt64(z14_cp)) + "," + Convert.ToString(Convert.ToInt64(z14_itp)) + "," + Convert.ToString(Convert.ToInt64(z14_op)),
-                    z14_dataCostsChart = Convert.ToString(Convert.ToInt64(z14_sy)) + "," + Convert.ToString(Convert.ToInt64(z14_sa)) + "," + Convert.ToString(Convert.ToInt64(z14_oc)),
-                    z14_dataRevenuesProfitChart = Convert.ToString(Convert.ToInt64(z14_ir)) + "," + Convert.ToString(Convert.ToInt64(z14_ftv)) + "," + Convert.ToString(Convert.ToInt64(z14_te)),
-                    z14_dataRisksChart = Convert.ToString(Convert.ToInt64(z14_es)) + "," + Convert.ToString(Convert.ToInt64(z14_gc)) + "," + Convert.ToString(Convert.ToInt64(z14_rd)),
+                    z14_dataProductivityChart = Convert.ToString(Convert.ToInt64(z14_cp) / 1000) + "," + Convert.ToString(Convert.ToInt64(z14_itp) / 1000) + "," + Convert.ToString(Convert.ToInt64(z14_op) / 1000),
+                    z14_dataCostsChart = Convert.ToString(Convert.ToInt64(z14_sy) / 1000) + "," + Convert.ToString(Convert.ToInt64(z14_sa) / 1000) + "," + Convert.ToString(Convert.ToInt64(z14_oc) / 1000),
+                    z14_dataRevenuesProfitChart = Convert.ToString(Convert.ToInt64(z14_ir) / 1000) + "," + Convert.ToString(Convert.ToInt64(z14_ftv) / 1000) + "," + Convert.ToString(Convert.ToInt64(z14_te) / 1000),
+                    z14_dataRisksChart = Convert.ToString(Convert.ToInt64(z14_es) / 1000) + "," + Convert.ToString(Convert.ToInt64(z14_gc) / 1000) + "," + Convert.ToString(Convert.ToInt64(z14_rd) / 1000),
 
-                    x86_dataProductivityChart = Convert.ToString(Convert.ToInt64(x86_cp)) + "," + Convert.ToString(Convert.ToInt64(x86_itp)) + "," + Convert.ToString(Convert.ToInt64(x86_op)),
-                    x86_dataCostsChart = Convert.ToString(Convert.ToInt64(x86_sy)) + "," + Convert.ToString(Convert.ToInt64(x86_sa)) + "," + Convert.ToString(Convert.ToInt64(x86_oc)),
-                    x86_dataRevenuesProfitChart = Convert.ToString(Convert.ToInt64(x86_ir)) + "," + Convert.ToString(Convert.ToInt64(x86_ftv)) + "," + Convert.ToString(Convert.ToInt64(x86_te)),
-                    x86_dataRisksChart = Convert.ToString(Convert.ToInt64(x86_es)) + "," + Convert.ToString(Convert.ToInt64(x86_gc)) + "," + Convert.ToString(Convert.ToInt64(x86_rd)),
+                    x86_dataProductivityChart = Convert.ToString(Convert.ToInt64(x86_cp) / 1000) + "," + Convert.ToString(Convert.ToInt64(x86_itp) / 1000) + "," + Convert.ToString(Convert.ToInt64(x86_op) / 1000),
+                    x86_dataCostsChart = Convert.ToString(Convert.ToInt64(x86_sy) / 1000) + "," + Convert.ToString(Convert.ToInt64(x86_sa) / 1000) + "," + Convert.ToString(Convert.ToInt64(x86_oc) / 1000),
+                    x86_dataRevenuesProfitChart = Convert.ToString(Convert.ToInt64(x86_ir) / 1000) + "," + Convert.ToString(Convert.ToInt64(x86_ftv) / 1000) + "," + Convert.ToString(Convert.ToInt64(x86_te) / 1000),
+                    x86_dataRisksChart = Convert.ToString(Convert.ToInt64(x86_es) / 1000) + "," + Convert.ToString(Convert.ToInt64(x86_gc) / 1000) + "," + Convert.ToString(Convert.ToInt64(x86_rd) / 1000),
 
 
-                    dataRoiChart = Convert.ToString(Convert.ToInt64(Convert.ToDecimal(x86_roi)*100)) + "," + Convert.ToString(Convert.ToInt64( Convert.ToDecimal(z14_roi)*100)),
-                    dataPaybackChart = Convert.ToString(Convert.ToDecimal(x86_pp).ToString("0.##")) + "," + Convert.ToString(Convert.ToDecimal(z14_pp).ToString("0.##"))
+                    dataRoiChart = Convert.ToString(Convert.ToInt64(Convert.ToDecimal(x86_roi) * 100)) + "," + Convert.ToString(Convert.ToInt64(Convert.ToDecimal(z14_roi) * 100)),
+                    // dataPaybackChart = Convert.ToString(Convert.ToDecimal(x86_pp).ToString("0.##")) + "," + Convert.ToString(Convert.ToDecimal(z14_pp).ToString("0.##"))
+                    dataPaybackChart = Convert.ToString("")
 
                 };
                 return Json(result, JsonRequestBehavior.AllowGet);
@@ -125,13 +128,10 @@ namespace VP.Controllers
 
         public ActionResult Industry_select(int industry)
         {
-            Specify m_specify = new Specify
-            {
-                Lst_BusinessImperative = _context.Tbl_M_Business_Imperative.Where(x => x.Status == true).Select(x => new Common.droplist { Id = x.BM_Id, Text = x.BM_Name, Img_url = x.image_url }).ToList(),
-                Lst_TypesOfAnalytics = _context.Tbl_M_Analytics.Where(x => x.Status == true).Select(x => new Common.droplist { Id = x.Analytics_Id, Text = x.Analytics_Name, Img_url = x.Image_url }).ToList()
-            };
+            var Lst_BusinessImperative = _context.Tbl_M_Business_Imperative.Where(x => x.Status == true && x.Industry_id == industry).Select(x => new Common.droplist { Id = x.BM_Id, Text = x.BM_Name, Img_url = x.image_url }).ToList();
+
             //m_specify.lst_TypesOfAnalytics = _context.t.Where(x => x.Status == true).Select(x => new Common.droplist { id = x.BM_Id, text = x.BM_Name, img_url = x.image_url }).ToList();
-            return View(m_specify);
+            return Json(Lst_BusinessImperative, JsonRequestBehavior.AllowGet);
         }
 
     }

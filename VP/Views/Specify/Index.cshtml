@@ -104,7 +104,7 @@
             <div class="row justify-content-center">
                 @foreach (var item in Model.Lst_Industry)
                 {
-                    <div class="col-md-2 nextBtn" data-industry="@item.Text">
+                    <div class="col-md-2 nextBtn" data-industry-id="@item.Id" data-industry="@item.Text">
                         <img src="@item.Img_url" />
                         <div class="image_text">@item.Text</div>
                     </div>
@@ -122,12 +122,12 @@
                     Select Business Imperative
                 </div>
             </div>
-            <div class="row align justify-content-center">
+            <div id="divBI" class="row align justify-content-center">
                 @foreach (var item in Model.Lst_BusinessImperative)
                 {
                     <div class="col-md-2 nextBtn" data-business="@item.Text">
-                        <img src="@item.Img_url" />
-                        <div  class="image_text">@item.Text</div>
+                        <img style="max-height:512px;" src="@item.Img_url" />
+                        <div class="image_text">@item.Text</div>
                     </div>
                 }
             </div>
@@ -169,7 +169,7 @@
                 {
                     <div class="col-md-2 nextBtn" data-analytics="@item.Text">
                         <img src="@item.Img_url" />
-                        <div  class="image_text">@item.Text</div>
+                        <div class="image_text">@item.Text</div>
                     </div>
                 }
             </div>
@@ -284,14 +284,14 @@
     <br />
 </form>
 <div class="overlay">
-        <img class="loader" src="~/Assets/Images/loader.gif" />
+    <img class="loader" src="~/Assets/Images/loader.gif" />
 </div>
 <script src="~/Assets/js/chartist.js"></script>
 <script src="~/Assets/js/bootstrap-slider.js"></script>
 <script src="~/Assets/js/chartist-plugin-legend.min.js"></script>
 <script src="~/Assets/js/Chartist-pointlabels.js"></script>
 <script>
-    var industry, businessimperative, analytics, amount, myslider;
+    var industry, businessimperative, analytics, amount, myslider, industry_id;
     function loadchart(x86_lst_dataProductivityChart, z14_lst_dataProductivityChart, x86_lst_dataCostsChart, z14_lst_dataCostsChart, x86_lst_dataRevenuesProfitChart, z14_lst_dataRevenuesProfitChart, x86_lst_dataRisksChart, z14_lst_dataRisksChart, lst_dataRoiChart, lst_dataPaybackChart) {
         dataProductivityChart = {
             labels: ['C-level executive', 'IT personnel ', 'Organizational'],
@@ -367,7 +367,13 @@
 
             axisY: {
                 labelInterpolationFnc: function (value) {
-                    return '$' + value
+                    return  parseInt(value).toLocaleString('en', {
+                        // We are inside a config object
+                        style: 'currency',
+                        // Try different currencies, e.g: 'SEK' <-- Swedish krona
+                        currency: 'USD',
+                        minimumFractionDigits: 0
+                    })
                 }, offset: 80
             }
             ,
@@ -376,7 +382,18 @@
                     position: 'top'
                 })
                 ,
-                Chartist.plugins.ctBarLabels()
+                Chartist.plugins.ctBarLabels(
+                    {
+                        labelInterpolationFnc: function (value) {
+                            return parseInt(value).toLocaleString('en', {
+                                // We are inside a config object
+                                style: 'currency',
+                                // Try different currencies, e.g: 'SEK' <-- Swedish krona
+                                currency: 'USD',
+                                minimumFractionDigits: 0
+                            })
+                        }
+                    })
             ]
         };
 
@@ -446,9 +463,21 @@
             id: "slider", min: 600000, max: 2200000, range: false, value: 1100000, tooltip_split: false, tooltip_position: 'top', tooltip: 'show',
             formatter: function (val) {
                 if (Array.isArray(val)) {
-                    return "$" + val[0];
+                    return  parseInt(val[0]).toLocaleString('en', {
+                        // We are inside a config object
+                        style: 'currency',
+                        // Try different currencies, e.g: 'SEK' <-- Swedish krona
+                        currency: 'USD',
+                        minimumFractionDigits: 0
+                    })  ;
                 } else {
-                    return "$" + val;
+                    return parseInt(val).toLocaleString('en', {
+                        // We are inside a config object
+                        style: 'currency',
+                        // Try different currencies, e.g: 'SEK' <-- Swedish krona
+                        currency: 'USD',
+                        minimumFractionDigits: 0
+                    });
                 }
             }
 
@@ -479,7 +508,17 @@
                     //loadchart();
                     generate_result();
                 }
+                else if ($target.attr('id') == "step-2")
+                {
+                    divBI();
+                    $('#aResult').removeClass('current');
+                    $('#aSpecify').addClass('current');
+                    $('#divResults').attr('Style', 'display:none;');
+                    $('#divSpecify').attr('Style', '');
+                }
                 else {
+                    $('#aResult').removeClass('current');
+                    $('#aSpecify').addClass('current');
                     $('#divResults').attr('Style', 'display:none;');
                     $('#divSpecify').attr('Style', '');
                 }
@@ -491,6 +530,10 @@
             if ($(this).attr('data-industry')!=null) {
                 industry = $(this).attr('data-industry');
             }
+            if ($(this).attr('data-industry-id') != null) {
+                industry_id = $(this).attr('data-industry-id');
+            }
+
             if ($(this).attr('data-business')!=null) {
                 businessimperative = $(this).attr('data-business');
             }
@@ -515,6 +558,7 @@
             if (isValid)
                 nextStepWizard.removeAttr('disabled').trigger('click');
         });
+
         if (window.location.href.indexOf("step-5") != -1) {
             $('#step-4 .nextBtn').trigger('click');
         }
@@ -522,6 +566,59 @@
             $('div.setup-panel div a.btn-primary').trigger('click');
     });
 
+    function divBI() {
+                    $(".overlay").show();
+        $.ajax({
+            url: "@Url.Action("Industry_select", "specify")",
+            type: "POST",
+            data: { industry: industry_id},
+            dataType: "html",
+            success: function (data) {
+                data = JSON.parse(data);
+                $('#divBI').empty();
+                for (var i = 0; i < data.length; i++) {
+                    $('#divBI').append('<div class="col-md-2 nextBtn" data-business="' + data[i]["Text"] + '"><img style="max-height:512px;" src="' + data[i]["Img_url"]+'" /><div class="image_text">'+data[i]["Text"]+'</div></div>');
+                }
+                $(".overlay").hide();
+                var clickable_link = $('#divBI').find(".nextBtn");
+
+                clickable_link.click(function () {
+
+                    if ($(this).attr('data-industry') != null) {
+                        industry = $(this).attr('data-industry');
+                    }
+                    if ($(this).attr('data-industry-id') != null) {
+                        industry_id = $(this).attr('data-industry-id');
+                    }
+
+                    if ($(this).attr('data-business') != null) {
+                        businessimperative = $(this).attr('data-business');
+                    }
+                    if ($(this).attr('data-analytics') != null) {
+                        analytics = $(this).attr('data-analytics');
+                    }
+
+                    var curStep = $(this).closest(".setup-content"),
+                        curStepBtn = curStep.attr("id"),
+                        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                        curInputs = curStep.find("input[type='text'],input[type='url']"),
+                        isValid = true;
+
+                    $(".form-group").removeClass("has-error");
+                    for (var i = 0; i < curInputs.length; i++) {
+                        if (!curInputs[i].validity.valid) {
+                            isValid = false;
+                            $(curInputs[i]).closest(".form-group").addClass("has-error");
+                        }
+                    }
+
+                    if (isValid)
+                        nextStepWizard.removeAttr('disabled').trigger('click');
+                });
+
+            }
+        });
+    }
 
     function generate_result() {
             $(".overlay").show();
@@ -533,7 +630,9 @@
             success: function (data) {
                 data = JSON.parse(data);
                 loadchart(data.x86_dataProductivityChart, data.z14_dataProductivityChart, data.x86_dataCostsChart, data.z14_dataCostsChart, data.x86_dataRevenuesProfitChart, data.z14_dataRevenuesProfitChart, data.x86_dataRisksChart, data.z14_dataRisksChart, data.dataRoiChart, data.dataPaybackChart);
-                    $(".overlay").hide();
+                $(".overlay").hide();
+                $('#aSpecify').removeClass('current');
+                $('#aResult').addClass('current');
             }
         });
     }
