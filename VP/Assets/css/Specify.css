@@ -10,7 +10,7 @@
 }
 
 .headersubtext {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     text-align: left;
 }
@@ -354,4 +354,7 @@
 .image_text
 {
     font-size:20px;
+}
+.tooltip-min, .tooltip-max {
+    display: none;
 }

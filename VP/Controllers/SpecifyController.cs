@@ -16,6 +16,11 @@ namespace VP.Controllers
         // GET: Specify
         public ActionResult Index()
         {
+            if(Convert.ToString(Session["Userid"])==string.Empty)
+            {
+               Session["alert"] = "Please login to continue";
+                return RedirectToAction("Index", "Home");
+            }
             Specify m_specify = new Specify
             {
                 Lst_Industry = _context.Tbl_M_Industry.Where(x => x.Status == true).Select(x => new Common.droplist { Id = x.Industry_id, Text = x.Industry_name, Img_url = x.Image_url }).ToList(),
@@ -32,6 +37,10 @@ namespace VP.Controllers
         [HttpPost]
         public ActionResult Result_report(string industry, string businessimperative, string amount, string analytics)
         {
+            Session["industry"] = industry;
+            Session["businessimperative"] = businessimperative;
+            Session["typeofanalytics"] = analytics;
+            Session["amount"] = amount;
             try
             {
                 if (Convert.ToString(Session["FileId"]) != "")
@@ -42,8 +51,8 @@ namespace VP.Controllers
 
             }
             Session["FileId"] = DateTime.Now.Ticks.ToString();
-            System.IO.File.Copy(Server.MapPath("~/Documents/calc.xlsx"), Server.MapPath("~/Documents/z14" + Convert.ToString(Session["FileId"]) + ".xlsx"));
-            String excelFile = Convert.ToString(Server.MapPath("~/Documents/z14" + Convert.ToString(Session["FileId"]) + ".xlsx"));
+            System.IO.File.Copy(Server.MapPath("~/Documents/calc.xlsm"), Server.MapPath("~/Documents/z14" + Convert.ToString(Session["FileId"]) + ".xlsm"));
+            String excelFile = Convert.ToString(Server.MapPath("~/Documents/z14" + Convert.ToString(Session["FileId"]) + ".xlsm"));
             FileInfo file = new FileInfo(excelFile);
             using (ExcelPackage excelPackage = new ExcelPackage(file))
             {
@@ -116,8 +125,8 @@ namespace VP.Controllers
 
 
                     dataRoiChart = Convert.ToString(Convert.ToInt64(Convert.ToDecimal(x86_roi) * 100)) + "," + Convert.ToString(Convert.ToInt64(Convert.ToDecimal(z14_roi) * 100)),
-                    // dataPaybackChart = Convert.ToString(Convert.ToDecimal(x86_pp).ToString("0.##")) + "," + Convert.ToString(Convert.ToDecimal(z14_pp).ToString("0.##"))
-                    dataPaybackChart = Convert.ToString("")
+                    dataPaybackChart = Convert.ToString(Convert.ToDecimal(x86_pp).ToString("0.##")) + "," + Convert.ToString(Convert.ToDecimal(z14_pp).ToString("0.##"))
+                    //dataPaybackChart = Convert.ToString("")
 
                 };
                 return Json(result, JsonRequestBehavior.AllowGet);
@@ -128,6 +137,7 @@ namespace VP.Controllers
 
         public ActionResult Industry_select(int industry)
         {
+            Session["industry_id"] = industry;
             var Lst_BusinessImperative = _context.Tbl_M_Business_Imperative.Where(x => x.Status == true && x.Industry_id == industry).Select(x => new Common.droplist { Id = x.BM_Id, Text = x.BM_Name, Img_url = x.image_url }).ToList();
 
             //m_specify.lst_TypesOfAnalytics = _context.t.Where(x => x.Status == true).Select(x => new Common.droplist { id = x.BM_Id, text = x.BM_Name, img_url = x.image_url }).ToList();

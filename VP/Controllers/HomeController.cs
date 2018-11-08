@@ -12,6 +12,11 @@ namespace VP.Controllers
         CP_Analytics_predictorEntities _context = new CP_Analytics_predictorEntities();
         public ActionResult Index()
         {
+            if (Convert.ToString(Session["alert"]) != string.Empty)
+            {
+                ViewBag.alert = Convert.ToString(Session["alert"]);
+                Session["alert"] = "";
+            }
             return View();
         }
         [HttpPost]
@@ -34,7 +39,7 @@ namespace VP.Controllers
                     return View();
                 }
             }
-            catch(Exception ee)
+            catch (Exception ee)
             {
                 ViewBag.alert = "Invalid Email and password";
                 return View();

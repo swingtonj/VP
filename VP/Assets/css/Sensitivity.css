@@ -19,3 +19,17 @@
     .footer a:hover {
         color: #0069d9
     }
+
+
+.input-container {
+    background-color: #ececec;
+}
+.input-label{
+    font-weight:600;
+    vertical-align:middle;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
