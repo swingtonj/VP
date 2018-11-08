@@ -70,7 +70,6 @@ namespace VP.Controllers
             {
                 ExcelWorkbook excelWorkBook = excelPackage.Workbook;
                 ExcelWorksheet excelWorksheet = excelWorkBook.Worksheets["Results"];
-                excelWorksheet.Calculate();
                 var z14_roi = excelWorksheet.Cells[5, 4].Value;
                 var z14_pp = excelWorksheet.Cells[9, 4].Value;
                 var z14_sa = excelWorksheet.Cells[14, 4].Value;
@@ -125,7 +124,7 @@ namespace VP.Controllers
 
 
                     dataRoiChart = Convert.ToString(Convert.ToInt64(Convert.ToDecimal(x86_roi) * 100)) + "," + Convert.ToString(Convert.ToInt64(Convert.ToDecimal(z14_roi) * 100)),
-                    dataPaybackChart = Convert.ToString(Convert.ToDecimal(x86_pp).ToString("0.##")) + "," + Convert.ToString(Convert.ToDecimal(z14_pp).ToString("0.##"))
+                    dataPaybackChart = x86_pp.GetType() == typeof(string) ? Convert.ToString(Convert.ToDecimal(x86_pp).ToString("0.##")) + "," + Convert.ToString(Convert.ToDecimal(z14_pp).ToString("0.##")) : "",
                     //dataPaybackChart = Convert.ToString("")
 
                 };

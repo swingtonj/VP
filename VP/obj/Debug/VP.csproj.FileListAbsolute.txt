@@ -378,4 +378,3 @@ D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\EPPlus.xml
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.Common.xml
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.Pdf.xml
 D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\bin\Spire.XLS.xml
-D:\Project\Inprogress\Tubein0512\CODE\swington\vpred\VP\VP\obj\Debug\VP.csprojAssemblyReference.cache
