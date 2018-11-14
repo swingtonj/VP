@@ -56,7 +56,7 @@
     display: table-cell;
     text-align: center;
     position: relative;
-    width:20%;
+    width: 20%;
 }
 
 .btn-circle {
@@ -121,7 +121,7 @@
 }
 
 .btn-primary {
-    background-color: #007bff ;
+    background-color: #007bff !important;
 }
 
 .tooltip-arrow,
@@ -282,6 +282,7 @@
         text-align: center;
         height: 150px;
         writing-mode: vertical-lr;
+        -ms-writing-mode: tb-lr;
         margin: auto 0;
         border-radius: 5px;
         background: #00ca4c;
@@ -299,6 +300,7 @@
         text-align: center;
         height: 150px;
         writing-mode: vertical-lr;
+        -ms-writing-mode: tb-lr;
         margin: auto 0;
         border-radius: 5px;
         background: rgba(0, 202, 76, 0.5);
@@ -338,23 +340,25 @@
 .overlay {
     background: #e9e9e9;
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     opacity: 0.9;
-    z-index:10000;
+    z-index: 10000;
 }
+
 .loader {
     position: relative;
     top: 50%;
     margin: -100px auto auto auto;
 }
-.image_text
-{
-    font-size:20px;
+
+.image_text {
+    font-size: 20px;
 }
+
 .tooltip-min, .tooltip-max {
     display: none;
 }
