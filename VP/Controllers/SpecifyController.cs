@@ -124,7 +124,7 @@ namespace VP.Controllers
 
 
                     dataRoiChart = Convert.ToString(Convert.ToInt64(Convert.ToDecimal(x86_roi) * 100)) + "," + Convert.ToString(Convert.ToInt64(Convert.ToDecimal(z14_roi) * 100)),
-                    dataPaybackChart = x86_pp.GetType() == typeof(string) ? Convert.ToString(Convert.ToDecimal(x86_pp).ToString("0.##")) + "," + Convert.ToString(Convert.ToDecimal(z14_pp).ToString("0.##")) : "",
+                    dataPaybackChart =  Convert.ToString(Convert.ToDecimal(x86_pp).ToString("0.##")) + "," + Convert.ToString(Convert.ToDecimal(z14_pp).ToString("0.##")) ,
                     //dataPaybackChart = Convert.ToString("")
 
                 };
