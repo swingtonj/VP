@@ -79,7 +79,7 @@ Chartist.plugins.ctBarLabels_null = function (options) {
                 var barHorizontalCenter, barVerticalCenter, label, value;
                 if (data.type === "bar") {
                     barHorizontalCenter = data.x1;
-                    barVerticalCenter = data.y1 + (data.element.height() * -1) - 10;
+                    barVerticalCenter = data.y2 - 5;
                     value = data.element.attr('ct:value');
                     if (value !== '0') {
                         label = new Chartist.Svg('text');

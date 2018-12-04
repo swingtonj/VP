@@ -363,12 +363,12 @@
 
         optionsChart = {
             chartPadding: {
-                top: 30,
+                top: 20,
                 right: 0,
-                bottom: 20,
+                bottom: 40,
                 left: 0
             },
-            seriesBarDistance: 50,
+            seriesBarDistance: 40,
             lineSmooth: Chartist.Interpolation.cardinal({
                 tension: 0
             }),
@@ -382,7 +382,7 @@
                         currency: 'USD',
                         minimumFractionDigits: 0
                     })
-                }, offset: 80
+                }, offset: 50
             }
             ,
             plugins: [
@@ -412,7 +412,7 @@
                 bottom: 0,
                 left: 0
             },
-            seriesBarDistance: 50,
+            seriesBarDistance: 40,
             lineSmooth: Chartist.Interpolation.cardinal({
                 tension: 0
             }),
@@ -420,7 +420,7 @@
             axisY: {
                 labelInterpolationFnc: function (value) {
                     return value + '%'
-                }, offset: 50
+                }, offset: 30
             }
             ,
             plugins: [
@@ -434,7 +434,7 @@
                 bottom: 0,
                 left: 0
             },
-            seriesBarDistance: 50,
+            seriesBarDistance: 40,
             lineSmooth: Chartist.Interpolation.cardinal({
                 tension: 0
             }),
@@ -442,7 +442,7 @@
             axisY: {
                 labelInterpolationFnc: function (value) {
                     return value
-                }, offset: 50
+                }, offset: 30
             }
             ,
             plugins: [

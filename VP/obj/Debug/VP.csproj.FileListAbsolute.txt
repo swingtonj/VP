@@ -485,3 +485,4 @@ D:\Project\Inprogress\Tubein0512\CODE\swington\vp-new\VP\VP\obj\Debug\VP.csproj.
 D:\Project\Inprogress\Tubein0512\CODE\swington\vp-new\VP\VP\obj\Debug\VP.csproj.CopyComplete
 D:\Project\Inprogress\Tubein0512\CODE\swington\vp-new\VP\VP\obj\Debug\VP.dll
 D:\Project\Inprogress\Tubein0512\CODE\swington\vp-new\VP\VP\obj\Debug\VP.pdb
+D:\Project\Inprogress\Tubein0512\CODE\swington\vp-new\VP\VP\obj\Debug\VP.csprojAssemblyReference.cache
