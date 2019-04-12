@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
 using OfficeOpenXml;
 using Spire.Xls;
 using VP.Models;
@@ -128,6 +130,8 @@ namespace VP.Controllers
                     //dataPaybackChart = Convert.ToString("")
 
                 };
+                Session["Roi"] = Convert.ToString(Convert.ToInt64((Convert.ToDecimal(x86_roi) * 100) - (Convert.ToDecimal(z14_roi) * 100)));
+                Session["Pbp"] = Convert.ToString(Convert.ToInt64((Convert.ToDecimal(x86_pp)) - (Convert.ToDecimal(z14_pp))));
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
 
@@ -141,6 +145,60 @@ namespace VP.Controllers
 
             //m_specify.lst_TypesOfAnalytics = _context.t.Where(x => x.Status == true).Select(x => new Common.droplist { id = x.BM_Id, text = x.BM_Name, img_url = x.image_url }).ToList();
             return Json(Lst_BusinessImperative, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult pdfExport()
+        {
+            var FileName = "Export.Pdf";
+            string extension;
+            string encoding;
+            string mimeType;
+            string[] streams;
+            Warning[] warnings;
+
+            LocalReport report = new LocalReport();
+            report.ReportPath = Server.MapPath(ConfigurationManager.AppSettings["ReportPath"]);
+            report.EnableExternalImages = true;
+            ReportParameter[] parameter = new ReportParameter[9];
+            string filepath = Server.MapPath("~/Assets/Images/banner.jpg");
+            filepath = new Uri(filepath).AbsoluteUri;
+
+            parameter[0] = new ReportParameter("UserName", "Result");
+            parameter[1] = new ReportParameter("Industry", Convert.ToString(Session["industry"]));
+            parameter[2] = new ReportParameter("BusinessImperative", Convert.ToString(Session["businessimperative"]));
+            parameter[3] = new ReportParameter("Investment", Convert.ToString(Session["amount"]));
+            parameter[4] = new ReportParameter("Analytics", Convert.ToString(Session["typeofanalytics"]));
+            parameter[5] = new ReportParameter("Roi", "Result");
+            parameter[6] = new ReportParameter("Pbp", "Result");
+            parameter[7] = new ReportParameter("Graph1", filepath);
+            parameter[8] = new ReportParameter("Graph2", filepath);
+            report.EnableHyperlinks = true;
+            report.SetParameters(parameter);
+            report.Refresh();
+
+            byte[] mybytes = report.Render("pdf", null,
+                            out extension, out encoding,
+                            out mimeType, out streams, out warnings); //for exporting to PDF  
+
+
+            var FilePath = Server.MapPath(ConfigurationManager.AppSettings["ExportPdfFile"]) + FileName;
+            bool exists = System.IO.Directory.Exists(Server.MapPath(ConfigurationManager.AppSettings["ExportPdfFile"]));
+
+            if (!exists)
+            {
+                System.IO.Directory.CreateDirectory(Server.MapPath(ConfigurationManager.AppSettings["ExportPdfFile"]));
+            }
+            if (System.IO.File.Exists(FilePath))
+            {
+                System.IO.File.Delete(FilePath);
+            }
+            if (!System.IO.File.Exists(FilePath))
+            {
+                FileStream fs = new FileStream(FilePath, FileMode.Create, FileAccess.Write);
+                fs.Write(mybytes, 0, mybytes.Length);
+                fs.Close();
+            }
+            return null;
         }
 
     }

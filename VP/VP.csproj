@@ -89,6 +89,7 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
@@ -241,6 +242,8 @@
     <Content Include="Assets\Images\Business\EOP.png" />
     <Content Include="Assets\Images\Business\rfue.png" />
     <Content Include="Assets\Images\Business\co.png" />
+    <Content Include="Assets\Images\Cabot.png" />
+    <Content Include="Assets\Images\DirectBusiness.png" />
     <Content Include="Assets\Images\Industry\others.png" />
     <Content Include="Assets\Images\Industry\telecom.png" />
     <Content Include="Assets\Images\Industry\healthcare.png" />
@@ -325,6 +328,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ExportPdfFile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\fonts\fontawesome-webfont.eot" />
@@ -387,6 +391,10 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report.rdlc" />
+    <EmbeddedResource Include="Report1.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
