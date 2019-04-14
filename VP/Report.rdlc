@@ -50,7 +50,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>0.34078cm</Top>
-            <Left>0.28787cm</Left>
+            <Left>0.37042cm</Left>
             <Height>0.6cm</Height>
             <Width>15.70271cm</Width>
             <Style>
@@ -115,7 +115,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>1.3462cm</Top>
-            <Left>0.26141cm</Left>
+            <Left>0.34396cm</Left>
             <Height>1.18208cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>1</ZIndex>
@@ -152,7 +152,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>2.9337cm</Top>
-            <Left>0.26141cm</Left>
+            <Left>0.34396cm</Left>
             <Height>0.6cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>2</ZIndex>
@@ -293,7 +293,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>3.91266cm</Top>
-            <Left>0.26141cm</Left>
+            <Left>0.34396cm</Left>
             <Height>2.10813cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>3</ZIndex>
@@ -330,7 +330,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>6.63787cm</Top>
-            <Left>0.26141cm</Left>
+            <Left>0.34396cm</Left>
             <Height>0.73229cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>4</ZIndex>
@@ -367,7 +367,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
             <Top>7.82849cm</Top>
-            <Left>0.26141cm</Left>
+            <Left>0.34396cm</Left>
             <Height>0.6cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>5</ZIndex>
@@ -448,7 +448,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>8.78099cm</Top>
-            <Left>0.26141cm</Left>
+            <Left>0.34396cm</Left>
             <Height>1.04979cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>6</ZIndex>
@@ -463,13 +463,13 @@
             </Style>
           </Textbox>
           <Image Name="Image2">
-            <Source>Embedded</Source>
-            <Value>DirectBusiness</Value>
-            <Sizing>FitProportional</Sizing>
+            <Source>External</Source>
+            <Value>=Parameters!Graph1.Value</Value>
+            <Sizing>Fit</Sizing>
             <Top>10.36849cm</Top>
-            <Left>5.04437cm</Left>
-            <Height>5.91854cm</Height>
-            <Width>6.42125cm</Width>
+            <Left>0.4862cm</Left>
+            <Height>4.48979cm</Height>
+            <Width>7.43718cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -502,7 +502,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
             <Top>16.82433cm</Top>
-            <Left>0.28787cm</Left>
+            <Left>0.37042cm</Left>
             <Height>0.6cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>8</ZIndex>
@@ -561,7 +561,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>17.8562cm</Top>
-            <Left>0.28787cm</Left>
+            <Left>0.37042cm</Left>
             <Height>1.39375cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>9</ZIndex>
@@ -620,7 +620,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>19.55698cm</Top>
-            <Left>0.2614cm</Left>
+            <Left>0.34395cm</Left>
             <Height>1.44667cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>10</ZIndex>
@@ -657,7 +657,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>21.35615cm</Top>
-            <Left>0.40365cm</Left>
+            <Left>0.4862cm</Left>
             <Height>1.87cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>11</ZIndex>
@@ -693,8 +693,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>31.19865cm</Top>
-            <Left>0.40365cm</Left>
+            <Top>36.59615cm</Top>
+            <Left>0.4862cm</Left>
             <Height>0.81167cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>12</ZIndex>
@@ -1188,8 +1188,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>32.46865cm</Top>
-            <Left>0.40365cm</Left>
+            <Top>37.86615cm</Top>
+            <Left>0.4862cm</Left>
             <Height>9.30479cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>13</ZIndex>
@@ -1227,8 +1227,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>29.92865cm</Top>
-            <Left>0.40365cm</Left>
+            <Top>35.32615cm</Top>
+            <Left>0.4862cm</Left>
             <Height>0.6cm</Height>
             <Width>15.70271cm</Width>
             <ZIndex>14</ZIndex>
@@ -1242,21 +1242,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Image Name="Image3">
-            <Source>Embedded</Source>
-            <Value>Cabot</Value>
-            <Sizing>FitProportional</Sizing>
-            <Top>23.49183cm</Top>
-            <Left>5.04437cm</Left>
-            <Height>5.91854cm</Height>
-            <Width>6.42125cm</Width>
-            <ZIndex>15</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
           <Textbox Name="Textbox16">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1734,11 +1719,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>42.35662cm</Top>
-            <Left>0.40365cm</Left>
+            <Top>47.43662cm</Top>
+            <Left>0.4862cm</Left>
             <Height>6.44729cm</Height>
             <Width>15.70271cm</Width>
-            <ZIndex>16</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1937,11 +1922,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox17</rd:DefaultName>
-            <Top>49.12995cm</Top>
-            <Left>0.40365cm</Left>
-            <Height>7.69083cm</Height>
+            <Top>54.20995cm</Top>
+            <Left>0.4862cm</Left>
+            <Height>7.29396cm</Height>
             <Width>15.56047cm</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2284,11 +2269,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox18</rd:DefaultName>
-            <Top>57.25266cm</Top>
-            <Left>0.40365cm</Left>
+            <Top>62.01516cm</Top>
+            <Left>0.4862cm</Left>
             <Height>12.79729cm</Height>
             <Width>15.56047cm</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2534,11 +2519,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox19</rd:DefaultName>
-            <Top>70.37599cm</Top>
-            <Left>0.40364cm</Left>
+            <Top>75.45599cm</Top>
+            <Left>0.48619cm</Left>
             <Height>5.38896cm</Height>
             <Width>15.56047cm</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2553,11 +2538,11 @@
             <Source>Embedded</Source>
             <Value>DirectBusiness</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>76.32912cm</Top>
-            <Left>0.47476cm</Left>
-            <Height>8.8459cm</Height>
-            <Width>15.56047cm</Width>
-            <ZIndex>20</ZIndex>
+            <Top>81.32975cm</Top>
+            <Left>0.76129cm</Left>
+            <Height>8.5284cm</Height>
+            <Width>15.24071cm</Width>
+            <ZIndex>19</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2587,11 +2572,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox20</rd:DefaultName>
-            <Top>85.35141cm</Top>
-            <Left>0.40365cm</Left>
+            <Top>90.03454cm</Top>
+            <Left>0.37042cm</Left>
             <Height>0.70583cm</Height>
             <Width>15.56047cm</Width>
-            <ZIndex>21</ZIndex>
+            <ZIndex>20</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2624,11 +2609,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox21</rd:DefaultName>
-            <Top>86.43621cm</Top>
-            <Left>0.40365cm</Left>
+            <Top>90.6869cm</Top>
+            <Left>0.3175cm</Left>
             <Height>1.07625cm</Height>
             <Width>15.56047cm</Width>
-            <ZIndex>22</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2643,11 +2628,11 @@
             <Source>Embedded</Source>
             <Value>Cabot</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>88.36766cm</Top>
-            <Left>0.40365cm</Left>
-            <Height>7.66479cm</Height>
-            <Width>15.56047cm</Width>
-            <ZIndex>23</ZIndex>
+            <Top>91.93954cm</Top>
+            <Left>1.84609cm</Left>
+            <Height>6.31542cm</Height>
+            <Width>14.2717cm</Width>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3190,11 +3175,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>96.99308cm</Top>
-            <Left>0.40365cm</Left>
-            <Height>23.27479cm</Height>
+            <Top>98.54503cm</Top>
+            <Left>0.48619cm</Left>
+            <Height>22.13708cm</Height>
             <Width>15.56047cm</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3469,10 +3454,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
             <Top>120.8585cm</Top>
-            <Left>0.40364cm</Left>
-            <Height>11.76542cm</Height>
+            <Left>0.48619cm</Left>
+            <Height>8.40521cm</Height>
             <Width>15.56047cm</Width>
-            <ZIndex>25</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3483,11 +3468,434 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Image Name="Image6">
+            <Source>External</Source>
+            <Value>=Parameters!Graph2.Value</Value>
+            <Sizing>Fit</Sizing>
+            <Top>10.36849cm</Top>
+            <Left>8.40776cm</Left>
+            <Height>4.48979cm</Height>
+            <Width>7.78115cm</Width>
+            <ZIndex>25</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Line Name="Line2">
+            <Top>28.40249cm</Top>
+            <Left>0.76129cm</Left>
+            <Height>0cm</Height>
+            <Width>15.1696cm</Width>
+            <ZIndex>26</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line3">
+            <Top>24.04745cm</Top>
+            <Left>8.33755cm</Left>
+            <Height>8.94292cm</Height>
+            <Width>0cm</Width>
+            <ZIndex>27</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Image Name="Image3">
+            <Source>External</Source>
+            <Value>=Parameters!Graph3.Value</Value>
+            <Sizing>Fit</Sizing>
+            <Top>24.39141cm</Top>
+            <Left>1.18462cm</Left>
+            <Height>3.64312cm</Height>
+            <Width>6.81812cm</Width>
+            <ZIndex>28</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Image Name="Image8">
+            <Source>External</Source>
+            <Value>=Parameters!Graph4.Value</Value>
+            <Sizing>Fit</Sizing>
+            <Top>24.33849cm</Top>
+            <Left>8.62542cm</Left>
+            <Height>3.64312cm</Height>
+            <Width>6.93505cm</Width>
+            <ZIndex>29</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Image Name="Image9">
+            <Source>External</Source>
+            <Value>=Parameters!Graph5.Value</Value>
+            <Sizing>Fit</Sizing>
+            <Top>28.66884cm</Top>
+            <Left>1.18462cm</Left>
+            <Height>3.64312cm</Height>
+            <Width>6.76521cm</Width>
+            <ZIndex>30</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Image Name="Image10">
+            <Source>External</Source>
+            <Value>=Parameters!Graph6.Value</Value>
+            <Sizing>Fit</Sizing>
+            <Top>28.6953cm</Top>
+            <Left>8.62542cm</Left>
+            <Height>3.64312cm</Height>
+            <Width>6.93505cm</Width>
+            <ZIndex>31</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Chart Name="Chart1">
+            <ChartCategoryHierarchy>
+              <ChartMembers>
+                <ChartMember>
+                  <Group Name="ChartGroup" />
+                  <Label />
+                </ChartMember>
+              </ChartMembers>
+            </ChartCategoryHierarchy>
+            <ChartSeriesHierarchy>
+              <ChartMembers>
+                <ChartMember>
+                  <Label />
+                </ChartMember>
+              </ChartMembers>
+            </ChartSeriesHierarchy>
+            <ChartData>
+              <ChartSeriesCollection>
+                <ChartSeries Name="EmptySeriesName">
+                  <ChartDataPoints>
+                    <ChartDataPoint>
+                      <ChartDataPointValues />
+                    </ChartDataPoint>
+                  </ChartDataPoints>
+                  <Style />
+                </ChartSeries>
+              </ChartSeriesCollection>
+            </ChartData>
+            <ChartAreas>
+              <ChartArea Name="Default">
+                <ChartCategoryAxes>
+                  <ChartAxis Name="Primary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Enabled>False</Enabled>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                  <ChartAxis Name="Secondary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Enabled>False</Enabled>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Location>Opposite</Location>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                </ChartCategoryAxes>
+                <ChartValueAxes>
+                  <ChartAxis Name="Primary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                  <ChartAxis Name="Secondary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Location>Opposite</Location>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                </ChartValueAxes>
+                <Style>
+                  <BackgroundColor>#00ffffff</BackgroundColor>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                </Style>
+              </ChartArea>
+            </ChartAreas>
+            <ChartLegends>
+              <ChartLegend Name="Default">
+                <Style>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <Position>TopLeft</Position>
+                <ChartLegendTitle>
+                  <Caption />
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </ChartLegendTitle>
+                <HeaderSeparatorColor>Black</HeaderSeparatorColor>
+                <ColumnSeparatorColor>Black</ColumnSeparatorColor>
+              </ChartLegend>
+            </ChartLegends>
+            <ChartTitles>
+              <ChartTitle Name="Default">
+                <Caption>Chart Title</Caption>
+                <Style>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                  <FontSize>9pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextAlign>Left</TextAlign>
+                  <VerticalAlign>Top</VerticalAlign>
+                  <Color>#a6a6a6</Color>
+                </Style>
+                <Position>TopLeft</Position>
+              </ChartTitle>
+            </ChartTitles>
+            <Palette>Pacific</Palette>
+            <ChartBorderSkin>
+              <Style>
+                <BackgroundColor>Gray</BackgroundColor>
+                <BackgroundGradientType>None</BackgroundGradientType>
+                <Color>White</Color>
+              </Style>
+            </ChartBorderSkin>
+            <ChartNoDataMessage Name="NoDataMessage">
+              <Caption>No Data Available</Caption>
+              <Style>
+                <BackgroundGradientType>None</BackgroundGradientType>
+                <FontWeight>Bold</FontWeight>
+                <TextAlign>General</TextAlign>
+                <VerticalAlign>Top</VerticalAlign>
+              </Style>
+            </ChartNoDataMessage>
+            <Top>134.03475cm</Top>
+            <Left>8.25183cm</Left>
+            <Height>5cm</Height>
+            <Width>7.5cm</Width>
+            <ZIndex>32</ZIndex>
+            <Style>
+              <Border>
+                <Color>LightGrey</Color>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>White</BackgroundColor>
+              <BackgroundGradientType>None</BackgroundGradientType>
+            </Style>
+          </Chart>
         </ReportItems>
         <Height>55.02084in</Height>
         <Style />
       </Body>
-      <Width>6.5in</Width>
+      <Width>6.55333in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
@@ -3537,11 +3945,27 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="Graph3">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Graph4">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Graph5">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Graph6">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>3</NumberOfRows>
+      <NumberOfRows>4</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -3587,6 +4011,26 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>Graph2</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>Graph3</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>Graph4</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>Graph5</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>Graph6</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

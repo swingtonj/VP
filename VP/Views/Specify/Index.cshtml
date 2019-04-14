@@ -224,7 +224,7 @@
                     Distribution of Benefits and Costs (K)
                 </div>
             </div>
-            <div class="row quad">
+            <div id="#quad" class="row quad">
                 <div class="col-md-12 quadrant-box-align-center quadrant-display-none">
                     <div class="bluebox quadrant-box">Direct</div>
                 </div>
@@ -283,7 +283,7 @@
                     Detailed Results
                 </div>
                 <div>
-                    To get a detailed personalized report with the underlying assumptions and description of the model used to arrive the results, click here for the PDF
+                    To get a detailed personalized report with the underlying assumptions and description of the model used to arrive the results,<a onclick='exporttopdf();'> click here for the PDF</a>
                 </div>
             </div>
         </div>
@@ -291,6 +291,7 @@
     <br />
     <br />
 </form>
+<img id="divProductivityChartcanvas"></img>
 <div class="overlay">
     <img class="loader" src="~/Assets/Images/loader.gif" />
 </div>
@@ -298,7 +299,14 @@
 <script src="~/Assets/js/bootstrap-slider.js"></script>
 <script src="~/Assets/js/chartist-plugin-legend.min.js"></script>
 <script src="~/Assets/js/Chartist-pointlabels.js"></script>
+@*<script src="~/Assets/js/html2canvas.min.js"></script>*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvg/1.5/canvg.min.js"></script>
+<script src="~/Assets/js/saveSvgAsPng.js"></script>
 <script>
+    var divProductivityChart;
+    var divCostsChart, divRevenuesProfitChart, divRisksChart, divRoiChart, divPaybackChart;
+
     var industry, businessimperative, analytics, amount, myslider, industry_id;
     function loadchart(x86_lst_dataProductivityChart, z14_lst_dataProductivityChart, x86_lst_dataCostsChart, z14_lst_dataCostsChart, x86_lst_dataRevenuesProfitChart, z14_lst_dataRevenuesProfitChart, x86_lst_dataRisksChart, z14_lst_dataRisksChart, lst_dataRoiChart, lst_dataPaybackChart) {
         dataProductivityChart = {
@@ -451,19 +459,35 @@
         };
 
 
-        //var divProductivityChart =
-        new Chartist.Bar('#divProductivityChart', dataProductivityChart, optionsChart);
-        //var divCostsChart =
-        new Chartist.Bar('#divCostsChart', dataCostsChart, optionsChart);
-        //var divRevenuesProfitChart =
-        new Chartist.Bar('#divRevenuesProfitChart', dataRevenuesProfitChart, optionsChart);
-        //var divRisksChart =
-        new Chartist.Bar('#divRisksChart', dataRisksChart, optionsChart);
+        divProductivityChart = new Chartist.Bar('#divProductivityChart', dataProductivityChart, optionsChart);
+        divProductivityChart.on('created', function (data) {
+            inlineCSStoSVG(divProductivityChart.container.id);
+        });
 
-        //var divRoiChart =
-        new Chartist.Bar('#divRoiChart', dataRoiChart, optionsChartdistributed_ROI);
-        //var divPaybackChart =
-        new Chartist.Bar('#divPaybackChart', dataPaybackChart, optionsChartdistributed_PB);
+        divCostsChart = new Chartist.Bar('#divCostsChart', dataCostsChart, optionsChart);
+        divCostsChart.on('created', function (data) {
+            inlineCSStoSVG(divCostsChart.container.id);
+        });
+
+        divRevenuesProfitChart = new Chartist.Bar('#divRevenuesProfitChart', dataRevenuesProfitChart, optionsChart);
+        divRevenuesProfitChart.on('created', function (data) {
+            inlineCSStoSVG(divRevenuesProfitChart.container.id);
+        });
+
+        divRisksChart = new Chartist.Bar('#divRisksChart', dataRisksChart, optionsChart);
+        divRisksChart.on('created', function (data) {
+            inlineCSStoSVG(divRisksChart.container.id);
+        });
+
+        divRoiChart = new Chartist.Bar('#divRoiChart', dataRoiChart, optionsChartdistributed_ROI);
+        divRoiChart.on('created', function (data) {
+            inlineCSStoSVG(divRoiChart.container.id);
+        });
+
+        divPaybackChart = new Chartist.Bar('#divPaybackChart', dataPaybackChart, optionsChartdistributed_PB);
+        divPaybackChart.on('created', function (data) {
+            inlineCSStoSVG(divPaybackChart.container.id);
+        });
 
     }
     $(document).ready(function () {
@@ -575,7 +599,7 @@
     });
 
     function divBI() {
-                    $(".overlay").show();
+        $(".overlay").show();
         $.ajax({
             url: "@Url.Action("Industry_select", "specify")",
             type: "POST",
@@ -645,4 +669,126 @@
         });
     }
 </script>
+<script>
 
+    function inlineCSStoSVG(id) {
+        var nodes = document.querySelectorAll("#" + id + " *");
+        for (var i = 0; i < nodes.length; ++i) {
+            var elemCSS = window.getComputedStyle(nodes[i], null);
+            nodes[i].removeAttribute('xmlns');
+            nodes[i].style.fill = elemCSS.fill;
+            nodes[i].style.fillOpacity = elemCSS.fillOpacity;
+            nodes[i].style.stroke = elemCSS.stroke;
+            nodes[i].style.strokeLinecap = elemCSS.strokeLinecap;
+            nodes[i].style.strokeDasharray = elemCSS.strokeDasharray;
+            nodes[i].style.strokeWidth = elemCSS.strokeWidth;
+            nodes[i].style.fontSize = elemCSS.fontSize;
+            nodes[i].style.fontFamily = elemCSS.fontFamily;
+            //Finally, solution to embbed HTML in foreignObject https://stackoverflow.com/a/37124551
+            if (nodes[i].nodeName === "SPAN") {
+                nodes[i].setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
+            }
+        }
+    }
+
+    function exportToCanvas(id) {
+
+        var svgElem = document.querySelector("#" + id + " svg");
+        svgElem.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+
+        var canvas = document.querySelector("#" + id + "canvas");
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.canvas.height = svgElem.clientHeight;
+        ctx.canvas.width = svgElem.clientWidth;
+
+        var DOMURL = window.URL || window.webkitURL || window;
+        var img = new Image();
+        img.crossOrigin = "Anonymous";
+        var blob = undefined;
+        //IEsupport : As per https://gist.github.com/Prinzhorn/5a9d7db4e4fb9372b2e6#gistcomment-2075344
+        try {
+            blob = new Blob([svgElem.outerHTML], {
+                type: "image/svg+xml;charset=utf-8"
+            });
+        }
+        catch (e) {
+            if (e.name == "InvalidStateError") {
+                var bb = new MSBlobBuilder();
+                bb.append(svgElem.outerHTML);
+                blob = bb.getBlob("image/svg+xml;charset=utf-8");
+            }
+            else {
+                throw e; //Fallthrough exception, if it wasn't for IE corner-case
+            }
+        }
+        var url = DOMURL.createObjectURL(blob);
+        img.onload = function () {
+            ctx.drawImage(img, 0, 0);
+            DOMURL.revokeObjectURL(url);
+        }
+        img.src = url;
+        $('#divchart1').append(img);
+
+    }
+    var graph1, graph2, graph3, graph4, graph5, graph6;
+
+    function createimage() {
+            svgAsPngUri($("#divRoiChart svg")[0], {}, function (uri) {
+                graph1 = uri.replace('data:image/png;base64,', '');
+            });
+            svgAsPngUri($("#divPaybackChart svg")[0], {}, function (uri) {
+                graph2 = uri.replace('data:image/png;base64,', '');
+            });
+            svgAsPngUri($("#divProductivityChart svg")[0], {}, function (uri) {
+                graph3 = uri.replace('data:image/png;base64,', '');
+            });
+            svgAsPngUri($("#divCostsChart svg")[0], {}, function (uri) {
+                graph4 = uri.replace('data:image/png;base64,', '');
+            });
+            svgAsPngUri($("#divRevenuesProfitChart svg")[0], {}, function (uri) {
+                graph5 = uri.replace('data:image/png;base64,', '');
+            });
+            svgAsPngUri($("#divRisksChart svg")[0], {}, function (uri) {
+                graph6 = uri.replace('data:image/png;base64,', '');
+        });
+
+        setTimeout( function () {
+            $.ajax({
+                type: "POST",
+                url: '../../specify/pdfExport',
+                dataType: 'text',
+                data: { graph1: graph1, graph2: graph2, graph3: graph3, graph4: graph4, graph5: graph5, graph6: graph6 },
+                success: function (result) { alert(result); }
+            });
+        },3000);
+    }
+    function exporttopdf() {
+    
+        createimage();
+
+        //exportToCanvas(divProductivityChart.container.id);
+
+
+
+        //html2canvas(document.getElementById('quad'), {
+        //    useCORS: true,
+        //    allowTaint: true,
+        //    foreignObjectRendering: true,
+        //    onrendered: function (canvas) {
+        //        debugger;
+        //        var image = canvas.toDataURL("image/png");
+        //        image = image.replace('data:image/png;base64,', '');
+        //        $.ajax({
+        //            type: "POST",
+        //            url: '../../specify/pdfExport',
+        //            dataType: 'text',
+        //            data: { imageData: graph1 },
+        //            success: function (result) { alert(result); }
+        //        });
+        //    }
+        //});
+    }
+
+</script>

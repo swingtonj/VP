@@ -260,11 +260,13 @@
     <Content Include="Assets\js\Chartist-pointlabels.js" />
     <Content Include="Assets\js\chartist.js" />
     <Content Include="Assets\js\Common.js" />
+    <Content Include="Assets\js\html2canvas.min.js" />
     <Content Include="Assets\js\jquery-3.3.1.js" />
     <Content Include="Assets\js\jquery-3.3.1.min.js">
       <DependentUpon>jquery-3.3.1.js</DependentUpon>
     </Content>
     <Content Include="Assets\js\kinetic.js" />
+    <Content Include="Assets\js\saveSvgAsPng.js" />
     <Content Include="Assets\svg\data-encryption.svg" />
     <Content Include="Assets\svg\delivery-truck.svg" />
     <Content Include="Assets\svg\full-size.svg" />

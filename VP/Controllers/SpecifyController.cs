@@ -147,8 +147,82 @@ namespace VP.Controllers
             return Json(Lst_BusinessImperative, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult pdfExport()
+        public void pdfExport(string graph1, string graph2, string graph3, string graph4, string graph5, string graph6)
         {
+
+            string fileName = DateTime.Now.Ticks.ToString();
+            string fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName +"1.png");
+            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
+            {
+                using (BinaryWriter bw = new BinaryWriter(fs))
+                {
+                    byte[] data = Convert.FromBase64String(graph1);
+                    bw.Write(data);
+                    bw.Close();
+                }
+                fs.Close();
+            }
+
+            fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName + "2.png");
+            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
+            {
+                using (BinaryWriter bw = new BinaryWriter(fs))
+                {
+                    byte[] data = Convert.FromBase64String(graph2);
+                    bw.Write(data);
+                    bw.Close();
+                }
+                fs.Close();
+            }
+
+            fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName + "3.png");
+            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
+            {
+                using (BinaryWriter bw = new BinaryWriter(fs))
+                {
+                    byte[] data = Convert.FromBase64String(graph3);
+                    bw.Write(data);
+                    bw.Close();
+                }
+                fs.Close();
+            }
+
+            fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName + "4.png");
+            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
+            {
+                using (BinaryWriter bw = new BinaryWriter(fs))
+                {
+                    byte[] data = Convert.FromBase64String(graph4);
+                    bw.Write(data);
+                    bw.Close();
+                }
+                fs.Close();
+            }
+
+            fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName + "5.png");
+            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
+            {
+                using (BinaryWriter bw = new BinaryWriter(fs))
+                {
+                    byte[] data = Convert.FromBase64String(graph5);
+                    bw.Write(data);
+                    bw.Close();
+                }
+                fs.Close();
+            }
+
+            fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName + "6.png");
+            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
+            {
+                using (BinaryWriter bw = new BinaryWriter(fs))
+                {
+                    byte[] data = Convert.FromBase64String(graph6);
+                    bw.Write(data);
+                    bw.Close();
+                }
+                fs.Close();
+            }
+
             var FileName = "Export.Pdf";
             string extension;
             string encoding;
@@ -159,9 +233,19 @@ namespace VP.Controllers
             LocalReport report = new LocalReport();
             report.ReportPath = Server.MapPath(ConfigurationManager.AppSettings["ReportPath"]);
             report.EnableExternalImages = true;
-            ReportParameter[] parameter = new ReportParameter[9];
-            string filepath = Server.MapPath("~/Assets/Images/banner.jpg");
-            filepath = new Uri(filepath).AbsoluteUri;
+            ReportParameter[] parameter = new ReportParameter[13];
+            string filepath = Server.MapPath("~/Assets/Images/"+fileName +"1.png");
+            string filepath1 = new Uri(filepath).AbsoluteUri;
+            filepath = Server.MapPath("~/Assets/Images/" + fileName + "2.png");
+            string filepath2 = new Uri(filepath).AbsoluteUri;
+            filepath = Server.MapPath("~/Assets/Images/" + fileName + "3.png");
+            string filepath3 = new Uri(filepath).AbsoluteUri;
+            filepath = Server.MapPath("~/Assets/Images/" + fileName + "4.png");
+            string filepath4 = new Uri(filepath).AbsoluteUri;
+            filepath = Server.MapPath("~/Assets/Images/" + fileName + "5.png");
+            string filepath5 = new Uri(filepath).AbsoluteUri;
+            filepath = Server.MapPath("~/Assets/Images/" + fileName + "6.png");
+            string filepath6 = new Uri(filepath).AbsoluteUri;
 
             parameter[0] = new ReportParameter("UserName", "Result");
             parameter[1] = new ReportParameter("Industry", Convert.ToString(Session["industry"]));
@@ -170,8 +254,12 @@ namespace VP.Controllers
             parameter[4] = new ReportParameter("Analytics", Convert.ToString(Session["typeofanalytics"]));
             parameter[5] = new ReportParameter("Roi", "Result");
             parameter[6] = new ReportParameter("Pbp", "Result");
-            parameter[7] = new ReportParameter("Graph1", filepath);
-            parameter[8] = new ReportParameter("Graph2", filepath);
+            parameter[7] = new ReportParameter("Graph1", filepath1);
+            parameter[8] = new ReportParameter("Graph2", filepath2);
+            parameter[9] = new ReportParameter("Graph3", filepath3);
+            parameter[10] = new ReportParameter("Graph4", filepath4);
+            parameter[11] = new ReportParameter("Graph5", filepath5);
+            parameter[12] = new ReportParameter("Graph6", filepath6);
             report.EnableHyperlinks = true;
             report.SetParameters(parameter);
             report.Refresh();
@@ -198,7 +286,15 @@ namespace VP.Controllers
                 fs.Write(mybytes, 0, mybytes.Length);
                 fs.Close();
             }
-            return null;
+            Response.Buffer = true;
+            Response.Clear();
+            Response.ContentType = mimeType;
+            Response.AddHeader(
+                "content-disposition",
+                "attachment; filename= filename" + "." + extension);
+            Response.OutputStream.Write(mybytes, 0, mybytes.Length); // create the file  
+            Response.Flush(); // send it to the client to download  
+            Response.End();
         }
 
     }
