@@ -76,5 +76,37 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_M_Parameter">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Parameter">
+        <MappingFragment StoreEntitySet="Tbl_M_Parameter">
+          <ScalarProperty Name="Parameter_Name" ColumnName="Parameter_Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_T_Specify">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_T_Specify">
+        <MappingFragment StoreEntitySet="Tbl_T_Specify">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Analytics" ColumnName="Analytics" />
+          <ScalarProperty Name="Investment" ColumnName="Investment" />
+          <ScalarProperty Name="BusinessImperative" ColumnName="BusinessImperative" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_T_Specify_Value">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_T_Specify_Value">
+        <MappingFragment StoreEntitySet="Tbl_T_Specify_Value">
+          <ScalarProperty Name="X86_Value" ColumnName="X86_Value" />
+          <ScalarProperty Name="Z14_Value" ColumnName="Z14_Value" />
+          <ScalarProperty Name="Parameter_Id" ColumnName="Parameter_Id" />
+          <ScalarProperty Name="SpecifyId" ColumnName="SpecifyId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

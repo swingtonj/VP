@@ -49,6 +49,35 @@ warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
           <Property Name="Template" Type="text" />
           <Property Name="Status" Type="bit" />
         </EntityType>
+        <EntityType Name="Tbl_M_Parameter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Parameter_Name" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_T_Specify">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Industry" Type="varchar(max)" />
+          <Property Name="BusinessImperative" Type="varchar(max)" />
+          <Property Name="Investment" Type="varchar(max)" />
+          <Property Name="Analytics" Type="varchar(max)" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tbl_T_Specify_Value">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpecifyId" Type="int" />
+          <Property Name="Parameter_Id" Type="int" />
+          <Property Name="Z14_Value" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="X86_Value" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
         <EntityType Name="Tbl_T_UserManagement">
           <Key>
             <PropertyRef Name="User_Id" />
@@ -77,6 +106,9 @@ warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
           <Parameter Name="passowrd" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="CP_Analytics_predictorModelStoreContainer">
+          <EntitySet Name="Tbl_M_Parameter" EntityType="Self.Tbl_M_Parameter" Schema="CP_Analytics_predictor" store:Type="Tables" />
+          <EntitySet Name="Tbl_T_Specify" EntityType="Self.Tbl_T_Specify" Schema="CP_Analytics_predictor" store:Type="Tables" />
+          <EntitySet Name="Tbl_T_Specify_Value" EntityType="Self.Tbl_T_Specify_Value" Schema="CP_Analytics_predictor" store:Type="Tables" />
           <EntitySet Name="Tbl_T_UserManagement" EntityType="Self.Tbl_T_UserManagement" Schema="CP_Analytics_predictor" store:Type="Tables" />
           <EntitySet Name="Tbl_M_Analytics" EntityType="Self.Tbl_M_Analytics" store:Type="Tables" store:Schema="CP_Analytics_predictor">
             <DefiningQuery>SELECT 
@@ -175,6 +207,9 @@ warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
             <Parameter Name="passowrd" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="Tbl_M_Analytics" EntityType="CP_Analytics_predictorModel.Tbl_M_Analytics" />
+          <EntitySet Name="Tbl_M_Parameter" EntityType="CP_Analytics_predictorModel.Tbl_M_Parameter" />
+          <EntitySet Name="Tbl_T_Specify" EntityType="CP_Analytics_predictorModel.Tbl_T_Specify" />
+          <EntitySet Name="Tbl_T_Specify_Value" EntityType="CP_Analytics_predictorModel.Tbl_T_Specify_Value" />
         </EntityContainer>
         <ComplexType Name="SP_Validate_Login_Result">
           <Property Type="Int32" Name="User_Id" Nullable="false" />
@@ -197,6 +232,35 @@ warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
           <Property Name="Analytics_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Boolean" />
           <Property Name="Image_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tbl_M_Parameter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Parameter_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tbl_T_Specify">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Industry" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessImperative" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Investment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Analytics" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tbl_T_Specify_Value">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecifyId" Type="Int32" />
+          <Property Name="Parameter_Id" Type="Int32" />
+          <Property Name="Z14_Value" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="X86_Value" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -276,6 +340,38 @@ warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Analytics_Name" ColumnName="Analytics_Name" />
                 <ScalarProperty Name="Analytics_Id" ColumnName="Analytics_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_M_Parameter">
+            <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Parameter">
+              <MappingFragment StoreEntitySet="Tbl_M_Parameter">
+                <ScalarProperty Name="Parameter_Name" ColumnName="Parameter_Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_T_Specify">
+            <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_T_Specify">
+              <MappingFragment StoreEntitySet="Tbl_T_Specify">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Analytics" ColumnName="Analytics" />
+                <ScalarProperty Name="Investment" ColumnName="Investment" />
+                <ScalarProperty Name="BusinessImperative" ColumnName="BusinessImperative" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_T_Specify_Value">
+            <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_T_Specify_Value">
+              <MappingFragment StoreEntitySet="Tbl_T_Specify_Value">
+                <ScalarProperty Name="X86_Value" ColumnName="X86_Value" />
+                <ScalarProperty Name="Z14_Value" ColumnName="Z14_Value" />
+                <ScalarProperty Name="Parameter_Id" ColumnName="Parameter_Id" />
+                <ScalarProperty Name="SpecifyId" ColumnName="SpecifyId" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

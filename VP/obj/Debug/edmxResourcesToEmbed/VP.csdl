@@ -60,6 +60,9 @@
       <Parameter Name="passowrd" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="Tbl_M_Analytics" EntityType="CP_Analytics_predictorModel.Tbl_M_Analytics" />
+    <EntitySet Name="Tbl_M_Parameter" EntityType="CP_Analytics_predictorModel.Tbl_M_Parameter" />
+    <EntitySet Name="Tbl_T_Specify" EntityType="CP_Analytics_predictorModel.Tbl_T_Specify" />
+    <EntitySet Name="Tbl_T_Specify_Value" EntityType="CP_Analytics_predictorModel.Tbl_T_Specify_Value" />
   </EntityContainer>
   <ComplexType Name="SP_Validate_Login_Result">
     <Property Type="Int32" Name="User_Id" Nullable="false" />
@@ -82,5 +85,34 @@
     <Property Name="Analytics_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <Property Name="Status" Type="Boolean" />
     <Property Name="Image_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_M_Parameter">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Parameter_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_T_Specify">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Industry" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessImperative" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Investment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Analytics" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Tbl_T_Specify_Value">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SpecifyId" Type="Int32" />
+    <Property Name="Parameter_Id" Type="Int32" />
+    <Property Name="Z14_Value" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="X86_Value" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
 </Schema>

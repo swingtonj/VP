@@ -44,6 +44,35 @@ warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
     <Property Name="Template" Type="text" />
     <Property Name="Status" Type="bit" />
   </EntityType>
+  <EntityType Name="Tbl_M_Parameter">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Parameter_Name" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_T_Specify">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Industry" Type="varchar(max)" />
+    <Property Name="BusinessImperative" Type="varchar(max)" />
+    <Property Name="Investment" Type="varchar(max)" />
+    <Property Name="Analytics" Type="varchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_T_Specify_Value">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpecifyId" Type="int" />
+    <Property Name="Parameter_Id" Type="int" />
+    <Property Name="Z14_Value" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="X86_Value" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
   <EntityType Name="Tbl_T_UserManagement">
     <Key>
       <PropertyRef Name="User_Id" />
@@ -72,6 +101,9 @@ warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_
     <Parameter Name="passowrd" Type="varchar" Mode="In" />
   </Function>
   <EntityContainer Name="CP_Analytics_predictorModelStoreContainer">
+    <EntitySet Name="Tbl_M_Parameter" EntityType="Self.Tbl_M_Parameter" Schema="CP_Analytics_predictor" store:Type="Tables" />
+    <EntitySet Name="Tbl_T_Specify" EntityType="Self.Tbl_T_Specify" Schema="CP_Analytics_predictor" store:Type="Tables" />
+    <EntitySet Name="Tbl_T_Specify_Value" EntityType="Self.Tbl_T_Specify_Value" Schema="CP_Analytics_predictor" store:Type="Tables" />
     <EntitySet Name="Tbl_T_UserManagement" EntityType="Self.Tbl_T_UserManagement" Schema="CP_Analytics_predictor" store:Type="Tables" />
     <EntitySet Name="Tbl_M_Analytics" EntityType="Self.Tbl_M_Analytics" store:Type="Tables" store:Schema="CP_Analytics_predictor">
       <DefiningQuery>SELECT 
