@@ -284,10 +284,14 @@
     <Content Include="Assets\Images\Analytics\ibmdb2.png" />
     <Content Include="Assets\Images\Analytics\iml.png" />
     <Content Include="Assets\Images\banner.jpg" />
+    <Content Include="Assets\Images\Business\care.png" />
+    <Content Include="Assets\Images\Business\loyality.jpg" />
     <Content Include="Assets\Images\Business\pcc.png" />
     <Content Include="Assets\Images\Business\EOP.png" />
+    <Content Include="Assets\Images\Business\quality.jpg" />
     <Content Include="Assets\Images\Business\rfue.png" />
     <Content Include="Assets\Images\Business\co.png" />
+    <Content Include="Assets\Images\Business\rr.png" />
     <Content Include="Assets\Images\Cabot.png" />
     <Content Include="Assets\Images\DirectBusiness.png" />
     <Content Include="Assets\Images\Industry\others.png" />
