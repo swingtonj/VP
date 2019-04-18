@@ -290,83 +290,12 @@ namespace VP.Controllers
             return dataTable;
         }
 
-        public void pdfExport(string graph1, string graph2, string graph3, string graph4, string graph5, string graph6)
+        public void pdfExport()
         {
 
             string fileName = DateTime.Now.Ticks.ToString();
-            string fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName + "1.png");
-            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
-            {
-                using (BinaryWriter bw = new BinaryWriter(fs))
-                {
-                    byte[] data = Convert.FromBase64String(graph1);
-                    bw.Write(data);
-                    bw.Close();
-                }
-                fs.Close();
-            }
 
-            fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName + "2.png");
-            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
-            {
-                using (BinaryWriter bw = new BinaryWriter(fs))
-                {
-                    byte[] data = Convert.FromBase64String(graph2);
-                    bw.Write(data);
-                    bw.Close();
-                }
-                fs.Close();
-            }
-
-            fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName + "3.png");
-            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
-            {
-                using (BinaryWriter bw = new BinaryWriter(fs))
-                {
-                    byte[] data = Convert.FromBase64String(graph3);
-                    bw.Write(data);
-                    bw.Close();
-                }
-                fs.Close();
-            }
-
-            fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName + "4.png");
-            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
-            {
-                using (BinaryWriter bw = new BinaryWriter(fs))
-                {
-                    byte[] data = Convert.FromBase64String(graph4);
-                    bw.Write(data);
-                    bw.Close();
-                }
-                fs.Close();
-            }
-
-            fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName + "5.png");
-            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
-            {
-                using (BinaryWriter bw = new BinaryWriter(fs))
-                {
-                    byte[] data = Convert.FromBase64String(graph5);
-                    bw.Write(data);
-                    bw.Close();
-                }
-                fs.Close();
-            }
-
-            fileNameWitPath = Path.Combine(Server.MapPath("~/Assets/Images/"), fileName + "6.png");
-            using (FileStream fs = new FileStream(fileNameWitPath, FileMode.Create))
-            {
-                using (BinaryWriter bw = new BinaryWriter(fs))
-                {
-                    byte[] data = Convert.FromBase64String(graph6);
-                    bw.Write(data);
-                    bw.Close();
-                }
-                fs.Close();
-            }
-
-            var FileName = "Export.Pdf";
+            var FileName = fileName + ".Pdf";
             string extension;
             string encoding;
             string mimeType;
@@ -376,49 +305,57 @@ namespace VP.Controllers
             LocalReport report = new LocalReport();
             report.ReportPath = Server.MapPath(ConfigurationManager.AppSettings["ReportPath"]);
             report.EnableExternalImages = true;
-            ReportParameter[] parameter = new ReportParameter[13];
-            string filepath = Server.MapPath("~/Assets/Images/" + fileName + "1.png");
-            string filepath1 = new Uri(filepath).AbsoluteUri;
-            filepath = Server.MapPath("~/Assets/Images/" + fileName + "2.png");
-            string filepath2 = new Uri(filepath).AbsoluteUri;
-            filepath = Server.MapPath("~/Assets/Images/" + fileName + "3.png");
-            string filepath3 = new Uri(filepath).AbsoluteUri;
-            filepath = Server.MapPath("~/Assets/Images/" + fileName + "4.png");
-            string filepath4 = new Uri(filepath).AbsoluteUri;
-            filepath = Server.MapPath("~/Assets/Images/" + fileName + "5.png");
-            string filepath5 = new Uri(filepath).AbsoluteUri;
-            filepath = Server.MapPath("~/Assets/Images/" + fileName + "6.png");
-            string filepath6 = new Uri(filepath).AbsoluteUri;
+            ReportParameter[] parameter = new ReportParameter[5];
 
             parameter[0] = new ReportParameter("UserName", "Result");
             parameter[1] = new ReportParameter("Industry", Convert.ToString(Session["industry"]));
             parameter[2] = new ReportParameter("BusinessImperative", Convert.ToString(Session["businessimperative"]));
             parameter[3] = new ReportParameter("Investment", Convert.ToString(Session["amount"]));
             parameter[4] = new ReportParameter("Analytics", Convert.ToString(Session["typeofanalytics"]));
-            parameter[5] = new ReportParameter("Roi", "Result");
-            parameter[6] = new ReportParameter("Pbp", "Result");
-            parameter[7] = new ReportParameter("Graph1", filepath1);
-            parameter[8] = new ReportParameter("Graph2", filepath2);
-            parameter[9] = new ReportParameter("Graph3", filepath3);
-            parameter[10] = new ReportParameter("Graph4", filepath4);
-            parameter[11] = new ReportParameter("Graph5", filepath5);
-            parameter[12] = new ReportParameter("Graph6", filepath6);
             report.EnableHyperlinks = true;
             report.SetParameters(parameter);
             report.Refresh();
 
-
+            int id = Convert.ToInt32(Session["specifyid"]);
+            var source = _context.Tbl_T_Specify_Value
+                    .Where(x => x.SpecifyId == id)
+                    .Join(_context.Tbl_M_Parameter, y => y.Parameter_Id, z => z.id, (y, z) => 
+                    new { y.X86_Value, y.Z14_Value, z.Parameter_Name , z.id }).ToList();
 
             ReportDataSource rds = new ReportDataSource();
             rds.Name = "DataSet1";//This refers to the dataset name in the RDLC file  
-            int id = Convert.ToInt32(Session["specifyid"]);
-            var s = _context.Tbl_T_Specify_Value
-                    .Where(x => x.SpecifyId == id && (x.Parameter_Id == 3 || x.Parameter_Id == 4 || x.Parameter_Id == 5))
-                    .Join(_context.Tbl_M_Parameter , y=>y.Parameter_Id,z=>z.id,(y,z)=>new {y.X86_Value,y.Z14_Value,z.Parameter_Name }).ToList()
-                    ;
-            var s1 = ToDataTable(s);
-            rds.Value = s1;
+            rds.Value = ToDataTable(source.Where(x => (x.id == 3 || x.id == 4 || x.id == 5)).ToList());
             report.DataSources.Add(rds);
+            report.Refresh();
+
+            ReportDataSource rds1 = new ReportDataSource();
+            rds1.Name = "DataSet2";//This refers to the dataset name in the RDLC file  
+            rds1.Value = ToDataTable(source.Where(x => (x.id == 6 || x.id == 7 || x.id == 8)).ToList());
+            report.DataSources.Add(rds1);
+            report.Refresh();
+
+            ReportDataSource rds2 = new ReportDataSource();
+            rds2.Name = "DataSet3";//This refers to the dataset name in the RDLC file  
+            rds2.Value = ToDataTable(source.Where(x => (x.id == 9 || x.id == 10 || x.id == 11)).ToList());
+            report.DataSources.Add(rds2);
+            report.Refresh();
+
+            ReportDataSource rds3 = new ReportDataSource();
+            rds3.Name = "DataSet4";//This refers to the dataset name in the RDLC file  
+            rds3.Value = ToDataTable(source.Where(x => (x.id == 12 || x.id == 13 || x.id == 14)).ToList());
+            report.DataSources.Add(rds3);
+            report.Refresh();
+
+            ReportDataSource rds4 = new ReportDataSource();
+            rds4.Name = "DataSet5";//This refers to the dataset name in the RDLC file  
+            rds4.Value = ToDataTable(source.Where(x => (x.id == 1)).ToList());
+            report.DataSources.Add(rds4);
+            report.Refresh();
+
+            ReportDataSource rds5 = new ReportDataSource();
+            rds5.Name = "DataSet6";//This refers to the dataset name in the RDLC file  
+            rds5.Value = ToDataTable(source.Where(x => (x.id == 2)).ToList());
+            report.DataSources.Add(rds5);
             report.Refresh();
 
 
