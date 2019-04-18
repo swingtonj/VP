@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CP_Analytics_predictorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_M_Analytics' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tbl_M_Analytics">
+    <Key>
+      <PropertyRef Name="Analytics_Id" />
+    </Key>
+    <Property Name="Analytics_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Analytics_Name" Type="varchar" MaxLength="300" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Image_url" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_M_Business_Imperative' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tbl_M_Business_Imperative">
+    <Key>
+      <PropertyRef Name="BM_Id" />
+    </Key>
+    <Property Name="BM_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BM_Name" Type="varchar" MaxLength="300" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="image_url" Type="varchar" MaxLength="500" />
+    <Property Name="Industry_id" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_M_Industry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tbl_M_Industry">
+    <Key>
+      <PropertyRef Name="Industry_id" />
+    </Key>
+    <Property Name="Industry_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Industry_name" Type="varchar" MaxLength="300" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Image_url" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CP_Analytics_predictor.CP_Analytics_predictor.Tbl_M_Mailer_Template' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tbl_M_Mailer_Template">
+    <Key>
+      <PropertyRef Name="Template_Id" />
+    </Key>
+    <Property Name="Template_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Template" Type="text" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tbl_M_Parameter">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Parameter_Name" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_T_Specify">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Industry" Type="varchar(max)" />
+    <Property Name="BusinessImperative" Type="varchar(max)" />
+    <Property Name="Investment" Type="varchar(max)" />
+    <Property Name="Analytics" Type="varchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_T_Specify_Value">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpecifyId" Type="int" />
+    <Property Name="Parameter_Id" Type="int" />
+    <Property Name="Z14_Value" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="X86_Value" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Tbl_T_UserManagement">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_name" Type="varchar" MaxLength="300" />
+    <Property Name="Email_id" Type="varchar" MaxLength="300" />
+    <Property Name="Mobile_no" Type="varchar" MaxLength="15" />
+    <Property Name="Organisation_name" Type="varchar" MaxLength="300" />
+    <Property Name="Password" Type="varchar" MaxLength="300" />
+    <Property Name="Registered_on" Type="datetime" />
+    <Property Name="Approved" Type="bit" />
+    <Property Name="Approved_on" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Is_Admin" Type="bit" />
+  </EntityType>
+  <Function Name="SP_Registration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CP_Analytics_predictor">
+    <Parameter Name="organisation_name" Type="varchar" Mode="In" />
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="passowrd" Type="varchar" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="mobile" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Validate_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CP_Analytics_predictor">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="passowrd" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="CP_Analytics_predictorModelStoreContainer">
+    <EntitySet Name="Tbl_M_Parameter" EntityType="Self.Tbl_M_Parameter" Schema="CP_Analytics_predictor" store:Type="Tables" />
+    <EntitySet Name="Tbl_T_Specify" EntityType="Self.Tbl_T_Specify" Schema="CP_Analytics_predictor" store:Type="Tables" />
+    <EntitySet Name="Tbl_T_Specify_Value" EntityType="Self.Tbl_T_Specify_Value" Schema="CP_Analytics_predictor" store:Type="Tables" />
+    <EntitySet Name="Tbl_T_UserManagement" EntityType="Self.Tbl_T_UserManagement" Schema="CP_Analytics_predictor" store:Type="Tables" />
+    <EntitySet Name="Tbl_M_Analytics" EntityType="Self.Tbl_M_Analytics" store:Type="Tables" store:Schema="CP_Analytics_predictor">
+      <DefiningQuery>SELECT 
+    [Tbl_M_Analytics].[Analytics_Id] AS [Analytics_Id], 
+    [Tbl_M_Analytics].[Analytics_Name] AS [Analytics_Name], 
+    [Tbl_M_Analytics].[Status] AS [Status], 
+    [Tbl_M_Analytics].[Image_url] AS [Image_url]
+    FROM [CP_Analytics_predictor].[Tbl_M_Analytics] AS [Tbl_M_Analytics]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Tbl_M_Business_Imperative" EntityType="Self.Tbl_M_Business_Imperative" store:Type="Tables" store:Schema="CP_Analytics_predictor">
+      <DefiningQuery>SELECT 
+    [Tbl_M_Business_Imperative].[BM_Id] AS [BM_Id], 
+    [Tbl_M_Business_Imperative].[BM_Name] AS [BM_Name], 
+    [Tbl_M_Business_Imperative].[Status] AS [Status], 
+    [Tbl_M_Business_Imperative].[image_url] AS [image_url], 
+    [Tbl_M_Business_Imperative].[Industry_id] AS [Industry_id]
+    FROM [CP_Analytics_predictor].[Tbl_M_Business_Imperative] AS [Tbl_M_Business_Imperative]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Tbl_M_Industry" EntityType="Self.Tbl_M_Industry" store:Type="Tables" store:Schema="CP_Analytics_predictor">
+      <DefiningQuery>SELECT 
+    [Tbl_M_Industry].[Industry_id] AS [Industry_id], 
+    [Tbl_M_Industry].[Industry_name] AS [Industry_name], 
+    [Tbl_M_Industry].[Status] AS [Status], 
+    [Tbl_M_Industry].[Image_url] AS [Image_url]
+    FROM [CP_Analytics_predictor].[Tbl_M_Industry] AS [Tbl_M_Industry]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Tbl_M_Mailer_Template" EntityType="Self.Tbl_M_Mailer_Template" store:Type="Tables" store:Schema="CP_Analytics_predictor">
+      <DefiningQuery>SELECT 
+    [Tbl_M_Mailer_Template].[Template_Id] AS [Template_Id], 
+    [Tbl_M_Mailer_Template].[Template] AS [Template], 
+    [Tbl_M_Mailer_Template].[Status] AS [Status]
+    FROM [CP_Analytics_predictor].[Tbl_M_Mailer_Template] AS [Tbl_M_Mailer_Template]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

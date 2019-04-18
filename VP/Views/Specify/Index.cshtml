@@ -283,7 +283,7 @@
                     Detailed Results
                 </div>
                 <div>
-                    To get a detailed personalized report with the underlying assumptions and description of the model used to arrive the results,<a onclick='exporttopdf();'> click here for the PDF</a>
+                    To get a detailed personalized report with the underlying assumptions and description of the model used to arrive the results,<a onclick='exporttopdf();'  style="color:blue;text-decoration:underline;"> click here for the PDF</a>
                 </div>
             </div>
         </div>
@@ -671,9 +671,9 @@
     
         $.ajax({
             type: "POST",
-            url: '../../specify/pdfExport',
+            url: '@Url.Action("pdfExport", "specify")',
             dataType: 'text',
-            success: function (result) { alert(result); }
+            success: function (result) { window.location = '@Url.Action("download", "specify")'; }
         });
         
     }

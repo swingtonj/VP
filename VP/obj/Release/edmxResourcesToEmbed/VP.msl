@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CP_Analytics_predictorModelStoreContainer" CdmEntityContainer="CP_Analytics_predictorEntities">
+    <EntitySetMapping Name="Tbl_M_Business_Imperative">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Business_Imperative">
+        <MappingFragment StoreEntitySet="Tbl_M_Business_Imperative">
+          <ScalarProperty Name="Industry_id" ColumnName="Industry_id" />
+          <ScalarProperty Name="BM_Id" ColumnName="BM_Id" />
+          <ScalarProperty Name="BM_Name" ColumnName="BM_Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="image_url" ColumnName="image_url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_M_Industry">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Industry">
+        <MappingFragment StoreEntitySet="Tbl_M_Industry">
+          <ScalarProperty Name="Industry_id" ColumnName="Industry_id" />
+          <ScalarProperty Name="Industry_name" ColumnName="Industry_name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Image_url" ColumnName="Image_url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_M_Mailer_Template">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Mailer_Template">
+        <MappingFragment StoreEntitySet="Tbl_M_Mailer_Template">
+          <ScalarProperty Name="Template_Id" ColumnName="Template_Id" />
+          <ScalarProperty Name="Template" ColumnName="Template" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_T_UserManagement">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_T_UserManagement">
+        <MappingFragment StoreEntitySet="Tbl_T_UserManagement">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_name" ColumnName="User_name" />
+          <ScalarProperty Name="Email_id" ColumnName="Email_id" />
+          <ScalarProperty Name="Mobile_no" ColumnName="Mobile_no" />
+          <ScalarProperty Name="Organisation_name" ColumnName="Organisation_name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Registered_on" ColumnName="Registered_on" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Approved_on" ColumnName="Approved_on" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Is_Admin" ColumnName="Is_Admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_Registration" FunctionName="CP_Analytics_predictorModel.Store.SP_Registration" />
+    <FunctionImportMapping FunctionImportName="SP_Validate_Login" FunctionName="CP_Analytics_predictorModel.Store.SP_Validate_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CP_Analytics_predictorModel.SP_Validate_Login_Result">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_name" ColumnName="User_name" />
+          <ScalarProperty Name="Email_id" ColumnName="Email_id" />
+          <ScalarProperty Name="Mobile_no" ColumnName="Mobile_no" />
+          <ScalarProperty Name="Organisation_name" ColumnName="Organisation_name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Registered_on" ColumnName="Registered_on" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Approved_on" ColumnName="Approved_on" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Is_Admin" ColumnName="Is_Admin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Tbl_M_Analytics">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Analytics">
+        <MappingFragment StoreEntitySet="Tbl_M_Analytics">
+          <ScalarProperty Name="Image_url" ColumnName="Image_url" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Analytics_Name" ColumnName="Analytics_Name" />
+          <ScalarProperty Name="Analytics_Id" ColumnName="Analytics_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_M_Parameter">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_M_Parameter">
+        <MappingFragment StoreEntitySet="Tbl_M_Parameter">
+          <ScalarProperty Name="Parameter_Name" ColumnName="Parameter_Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_T_Specify">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_T_Specify">
+        <MappingFragment StoreEntitySet="Tbl_T_Specify">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Analytics" ColumnName="Analytics" />
+          <ScalarProperty Name="Investment" ColumnName="Investment" />
+          <ScalarProperty Name="BusinessImperative" ColumnName="BusinessImperative" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_T_Specify_Value">
+      <EntityTypeMapping TypeName="CP_Analytics_predictorModel.Tbl_T_Specify_Value">
+        <MappingFragment StoreEntitySet="Tbl_T_Specify_Value">
+          <ScalarProperty Name="X86_Value" ColumnName="X86_Value" />
+          <ScalarProperty Name="Z14_Value" ColumnName="Z14_Value" />
+          <ScalarProperty Name="Parameter_Id" ColumnName="Parameter_Id" />
+          <ScalarProperty Name="SpecifyId" ColumnName="SpecifyId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

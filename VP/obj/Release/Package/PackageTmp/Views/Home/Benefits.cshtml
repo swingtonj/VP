@@ -1,0 +1,232 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Assets/css/style.css" rel="stylesheet" />
+<link href="~/Assets/css/Benefits.css" rel="stylesheet" />
+<link href="~/Assets/css/ionicons.min.css" rel="stylesheet" />
+
+@*<div class="container contain-res">
+
+        <div class="row align-middle" style="margin-top:10px;">
+
+            <div class="col-lg-4 col-md-12 col-sm-12">
+
+                <div class="form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>Login</h3>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <form role="form" action="" method="post" class="login-form">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-user"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-key"></i>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
+                            </div>
+
+                            <button type="button" onclick="location.href='@Url.Action("Index","specify")'" class="btn btn-lg btn-primary">Sign in!</button>
+                        </form>
+                        <hr data-content="or" class="hr-text" />
+                        <div class="registertext">Register</div>
+                        <form role="form" action="" method="post" class="registration-form">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-group"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Organization Name" aria-label="Organization Name" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-user"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="First & Last Name" aria-label="First & Last Name" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-envelope"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-key"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-mobile"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Mobile" aria-label="Mobile" aria-describedby="basic-addon1">
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-primary">Sign me up!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8"></div>
+        </div>
+    </div>*@
+@*<section style="background:white;">
+        <div class="container">
+            <div class="row section-header">
+                <div class="col-lg-12 col-md-12 aligncontent-middle">
+                    <div>
+                        <div class="mark-header">Accelerate and Amplify Value from Your Information Technology Solution</div>
+                        <div class="mark-text">
+                            Are you considering investing in Analytics solutions for your digital transformation? To help you build a business case for this journey, this Value Predictor quantifies the expected value from your investment using a model tailored for your industry and business objectives. A personalized report will help you assess how the IBM Z14 can help you accelerate and amplify value from your hardware investment compared to x86 systems.
+                        </div>
+                        <div style="height:50px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+<section class="features">
+    <div class="container">
+        <div class="row section-header">
+            <div class="col-md-12">
+                <br />
+                Benefits of IBM Z14 for analytics
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div id="divRedirect" style="cursor:pointer;" >
+                You will be redirected in <span id="timer" style="color:red;">20</span> seconds. Click here to stay in this page
+            </div>
+            <div id="divSpecify" style="display:none;">
+                Click here to redirect to Specify
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-4 col-md- col-sm-6">
+                <div class="media d-block pb_feature-v1 text-left">
+                    <div class="pb_icon">
+                        <img class="svg" src="~/Assets/svg/data-encryption.svg" />
+                        @*<i class="ion-ios-infinite-outline pb_icon-gradient"></i>*@
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-3 heading">Faster Encryption</h5>
+                        <p class="text-sans-serif">Protecting corporate assets by use of pervasive encryption, the z14 ZR1 does this significantly faster—up to two-to-six times faster, depending on the workload and technology used—than a similarly equipped z13s</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md- col-sm-6">
+                <div class="media d-block pb_feature-v1 text-left">
+                    <div class="pb_icon">
+                        <img class="svg" src="~/Assets/svg/full-size.svg" />
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-3 heading">More Memory</h5>
+                        <p class="text-sans-serif">Doubling the amount of real memory to eight terabytes allows more mainframe customers to implement on-premises in-memory analytics right where the data sits.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md- col-sm-6">
+                <div class="media d-block pb_feature-v1 text-left">
+                    <div class="pb_icon">
+                        <img class="svg" src="~/Assets/svg/save-energy.svg" />
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-3 heading">Increased Energy Efficiency</h5>
+                        <p class="text-sans-serif">It has a rack-mounted scalable system that allows up to 16U of open-system space for non-mainframe hardware to exist in the same industry standard 19-inch rack form factor—helps customers reduce floor space, cooling and energy usage.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md- col-sm-6">
+                <div class="media d-block pb_feature-v1 text-left">
+                    <div class="pb_icon">
+                        <img class="svg" src="~/Assets/svg/multitask.svg" />
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-3 heading">More Workload Capacity</h5>
+                        <p class="text-sans-serif">With up to 50 percent more processing engines, both traditional CP and Linux IFL, the z14 ZR1 can run more workload in a single frame, so that consolation of other workloads can save even more and reduce costs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md- col-sm-6">
+                <div class="media d-block pb_feature-v1 text-left">
+                    <div class="pb_icon">
+                        <img class="svg" src="~/Assets/svg/money.svg" />
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-3 heading">Create New Value</h5>
+                        <p class="text-sans-serif">Leverage application and data investments to efficiently deliver new services with built in intelligence.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md- col-sm-6">
+                <div class="media d-block pb_feature-v1 text-left">
+                    <div class="pb_icon">
+                        <img class="svg" src="~/Assets/svg/delivery-truck.svg" />
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-3 heading">Deliver at speed</h5>
+                        <p class="text-sans-serif">Efficiently deliver high quality services at speed and at scale, in the form factor that meets your business needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<script>
+    @*setTimeout(function () {
+        location.href = '@Url.Action("Index","specify")';
+    }, 20000);*@
+
+
+    var myVar = setInterval(myTimer, 1000);
+
+    function myTimer() {
+        var curr_sec = $('#timer').text();
+        if (curr_sec == 0) {
+            location.href = '@Url.Action("Index","specify")';
+        }
+        else {
+            $('#timer').text(curr_sec - 1);
+        }
+    }
+    function stopredirect() {
+        $('#divSpecify').attr('style', 'cursor:pointer;');
+        $('#divRedirect').attr('style', 'display:none;');
+        clearTimeout(myVar);
+        
+        
+    }
+    $(document).delegate("#divRedirect", "click", function () {
+        stopredirect();
+    });
+    $(document).delegate("#divSpecify", "click", function () {
+       location.href = '@Url.Action("Index","specify")';
+    });
+</script>
+

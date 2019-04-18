@@ -1,0 +1,681 @@
+﻿@model VP.Models.Specify
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Assets/css/Specify.css" rel="stylesheet" />
+<link href="~/Assets/css/chartist.css" rel="stylesheet" />
+<link href="~/Assets/css/bootstrap-slider.css" rel="stylesheet" />
+<link href="~/Assets/css/chartist-plugin-legend.css" rel="stylesheet" />
+<div class="container" style="margin-top:70px;">
+    <div id="divSpecify">
+        <div class="row headertest">
+            <div class="col-md-10 text-left">
+                Specify Your Analytics Initiative
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <p class="headersubtext">
+                    Analytics can significantly transform your business by giving you the ability to deliver exceptional
+                    customer experience, enhance marketing effectiveness, increase operational efficiencies, reduce
+                    financial risks, improve product quality and reliability, and more. But there are implementation
+                    challenges and risks that must be managed and overcome to build a compelling financial business
+                    case for your Analytics initiative.
+                </p>
+                <p class="headersubtext">
+                    Here you can personalize your Analytics initiative and specify your industry, business imperative,
+                    hardware investment and type of analytics in the sequence shown below.
+                </p>
+                <p class="headersubtext">
+                    Once you submit your input, the Value Predictor builds a personalized model using data specific to
+                    your situation. Then, your personalized results summarizing your business case – including additional
+                    value provided by IBM Z14 over an equivalent x86 system – are reported back to you. You will also
+                    get an additional detailed personalized report for your records including the key assumptions made
+                    by the model.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="divResults" style="display:none;">
+        <div class="row headertest">
+            <div class="col-md-12 text-left">
+                Your Personalized Results
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <p class="headersubtext">
+                    Here are your personalized results for your specific situation. Results are reported for both the IBM System Z14 and a x86 system that has the same acquisition cost.
+                </p>
+                <p class="headersubtext">
+                    The model uses industry and best practices data for your industry, analytics type and business imperative. It also considers your investment size, risks, and other value drivers including specific cost and value drivers: system costs, software costs, operations costs, staff productivity by roles, organization productivity, faster time to value, improved revenues, trusted experiences, lower downtime, better security, governance and compliance.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height:30px;">
+
+    </div>
+</div>
+
+
+<div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+            <div class="count">1</div>
+            <a href="#step-1" class="bg-circle btn-primary">
+                <i class="fa fa-2x fa-fw fa-industry"></i>
+            </a>
+            <p>Industry</p>
+        </div>
+        <div class="stepwizard-step">
+            <div class="count">2</div>
+            <a href="#step-2" class="bg-circle" disabled="disabled">
+                <i class="fa fa-2x fa-fw fa-bar-chart-o"></i>
+            </a>
+            <p>Business Imperative</p>
+        </div>
+        <div class="stepwizard-step">
+            <div class="count">3</div>
+            <a href="#step-3" class="bg-circle" disabled="disabled">
+                <i class="fa fa-2x fa-fw fa-money"></i>
+            </a>
+            <p>Hardware Investment</p>
+        </div>
+        <div class="stepwizard-step">
+            <div class="count">4</div>
+            <a href="#step-4" class="bg-circle" disabled="disabled">
+                <i class="fa fa-2x fa-fw fa-line-chart"></i>
+            </a>
+            <p>Type of Analytics</p>
+        </div>
+        <div class="stepwizard-step">
+            <div class="count">5</div>
+            <a href="#step-5" class="bg-circle" disabled="disabled">
+                <i class="fa fa-2x fa-fw fa-newspaper-o"></i>
+            </a>
+            <p>Result</p>
+        </div>
+    </div>
+</div>
+
+
+<form role="form">
+    <section class="industry setup-content" id="step-1">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 subheader">
+                    Select Industry
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                @foreach (var item in Model.Lst_Industry)
+                {
+                    <div class="col-md-2 nextBtn" data-industry-id="@item.Id" data-industry="@item.Text">
+                        <img src="@item.Img_url" />
+                        <div class="image_text">@item.Text</div>
+                    </div>
+                }
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </section>
+    <section class="industry setup-content" id="step-2">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 subheader">
+                    Select Business Imperative
+                </div>
+            </div>
+            <div id="divBI" class="row align justify-content-center">
+                @foreach (var item in Model.Lst_BusinessImperative)
+                {
+                    <div class="col-md-2 nextBtn" data-business="@item.Text">
+                        <img style="max-height:512px;" src="@item.Img_url" />
+                        <div class="image_text">@item.Text</div>
+                    </div>
+                }
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </section>
+    <section class="industry setup-content" id="step-3">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 subheader">
+                    Select Hardware Investment
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <br />
+                    <input id="slider" data-slider-id='ex1Slider' type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center" style="height:100px;margin-top:30px;">
+                    <button type="button" class="btn btn-lg btn-primary nextBtn">Next</button>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="industry setup-content" id="step-4">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 subheader">
+                    Select Type of Analytics
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                @foreach (var item in Model.Lst_TypesOfAnalytics)
+                {
+                    <div class="col-md-2 nextBtn" data-analytics="@item.Text">
+                        <img src="@item.Img_url" />
+                        <div class="image_text">@item.Text</div>
+                    </div>
+                }
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </section>
+    <section class="industry setup-content charts" id="step-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 subheader ">
+                    Results
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divRoiChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Return on Investment - ROI(%)
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divPaybackChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Payback Period (Months)
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top:30px;">
+                <div class="col-md-12 subheader ">
+                    Distribution of Benefits and Costs (K)
+                </div>
+            </div>
+            <div id="#quad" class="row quad">
+                <div class="col-md-12 quadrant-box-align-center quadrant-display-none">
+                    <div class="bluebox quadrant-box">Direct</div>
+                </div>
+                <div class="col-md-6 br-right br-bottom br-right-green br-bottom-blue">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divProductivityChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                2. Productivity
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 br-bottom br-bottom-blue">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divCostsChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                1. Costs
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 br-right br-right-green">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divRevenuesProfitChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">3. Revenues/Profits</h4>
+                        </div>
+                        <div class="quadbefore quadrant-display-none">Business</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="divRisksChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">4. Risks</h4>
+                        </div>
+                    </div>
+                    <div class="quadafter quadrant-display-none">Technical</div>
+                </div>
+                <div class="col-md-12 quadrant-box-align-center quadrant-display-none">
+                    <div class="bluebox-light quadrant-box">Derived</div>
+                </div>
+            </div>
+            <div class="row" style="margin-top:30px;">
+                <div class="col-md-12 text-left" style="font-size:20px;padding:0px;">
+                    Detailed Results
+                </div>
+                <div>
+                    To get a detailed personalized report with the underlying assumptions and description of the model used to arrive the results,<a onclick='exporttopdf();'  style="color:blue;text-decoration:underline;"> click here for the PDF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+    <br />
+</form>
+<img id="divProductivityChartcanvas"></img>
+<div class="overlay">
+    <img class="loader" src="~/Assets/Images/loader.gif" />
+</div>
+<script src="~/Assets/js/chartist.js"></script>
+<script src="~/Assets/js/bootstrap-slider.js"></script>
+<script src="~/Assets/js/chartist-plugin-legend.min.js"></script>
+<script src="~/Assets/js/Chartist-pointlabels.js"></script>
+
+<script>
+    var divProductivityChart;
+    var divCostsChart, divRevenuesProfitChart, divRisksChart, divRoiChart, divPaybackChart;
+
+    var industry, businessimperative, analytics, amount, myslider, industry_id;
+    function loadchart(x86_lst_dataProductivityChart, z14_lst_dataProductivityChart, x86_lst_dataCostsChart, z14_lst_dataCostsChart, x86_lst_dataRevenuesProfitChart, z14_lst_dataRevenuesProfitChart, x86_lst_dataRisksChart, z14_lst_dataRisksChart, lst_dataRoiChart, lst_dataPaybackChart) {
+        dataProductivityChart = {
+            labels: ['C-level executive', 'IT personnel ', 'Organizational'],
+            series: [
+                {
+                    name: 'X86',
+                    data: x86_lst_dataProductivityChart.split(",")
+                }, {
+                    name: 'Z14',
+                    data: z14_lst_dataProductivityChart.split(",")
+                }
+            ]
+        };
+        dataCostsChart = {
+            labels: ['System Acquisition', 'Software Acquisition', 'Operations'],
+            series: [
+                {
+                    name: 'X86',
+                    data: x86_lst_dataCostsChart.split(",")
+                }, {
+                    name: 'Z14',
+                    data: z14_lst_dataCostsChart.split(",")
+                }
+            ]
+        };
+        dataRevenuesProfitChart = {
+            labels: ['Improved Revenue', 'Faster-time-to-value', 'Trusted Experiences'],
+
+            series: [
+                {
+                    name: 'X86',
+                    data: x86_lst_dataRevenuesProfitChart.split(",")
+                }, {
+                    name: 'Z14',
+                    data: z14_lst_dataRevenuesProfitChart.split(",")
+                }
+            ]
+        };
+        dataRisksChart = {
+            labels: ['End-to-End Security', 'Improved governance and compliance', 'Reduced downtime'],
+            series: [
+                {
+                    name: 'X86',
+                    data: x86_lst_dataRisksChart.split(",")
+                }, {
+                    name: 'Z14',
+                    data: z14_lst_dataRisksChart.split(",")
+                }
+            ]
+        };
+        dataRoiChart = {
+            labels: ['X86', 'Z14'],
+            series:
+                lst_dataRoiChart.split(",")
+        };
+        dataPaybackChart = {
+            labels: ['X86', 'Z14'],
+            series:
+                lst_dataPaybackChart.split(",")
+        };
+
+        optionsChart = {
+            chartPadding: {
+                top: 20,
+                right: 0,
+                bottom: 40,
+                left: 0
+            },
+            seriesBarDistance: 40,
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+
+            axisY: {
+                labelInterpolationFnc: function (value) {
+                    return  parseInt(value).toLocaleString('en', {
+                        // We are inside a config object
+                        style: 'currency',
+                        // Try different currencies, e.g: 'SEK' <-- Swedish krona
+                        currency: 'USD',
+                        minimumFractionDigits: 0
+                    })
+                }, offset: 50
+            }
+            ,
+            plugins: [
+                Chartist.plugins.legend({
+                    position: 'top'
+                })
+                ,
+                Chartist.plugins.ctBarLabels(
+                    {
+                        labelInterpolationFnc: function (value) {
+                            return parseInt(value).toLocaleString('en', {
+                                // We are inside a config object
+                                style: 'currency',
+                                // Try different currencies, e.g: 'SEK' <-- Swedish krona
+                                currency: 'USD',
+                                minimumFractionDigits: 0
+                            })
+                        }
+                    })
+            ]
+        };
+
+        optionsChartdistributed_ROI = {
+            chartPadding: {
+                top: 50,
+                right: 0,
+                bottom: 0,
+                left: 0
+            },
+            seriesBarDistance: 40,
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            distributeSeries: true,
+            axisY: {
+                labelInterpolationFnc: function (value) {
+                    return value + '%'
+                }, offset: 30
+            }
+            ,
+            plugins: [
+                Chartist.plugins.ctBarLabels_percentage()
+            ]
+        };
+        optionsChartdistributed_PB = {
+            chartPadding: {
+                top: 50,
+                right: 0,
+                bottom: 0,
+                left: 0
+            },
+            seriesBarDistance: 40,
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            distributeSeries: true,
+            axisY: {
+                labelInterpolationFnc: function (value) {
+                    return value
+                }, offset: 30
+            }
+            ,
+            plugins: [
+                Chartist.plugins.ctBarLabels_null()
+            ]
+        };
+
+
+        divProductivityChart = new Chartist.Bar('#divProductivityChart', dataProductivityChart, optionsChart);
+        divProductivityChart.on('created', function (data) {
+            inlineCSStoSVG(divProductivityChart.container.id);
+        });
+
+        divCostsChart = new Chartist.Bar('#divCostsChart', dataCostsChart, optionsChart);
+        divCostsChart.on('created', function (data) {
+            inlineCSStoSVG(divCostsChart.container.id);
+        });
+
+        divRevenuesProfitChart = new Chartist.Bar('#divRevenuesProfitChart', dataRevenuesProfitChart, optionsChart);
+        divRevenuesProfitChart.on('created', function (data) {
+            inlineCSStoSVG(divRevenuesProfitChart.container.id);
+        });
+
+        divRisksChart = new Chartist.Bar('#divRisksChart', dataRisksChart, optionsChart);
+        divRisksChart.on('created', function (data) {
+            inlineCSStoSVG(divRisksChart.container.id);
+        });
+
+        divRoiChart = new Chartist.Bar('#divRoiChart', dataRoiChart, optionsChartdistributed_ROI);
+        divRoiChart.on('created', function (data) {
+            inlineCSStoSVG(divRoiChart.container.id);
+        });
+
+        divPaybackChart = new Chartist.Bar('#divPaybackChart', dataPaybackChart, optionsChartdistributed_PB);
+        divPaybackChart.on('created', function (data) {
+            inlineCSStoSVG(divPaybackChart.container.id);
+        });
+
+    }
+    $(document).ready(function () {
+       myslider= $("#slider").slider({
+            id: "slider", min: 600000, max: 2200000, range: false, value: 1100000, tooltip_split: false, tooltip_position: 'top', tooltip: 'show',
+            formatter: function (val) {
+                if (Array.isArray(val)) {
+                    return  parseInt(val[0]).toLocaleString('en', {
+                        // We are inside a config object
+                        style: 'currency',
+                        // Try different currencies, e.g: 'SEK' <-- Swedish krona
+                        currency: 'USD',
+                        minimumFractionDigits: 0
+                    })  ;
+                } else {
+                    return parseInt(val).toLocaleString('en', {
+                        // We are inside a config object
+                        style: 'currency',
+                        // Try different currencies, e.g: 'SEK' <-- Swedish krona
+                        currency: 'USD',
+                        minimumFractionDigits: 0
+                    });
+                }
+            }
+
+        });
+
+        var navListItems = $('div.setup-panel div a'),
+            allWells = $('.setup-content'),
+            allNextBtn = $('.nextBtn');
+        $('#aSpecify').addClass('current');
+
+        allWells.hide();
+
+        navListItems.click(function (e) {
+            e.preventDefault();
+            var $target = $($(this).attr('href')),
+                $item = $(this);
+
+            if (!$item.hasClass('disabled')) {
+                navListItems.removeClass('btn-primary').addClass('btn-default');
+                $item.addClass('btn-primary');
+                allWells.hide();
+                $target.show();
+                $target.find('input:eq(0)').focus();
+
+                if ($target.attr('id') == "step-5") {
+                    $('#divResults').attr('Style', '');
+                    $('#divSpecify').attr('Style', 'display:none;');
+                    //loadchart();
+                    generate_result();
+                }
+                else if ($target.attr('id') == "step-2")
+                {
+                    divBI();
+                    $('#aResult').removeClass('current');
+                    $('#aSpecify').addClass('current');
+                    $('#divResults').attr('Style', 'display:none;');
+                    $('#divSpecify').attr('Style', '');
+                }
+                else {
+                    $('#aResult').removeClass('current');
+                    $('#aSpecify').addClass('current');
+                    $('#divResults').attr('Style', 'display:none;');
+                    $('#divSpecify').attr('Style', '');
+                }
+            }
+        });
+
+        allNextBtn.click(function () {
+
+            if ($(this).attr('data-industry')!=null) {
+                industry = $(this).attr('data-industry');
+            }
+            if ($(this).attr('data-industry-id') != null) {
+                industry_id = $(this).attr('data-industry-id');
+            }
+
+            if ($(this).attr('data-business')!=null) {
+                businessimperative = $(this).attr('data-business');
+            }
+            if ($(this).attr('data-analytics')!=null) {
+                analytics = $(this).attr('data-analytics');
+            }
+
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url']"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+
+            if (isValid)
+                nextStepWizard.removeAttr('disabled').trigger('click');
+        });
+
+        if (window.location.href.indexOf("step-5") != -1) {
+            $('#step-4 .nextBtn').trigger('click');
+        }
+        else
+            $('div.setup-panel div a.btn-primary').trigger('click');
+    });
+
+    function divBI() {
+        $(".overlay").show();
+        $.ajax({
+            url: "@Url.Action("Industry_select", "specify")",
+            type: "POST",
+            data: { industry: industry_id},
+            dataType: "html",
+            success: function (data) {
+                data = JSON.parse(data);
+                $('#divBI').empty();
+                for (var i = 0; i < data.length; i++) {
+                    $('#divBI').append('<div class="col-md-2 nextBtn" data-business="' + data[i]["Text"] + '"><img style="max-height:512px;" src="' + data[i]["Img_url"]+'" /><div class="image_text">'+data[i]["Text"]+'</div></div>');
+                }
+                $(".overlay").hide();
+                var clickable_link = $('#divBI').find(".nextBtn");
+
+                clickable_link.click(function () {
+
+                    if ($(this).attr('data-industry') != null) {
+                        industry = $(this).attr('data-industry');
+                    }
+                    if ($(this).attr('data-industry-id') != null) {
+                        industry_id = $(this).attr('data-industry-id');
+                    }
+
+                    if ($(this).attr('data-business') != null) {
+                        businessimperative = $(this).attr('data-business');
+                    }
+                    if ($(this).attr('data-analytics') != null) {
+                        analytics = $(this).attr('data-analytics');
+                    }
+
+                    var curStep = $(this).closest(".setup-content"),
+                        curStepBtn = curStep.attr("id"),
+                        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                        curInputs = curStep.find("input[type='text'],input[type='url']"),
+                        isValid = true;
+
+                    $(".form-group").removeClass("has-error");
+                    for (var i = 0; i < curInputs.length; i++) {
+                        if (!curInputs[i].validity.valid) {
+                            isValid = false;
+                            $(curInputs[i]).closest(".form-group").addClass("has-error");
+                        }
+                    }
+
+                    if (isValid)
+                        nextStepWizard.removeAttr('disabled').trigger('click');
+                });
+
+            }
+        });
+    }
+
+    function generate_result() {
+            $(".overlay").show();
+        $.ajax({
+            url: "@Url.Action("Result_report", "specify")",
+            type: "POST",
+            data: { industry: industry, businessimperative: businessimperative, amount: myslider.attr('value'), analytics:analytics },
+            dataType: "html",
+            success: function (data) {
+                data = JSON.parse(data);
+                loadchart(data.x86_dataProductivityChart, data.z14_dataProductivityChart, data.x86_dataCostsChart, data.z14_dataCostsChart, data.x86_dataRevenuesProfitChart, data.z14_dataRevenuesProfitChart, data.x86_dataRisksChart, data.z14_dataRisksChart, data.dataRoiChart, data.dataPaybackChart);
+                $(".overlay").hide();
+                $('#aSpecify').removeClass('current');
+                $('#aResult').addClass('current');
+            }
+        });
+    }
+</script>
+<script>
+    function exporttopdf() {
+    
+        $.ajax({
+            type: "POST",
+            url: '../../specify/pdfExport',
+            dataType: 'text',
+            success: function (result) { window.location = '/specify/Download'; }
+        });
+        
+    }
+
+</script>

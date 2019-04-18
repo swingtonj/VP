@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93f72267419346e9babc29c42417e03c" Name="Diagram1">
+        <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_M_Business_Imperative" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_M_Industry" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_M_Mailer_Template" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_T_UserManagement" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_M_Analytics" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_M_Parameter" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_T_Specify" Width="1.5" PointX="5.25" PointY="5.625" />
+        <EntityTypeShape EntityType="CP_Analytics_predictorModel.Tbl_T_Specify_Value" Width="1.5" PointX="7.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

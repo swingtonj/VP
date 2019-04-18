@@ -189,6 +189,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SensitivityController.cs" />
     <Compile Include="Controllers\SpecifyController.cs" />
+    <Compile Include="CP_Analytics_predictorBusinessImperative.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CP_Analytics_predictorBusinessImperative.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CP_Analytics_predictorDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -390,12 +395,20 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Document\z14.xlsm" />
-    <Content Include="Documents\z14.xlsm" />
-    <Content Include="Documents\z14636744473039121471.xlsm" />
     <Content Include="Documents\calc.xlsm" />
     <Content Include="CP_Analytics_predictorDataSet.xsc">
       <DependentUpon>CP_Analytics_predictorDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="CP_Analytics_predictorBusinessImperative.xsc">
+      <DependentUpon>CP_Analytics_predictorBusinessImperative.xsd</DependentUpon>
+    </Content>
+    <None Include="CP_Analytics_predictorBusinessImperative.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CP_Analytics_predictorBusinessImperative.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="CP_Analytics_predictorBusinessImperative.xss">
+      <DependentUpon>CP_Analytics_predictorBusinessImperative.xsd</DependentUpon>
     </Content>
     <None Include="CP_Analytics_predictorDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
@@ -446,6 +459,7 @@
     <Content Include="VP.edmx.diagram">
       <DependentUpon>VP.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

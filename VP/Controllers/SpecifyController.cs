@@ -358,6 +358,14 @@ namespace VP.Controllers
             report.DataSources.Add(rds5);
             report.Refresh();
 
+            ReportDataSource rds6 = new ReportDataSource();
+            rds6.Name = "DataSet7";//This refers to the dataset name in the RDLC file
+            var industry = Convert.ToInt32(Session["industry_id"]);
+            var Lst_BusinessImperative = _context.Tbl_M_Business_Imperative.Where(x => x.Status == true && x.Industry_id == industry).ToList();
+            rds6.Value = ToDataTable(Lst_BusinessImperative);
+            report.DataSources.Add(rds6);
+            report.Refresh();
+
 
             byte[] mybytes = report.Render("pdf", null,
                             out extension, out encoding,
@@ -365,6 +373,7 @@ namespace VP.Controllers
 
 
             var FilePath = Server.MapPath(ConfigurationManager.AppSettings["ExportPdfFile"]) + FileName;
+            Session["Filepath"] = FilePath;
             bool exists = System.IO.Directory.Exists(Server.MapPath(ConfigurationManager.AppSettings["ExportPdfFile"]));
 
             if (!exists)
@@ -390,6 +399,13 @@ namespace VP.Controllers
             Response.OutputStream.Write(mybytes, 0, mybytes.Length); // create the file  
             Response.Flush(); // send it to the client to download  
             Response.End();
+        }
+
+        [HttpGet]
+        public virtual ActionResult Download()
+        {
+            string fullPath = Convert.ToString(Session["Filepath"]);
+            return File(fullPath, "application/vnd.ms-excel", "Export.pdf");
         }
 
     }

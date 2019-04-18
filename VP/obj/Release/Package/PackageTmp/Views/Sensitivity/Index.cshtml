@@ -1,0 +1,441 @@
+﻿@model VP.Models.Specify
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Assets/css/Specify.css" rel="stylesheet" />
+<link href="~/Assets/css/chartist.css" rel="stylesheet" />
+<link href="~/Assets/css/bootstrap-slider.css" rel="stylesheet" />
+<link href="~/Assets/css/chartist-plugin-legend.css" rel="stylesheet" />
+<link href="~/Assets/css/style.css" rel="stylesheet" />
+<link href="~/Assets/css/Sensitivity.css" rel="stylesheet" />
+<div class="container" style="margin-top:70px;">
+    <div class="row">
+        <div style="height:30px;"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-left">
+            <div class="header1">
+                Vary Key Parameters to Study Impact on Results
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="height:30px;"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-left">
+            <div class="subcontent">
+                <p>You can vary key parameters related to your investment to study their impact on the results.</p>
+            </div>
+            <div class="subcontent">
+                <p>You can vary the hardware investment size and the industry imperative.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="input-container">
+    <div class="container">
+        <div class="row p-3 text-left">
+            <div class="col-2"></div>
+            <div class="col-3 input-label vcenter">Industry</div>
+            <div class="col-5">
+                <label id="lbIndustry">@Model.Industry</label>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row p-3 text-left">
+            <div class="col-2"></div>
+            <div class="col-3 input-label ">Business Imperative</div>
+            <div class="col-5">
+                @Html.DropDownListFor(x => x.Businessimperative, new SelectList(Model.Lst_BusinessImperative, "Id", "Text"), new { id = "ddlBusinessImperative", @class = "form-control" })
+
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row p-3 text-left">
+            <div class="col-2"></div>
+            <div class="col-3 text-left input-label">Hardware Investment</div>
+            <div class="col-5">
+                @Html.TextBoxFor(x => x.Amount, new { id = "slider", @datasliderid = "ex1Slider", @class = "form-control" })
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row p-3 text-left">
+            <div class="col-2"></div>
+            <div class="col-3 text-left input-label">Type of Analytics</div>
+            <div class="col-5">
+                @Html.DropDownListFor(x => x.TypesofAnalytics, new SelectList(Model.Lst_TypesOfAnalytics, "Id", "Text"), new { id = "ddlTypesofAnalytics", @class = "form-control" })
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row p-3 text-center">
+            <div class="col-12">
+                <button id="btnSubmit" type="button" class="btn btn-lg btn-primary">Calculate</button>
+            </div>
+        </div>
+</section>
+
+<section class="industry setup-content charts" id="step-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12 subheader ">
+                Results
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                        <div class="ct-chart" id="divRoiChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            Return on Investment - ROI(%)
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                        <div class="ct-chart" id="divPaybackChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            Payback Period (Months)
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:30px;">
+            <div class="col-md-12 subheader ">
+                Distribution of Benefits and Costs (K)
+            </div>
+        </div>
+        <div class="row quad">
+            <div class="col-md-12 quadrant-box-align-center quadrant-display-none">
+                <div class="bluebox quadrant-box">Direct</div>
+            </div>
+            <div class="col-md-6 br-right br-bottom br-right-green br-bottom-blue">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                        <div class="ct-chart" id="divProductivityChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            2. Productivity
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 br-bottom br-bottom-blue">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                        <div class="ct-chart" id="divCostsChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            1. Costs
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 br-right br-right-green">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                        <div class="ct-chart" id="divRevenuesProfitChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">3. Revenues/Profits</h4>
+                    </div>
+                    <div class="quadbefore quadrant-display-none">Business</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                        <div class="ct-chart" id="divRisksChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">4. Risks</h4>
+                    </div>
+                </div>
+                <div class="quadafter quadrant-display-none">Technical</div>
+            </div>
+            <div class="col-md-12 quadrant-box-align-center quadrant-display-none">
+                <div class="bluebox-light quadrant-box">Derived</div>
+            </div>
+        </div>
+        @*<div class="row" style="margin-top:30px;">
+                <div class="col-md-12 text-left" style="font-size:20px;padding:0px;">
+                    Detailed Results
+                </div>
+                <div>
+                    To get a detailed personalized report with the underlying assumptions and description of the model used to arrive the results, click here for the PDF
+                </div>
+            </div>*@
+    </div>
+</section>
+
+<div class="container">
+
+    <div class="row">
+        <div style="height:10px;"></div>
+    </div>
+    <div class="row">
+        <div class="header2">
+            Detailed Results
+        </div>
+    </div>
+    <div class="row">
+        <div style="height:10px;"></div>
+    </div>
+    <div class="row">
+        <div class="subcontent">
+            <p>
+                To get a new detailed personalized report, <a onclick="exporttopdf();" style="color:blue;text-decoration:underline;"> click here for the PDF</a>.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div style="height:30px;"></div>
+    </div>
+</div>
+<div class="overlay">
+    <img class="loader" src="~/Assets/Images/loader.gif" />
+</div>
+<script src="~/Assets/js/chartist.js"></script>
+<script src="~/Assets/js/bootstrap-slider.js"></script>
+<script src="~/Assets/js/chartist-plugin-legend.min.js"></script>
+<script src="~/Assets/js/Chartist-pointlabels.js"></script>
+<script>
+    var industry, businessimperative, analytics, amount, myslider, industry_id;
+    function loadchart(x86_lst_dataProductivityChart, z14_lst_dataProductivityChart, x86_lst_dataCostsChart, z14_lst_dataCostsChart, x86_lst_dataRevenuesProfitChart, z14_lst_dataRevenuesProfitChart, x86_lst_dataRisksChart, z14_lst_dataRisksChart, lst_dataRoiChart, lst_dataPaybackChart) {
+        dataProductivityChart = {
+            labels: ['C-level executive', 'IT personnel ', 'Organizational'],
+            series: [
+                {
+                    name: 'X86',
+                    data: x86_lst_dataProductivityChart.split(",")
+                }, {
+                    name: 'Z14',
+                    data: z14_lst_dataProductivityChart.split(",")
+                }
+            ]
+        };
+        dataCostsChart = {
+            labels: ['System Acquisition', 'Software Acquisition', 'Operations'],
+            series: [
+                {
+                    name: 'X86',
+                    data: x86_lst_dataCostsChart.split(",")
+                }, {
+                    name: 'Z14',
+                    data: z14_lst_dataCostsChart.split(",")
+                }
+            ]
+        };
+        dataRevenuesProfitChart = {
+            labels: ['Improved Revenue', 'Faster-time-to-value', 'Trusted Experiences'],
+
+            series: [
+                {
+                    name: 'X86',
+                    data: x86_lst_dataRevenuesProfitChart.split(",")
+                }, {
+                    name: 'Z14',
+                    data: z14_lst_dataRevenuesProfitChart.split(",")
+                }
+            ]
+        };
+        dataRisksChart = {
+            labels: ['End-to-End Security', 'Improved governance and compliance', 'Reduced downtime'],
+            series: [
+                {
+                    name: 'X86',
+                    data: x86_lst_dataRisksChart.split(",")
+                }, {
+                    name: 'Z14',
+                    data: z14_lst_dataRisksChart.split(",")
+                }
+            ]
+        };
+        dataRoiChart = {
+            labels: ['X86', 'Z14'],
+            series:
+                lst_dataRoiChart.split(",")
+        };
+        dataPaybackChart = {
+            labels: ['X86', 'Z14'],
+            series:
+                lst_dataPaybackChart.split(",")
+        };
+
+        optionsChart = {
+            chartPadding: {
+                top: 30,
+                right: 0,
+                bottom: 20,
+                left: 0
+            },
+            seriesBarDistance: 50,
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+
+            axisY: {
+                labelInterpolationFnc: function (value) {
+                    return parseInt(value).toLocaleString('en', {
+                        // We are inside a config object
+                        style: 'currency',
+                        // Try different currencies, e.g: 'SEK' <-- Swedish krona
+                        currency: 'USD',
+                        minimumFractionDigits: 0
+                    })
+                }, offset: 80
+            }
+            ,
+            plugins: [
+                Chartist.plugins.legend({
+                    position: 'top'
+                })
+                ,
+                Chartist.plugins.ctBarLabels(
+                    {
+                        labelInterpolationFnc: function (value) {
+                            return parseInt(value).toLocaleString('en', {
+                                // We are inside a config object
+                                style: 'currency',
+                                // Try different currencies, e.g: 'SEK' <-- Swedish krona
+                                currency: 'USD',
+                                minimumFractionDigits: 0
+                            })
+                        }
+                    })
+            ]
+        };
+
+        optionsChartdistributed_ROI = {
+            chartPadding: {
+                top: 50,
+                right: 0,
+                bottom: 0,
+                left: 0
+            },
+            seriesBarDistance: 50,
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            distributeSeries: true,
+            axisY: {
+                labelInterpolationFnc: function (value) {
+                    return value + '%'
+                }, offset: 50
+            }
+            ,
+            plugins: [
+                Chartist.plugins.ctBarLabels_percentage()
+            ]
+        };
+        optionsChartdistributed_PB = {
+            chartPadding: {
+                top: 50,
+                right: 0,
+                bottom: 0,
+                left: 0
+            },
+            seriesBarDistance: 50,
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            distributeSeries: true,
+            axisY: {
+                labelInterpolationFnc: function (value) {
+                    return value
+                }, offset: 50
+            }
+            ,
+            plugins: [
+                Chartist.plugins.ctBarLabels_null()
+            ]
+        };
+
+
+        //var divProductivityChart =
+        new Chartist.Bar('#divProductivityChart', dataProductivityChart, optionsChart);
+        //var divCostsChart =
+        new Chartist.Bar('#divCostsChart', dataCostsChart, optionsChart);
+        //var divRevenuesProfitChart =
+        new Chartist.Bar('#divRevenuesProfitChart', dataRevenuesProfitChart, optionsChart);
+        //var divRisksChart =
+        new Chartist.Bar('#divRisksChart', dataRisksChart, optionsChart);
+
+        //var divRoiChart =
+        new Chartist.Bar('#divRoiChart', dataRoiChart, optionsChartdistributed_ROI);
+        //var divPaybackChart =
+        new Chartist.Bar('#divPaybackChart', dataPaybackChart, optionsChartdistributed_PB);
+
+    }
+
+    $('#btnSubmit').click(function() {
+        generate_result();
+    });
+
+        function generate_result() {
+            $(".overlay").show();
+        $.ajax({
+            url: "@Url.Action("Result_report", "specify")",
+            type: "POST",
+            data: { industry: $('#lbIndustry').text(), businessimperative: $('#ddlBusinessImperative option:selected').text(), amount: myslider.attr('value'), analytics: $('#ddlTypesofAnalytics option:selected').text() },
+            dataType: "html",
+            success: function (data) {
+                data = JSON.parse(data);
+                loadchart(data.x86_dataProductivityChart, data.z14_dataProductivityChart, data.x86_dataCostsChart, data.z14_dataCostsChart, data.x86_dataRevenuesProfitChart, data.z14_dataRevenuesProfitChart, data.x86_dataRisksChart, data.z14_dataRisksChart, data.dataRoiChart, data.dataPaybackChart);
+                $(".overlay").hide();
+                $('#aSensitivity').addClass('current');
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        myslider = $("#slider").slider({
+            id: "slider", min: 600000, max: 2200000, range: false, value: @Model.Amount, tooltip_split: false, tooltip_position: 'top', tooltip: 'show',
+            formatter: function (val) {
+                if (Array.isArray(val)) {
+                    return parseInt(val[0]).toLocaleString('en', {
+                        style: 'currency',
+                        currency: 'USD',
+                        minimumFractionDigits: 0
+                    });
+                } else {
+                    return parseInt(val).toLocaleString('en', {
+                        style: 'currency',
+                        currency: 'USD',
+                        minimumFractionDigits: 0
+                    });
+                }
+            }
+
+        });
+        generate_result();
+    });
+
+</script>
+
+<script>
+    function exporttopdf() {
+
+        $.ajax({
+            type: "POST",
+            url: '../../specify/pdfExport',
+            dataType: 'text',
+            success: function (result) { window.location = '/specify/Download'; }
+        });
+
+    }
+
+</script>
