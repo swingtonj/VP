@@ -283,7 +283,7 @@
                     Detailed Results
                 </div>
                 <div>
-                    To get a detailed personalized report with the underlying assumptions and description of the model used to arrive the results,<a onclick='exporttopdf();'  style="color:blue;text-decoration:underline;"> click here for the PDF</a>
+                    To get a detailed personalized report with the underlying assumptions and description of the model used to arrive the results,<a onclick='exporttopdf();'  style="color:blue;text-decoration:underline;cursor:pointer;"> click here for the PDF</a>
                 </div>
             </div>
         </div>
@@ -457,34 +457,34 @@
 
 
         divProductivityChart = new Chartist.Bar('#divProductivityChart', dataProductivityChart, optionsChart);
-        divProductivityChart.on('created', function (data) {
-            inlineCSStoSVG(divProductivityChart.container.id);
-        });
+        //divProductivityChart.on('created', function (data) {
+        //    inlineCSStoSVG(divProductivityChart.container.id);
+        //});
 
         divCostsChart = new Chartist.Bar('#divCostsChart', dataCostsChart, optionsChart);
-        divCostsChart.on('created', function (data) {
-            inlineCSStoSVG(divCostsChart.container.id);
-        });
+        //divCostsChart.on('created', function (data) {
+        //    inlineCSStoSVG(divCostsChart.container.id);
+        //});
 
         divRevenuesProfitChart = new Chartist.Bar('#divRevenuesProfitChart', dataRevenuesProfitChart, optionsChart);
-        divRevenuesProfitChart.on('created', function (data) {
-            inlineCSStoSVG(divRevenuesProfitChart.container.id);
-        });
+        //divRevenuesProfitChart.on('created', function (data) {
+        //    inlineCSStoSVG(divRevenuesProfitChart.container.id);
+        //});
 
         divRisksChart = new Chartist.Bar('#divRisksChart', dataRisksChart, optionsChart);
-        divRisksChart.on('created', function (data) {
-            inlineCSStoSVG(divRisksChart.container.id);
-        });
+        //divRisksChart.on('created', function (data) {
+        //    inlineCSStoSVG(divRisksChart.container.id);
+        //});
 
         divRoiChart = new Chartist.Bar('#divRoiChart', dataRoiChart, optionsChartdistributed_ROI);
-        divRoiChart.on('created', function (data) {
-            inlineCSStoSVG(divRoiChart.container.id);
-        });
+        //divRoiChart.on('created', function (data) {
+        //    inlineCSStoSVG(divRoiChart.container.id);
+        //});
 
         divPaybackChart = new Chartist.Bar('#divPaybackChart', dataPaybackChart, optionsChartdistributed_PB);
-        divPaybackChart.on('created', function (data) {
-            inlineCSStoSVG(divPaybackChart.container.id);
-        });
+        //divPaybackChart.on('created', function (data) {
+        //    inlineCSStoSVG(divPaybackChart.container.id);
+        //});
 
     }
     $(document).ready(function () {
@@ -668,12 +668,12 @@
 </script>
 <script>
     function exporttopdf() {
-    
+        $(".overlay").show();
         $.ajax({
             type: "POST",
             url: '@Url.Action("pdfExport", "specify")',
             dataType: 'text',
-            success: function (result) { window.location = '@Url.Action("download", "specify")'; }
+            success: function (result) { $(".overlay").hide(); window.location = '@Url.Action("download", "specify")'; }
         });
         
     }
