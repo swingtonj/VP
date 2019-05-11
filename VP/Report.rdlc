@@ -236,7 +236,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Industry and Business Imperative:</Value>
+                        <Value>Industry and Business Imperative : </Value>
                         <Style>
                           <FontStyle>Normal</FontStyle>
                           <FontFamily>Calibri</FontFamily>
@@ -269,7 +269,7 @@
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value> industry typically deploy Analytics solutions for the following Business Imperatives:(only pick the two relevant to the industry picked. Other industry has no business imperative)</Value>
+                        <Value> industry typically deploy Analytics solutions for the following Business Imperatives :</Value>
                         <Style>
                           <FontStyle>Normal</FontStyle>
                           <FontFamily>Calibri</FontFamily>
@@ -494,6 +494,415 @@
           <Rectangle Name="Rectangle2">
             <ReportItems>
               <Rectangle Name="Rectangle3">
+                <ReportItems>
+                  <Chart Name="Chart3">
+                    <ChartCategoryHierarchy>
+                      <ChartMembers>
+                        <ChartMember>
+                          <Group Name="Chart2_CategoryGroup2">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!Parameter_Name.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Group>
+                          <Label>=Fields!Parameter_Name.Value</Label>
+                        </ChartMember>
+                      </ChartMembers>
+                    </ChartCategoryHierarchy>
+                    <ChartSeriesHierarchy>
+                      <ChartMembers>
+                        <ChartMember>
+                          <Label>X86 Value</Label>
+                        </ChartMember>
+                        <ChartMember>
+                          <Label>Z14 Value</Label>
+                        </ChartMember>
+                      </ChartMembers>
+                    </ChartSeriesHierarchy>
+                    <ChartData>
+                      <ChartSeriesCollection>
+                        <ChartSeries Name="X86_Value">
+                          <ChartDataPoints>
+                            <ChartDataPoint>
+                              <ChartDataPointValues>
+                                <Y>=Sum(Fields!X86_Value.Value)</Y>
+                              </ChartDataPointValues>
+                              <ChartDataLabel>
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                </Style>
+                                <UseValueAsLabel>true</UseValueAsLabel>
+                                <Visible>true</Visible>
+                              </ChartDataLabel>
+                              <Style>
+                                <Color>#00ca4c</Color>
+                                <BackgroundGradientEndColor>#00ffffff</BackgroundGradientEndColor>
+                              </Style>
+                              <ChartMarker>
+                                <Style />
+                              </ChartMarker>
+                              <DataElementOutput>Output</DataElementOutput>
+                            </ChartDataPoint>
+                          </ChartDataPoints>
+                          <Style />
+                          <ChartEmptyPoints>
+                            <Style />
+                            <ChartMarker>
+                              <Style />
+                            </ChartMarker>
+                            <ChartDataLabel>
+                              <Style />
+                            </ChartDataLabel>
+                          </ChartEmptyPoints>
+                          <ChartItemInLegend>
+                            <LegendText>X86</LegendText>
+                          </ChartItemInLegend>
+                          <ValueAxisName>Primary</ValueAxisName>
+                          <CategoryAxisName>Primary</CategoryAxisName>
+                          <ChartSmartLabel>
+                            <CalloutLineColor>Black</CalloutLineColor>
+                            <MinMovingDistance>0pt</MinMovingDistance>
+                          </ChartSmartLabel>
+                        </ChartSeries>
+                        <ChartSeries Name="Z14_Value">
+                          <ChartDataPoints>
+                            <ChartDataPoint>
+                              <ChartDataPointValues>
+                                <Y>=Sum(Fields!Z14_Value.Value)</Y>
+                              </ChartDataPointValues>
+                              <ChartDataLabel>
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                </Style>
+                                <UseValueAsLabel>true</UseValueAsLabel>
+                                <Visible>true</Visible>
+                              </ChartDataLabel>
+                              <Style>
+                                <Color>#1d82ff</Color>
+                              </Style>
+                              <ChartMarker>
+                                <Style />
+                              </ChartMarker>
+                              <DataElementOutput>Output</DataElementOutput>
+                            </ChartDataPoint>
+                          </ChartDataPoints>
+                          <Style />
+                          <ChartEmptyPoints>
+                            <Style />
+                            <ChartMarker>
+                              <Style />
+                            </ChartMarker>
+                            <ChartDataLabel>
+                              <Style />
+                            </ChartDataLabel>
+                          </ChartEmptyPoints>
+                          <ChartItemInLegend>
+                            <LegendText>Z14</LegendText>
+                          </ChartItemInLegend>
+                          <ValueAxisName>Primary</ValueAxisName>
+                          <CategoryAxisName>Primary</CategoryAxisName>
+                          <ChartSmartLabel>
+                            <CalloutLineColor>Black</CalloutLineColor>
+                            <MinMovingDistance>0pt</MinMovingDistance>
+                          </ChartSmartLabel>
+                        </ChartSeries>
+                      </ChartSeriesCollection>
+                    </ChartData>
+                    <ChartAreas>
+                      <ChartArea Name="Default">
+                        <ChartCategoryAxes>
+                          <ChartAxis Name="Primary">
+                            <Style>
+                              <Border>
+                                <Color>Gainsboro</Color>
+                                <Style>None</Style>
+                              </Border>
+                              <FontSize>8pt</FontSize>
+                              <Color>#5c5c5c</Color>
+                            </Style>
+                            <ChartAxisTitle>
+                              <Caption />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <Color>#5c5c5c</Color>
+                              </Style>
+                            </ChartAxisTitle>
+                            <ChartMajorGridLines>
+                              <Enabled>False</Enabled>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                </Border>
+                              </Style>
+                            </ChartMajorGridLines>
+                            <ChartMinorGridLines>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </ChartMinorGridLines>
+                            <ChartMajorTickMarks>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </ChartMajorTickMarks>
+                            <ChartMinorTickMarks>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                </Border>
+                              </Style>
+                              <Length>0.5</Length>
+                            </ChartMinorTickMarks>
+                            <CrossAt>NaN</CrossAt>
+                            <Minimum>NaN</Minimum>
+                            <Maximum>NaN</Maximum>
+                            <ChartAxisScaleBreak>
+                              <Style />
+                            </ChartAxisScaleBreak>
+                          </ChartAxis>
+                          <ChartAxis Name="Secondary">
+                            <Style>
+                              <Border>
+                                <Color>Gainsboro</Color>
+                                <Style>None</Style>
+                              </Border>
+                              <FontSize>8pt</FontSize>
+                              <Color>#5c5c5c</Color>
+                            </Style>
+                            <ChartAxisTitle>
+                              <Caption />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <Color>#5c5c5c</Color>
+                              </Style>
+                            </ChartAxisTitle>
+                            <ChartMajorGridLines>
+                              <Enabled>False</Enabled>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                </Border>
+                              </Style>
+                            </ChartMajorGridLines>
+                            <ChartMinorGridLines>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </ChartMinorGridLines>
+                            <ChartMajorTickMarks>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </ChartMajorTickMarks>
+                            <ChartMinorTickMarks>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                </Border>
+                              </Style>
+                              <Length>0.5</Length>
+                            </ChartMinorTickMarks>
+                            <CrossAt>NaN</CrossAt>
+                            <Location>Opposite</Location>
+                            <Minimum>NaN</Minimum>
+                            <Maximum>NaN</Maximum>
+                            <ChartAxisScaleBreak>
+                              <Style />
+                            </ChartAxisScaleBreak>
+                          </ChartAxis>
+                        </ChartCategoryAxes>
+                        <ChartValueAxes>
+                          <ChartAxis Name="Primary">
+                            <Style>
+                              <Border>
+                                <Color>Gainsboro</Color>
+                                <Style>None</Style>
+                              </Border>
+                              <FontSize>8pt</FontSize>
+                              <Color>#5c5c5c</Color>
+                            </Style>
+                            <ChartAxisTitle>
+                              <Caption />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <Color>#5c5c5c</Color>
+                              </Style>
+                            </ChartAxisTitle>
+                            <ChartMajorGridLines>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                </Border>
+                              </Style>
+                            </ChartMajorGridLines>
+                            <ChartMinorGridLines>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </ChartMinorGridLines>
+                            <ChartMajorTickMarks>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </ChartMajorTickMarks>
+                            <ChartMinorTickMarks>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                </Border>
+                              </Style>
+                              <Length>0.5</Length>
+                            </ChartMinorTickMarks>
+                            <CrossAt>NaN</CrossAt>
+                            <Minimum>NaN</Minimum>
+                            <Maximum>NaN</Maximum>
+                            <LabelsAutoFitDisabled>true</LabelsAutoFitDisabled>
+                            <ChartAxisScaleBreak>
+                              <Style />
+                            </ChartAxisScaleBreak>
+                          </ChartAxis>
+                          <ChartAxis Name="Secondary">
+                            <Style>
+                              <Border>
+                                <Color>Gainsboro</Color>
+                                <Style>None</Style>
+                              </Border>
+                              <FontSize>8pt</FontSize>
+                              <Color>#5c5c5c</Color>
+                            </Style>
+                            <ChartAxisTitle>
+                              <Caption />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <Color>#5c5c5c</Color>
+                              </Style>
+                            </ChartAxisTitle>
+                            <ChartMajorGridLines>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                </Border>
+                              </Style>
+                            </ChartMajorGridLines>
+                            <ChartMinorGridLines>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </ChartMinorGridLines>
+                            <ChartMajorTickMarks>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </ChartMajorTickMarks>
+                            <ChartMinorTickMarks>
+                              <Style>
+                                <Border>
+                                  <Color>Gainsboro</Color>
+                                </Border>
+                              </Style>
+                              <Length>0.5</Length>
+                            </ChartMinorTickMarks>
+                            <CrossAt>NaN</CrossAt>
+                            <Location>Opposite</Location>
+                            <Minimum>NaN</Minimum>
+                            <Maximum>NaN</Maximum>
+                            <ChartAxisScaleBreak>
+                              <Style />
+                            </ChartAxisScaleBreak>
+                          </ChartAxis>
+                        </ChartValueAxes>
+                        <Style>
+                          <BackgroundColor>#00ffffff</BackgroundColor>
+                          <BackgroundGradientType>None</BackgroundGradientType>
+                        </Style>
+                      </ChartArea>
+                    </ChartAreas>
+                    <ChartLegends>
+                      <ChartLegend Name="Default">
+                        <Style>
+                          <BackgroundGradientType>None</BackgroundGradientType>
+                          <FontSize>8pt</FontSize>
+                        </Style>
+                        <Position>TopCenter</Position>
+                        <ChartLegendTitle>
+                          <Caption />
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </ChartLegendTitle>
+                        <HeaderSeparatorColor>Black</HeaderSeparatorColor>
+                        <ColumnSeparatorColor>Black</ColumnSeparatorColor>
+                      </ChartLegend>
+                    </ChartLegends>
+                    <ChartTitles>
+                      <ChartTitle Name="Title1">
+                        <Caption>1. Costs</Caption>
+                        <Style>
+                          <BackgroundGradientType>None</BackgroundGradientType>
+                          <FontWeight>Bold</FontWeight>
+                          <TextAlign>General</TextAlign>
+                          <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Position>BottomCenter</Position>
+                      </ChartTitle>
+                    </ChartTitles>
+                    <Palette>Pastel</Palette>
+                    <ChartBorderSkin>
+                      <Style>
+                        <BackgroundColor>Gray</BackgroundColor>
+                        <BackgroundGradientType>None</BackgroundGradientType>
+                        <Color>White</Color>
+                      </Style>
+                    </ChartBorderSkin>
+                    <ChartNoDataMessage Name="NoDataMessage">
+                      <Caption>No Data Available</Caption>
+                      <Style>
+                        <BackgroundGradientType>None</BackgroundGradientType>
+                        <FontWeight>Bold</FontWeight>
+                        <TextAlign>General</TextAlign>
+                        <VerticalAlign>Top</VerticalAlign>
+                      </Style>
+                    </ChartNoDataMessage>
+                    <DataSetName>DataSet2</DataSetName>
+                    <Top>1.17806cm</Top>
+                    <Left>10.04534cm</Left>
+                    <Height>6.11142cm</Height>
+                    <Width>8.46102cm</Width>
+                    <Style>
+                      <Border>
+                        <Color>LightGrey</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>White</BackgroundColor>
+                      <BackgroundGradientType>None</BackgroundGradientType>
+                    </Style>
+                  </Chart>
+                </ReportItems>
                 <KeepTogether>true</KeepTogether>
                 <Top>0.26458cm</Top>
                 <Left>0.15875cm</Left>
@@ -1208,7 +1617,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Hardware Investment: </Value>
+                    <Value>Hardware Investment: $</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
@@ -1219,7 +1628,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>=Parameters!Investment.Value</Value>
+                    <Value>=format(cint(Parameters!Investment.Value),"#,#")</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
@@ -1485,7 +1894,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>The ROI measures the gain orloss generated on an investment relative to theamount of money invested. The IBM Z14 System Analytics Solution improvesyour ROI by </Value>
+                    <Value>The ROI measures the gain or loss generated on an investment relative to the amount of money invested. The IBM Z14 System Analytics Solution improves your ROI by </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>calibri</FontFamily>
@@ -1544,7 +1953,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>The Payback Period is the length of time(quarters)required to recover the cost of an investment. The IBM Z14 System Analytics Solution reducesyour Payback Period by </Value>
+                    <Value>The Payback Period is the length of time(quarters) required to recover the cost of an investment. The IBM Z14 System Analytics Solution reduces your Payback Period by </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
@@ -1644,7 +2053,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#333333</Color>
@@ -1655,7 +2064,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#333333</Color>
@@ -1671,7 +2080,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#333333</Color>
@@ -1692,7 +2101,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>Underline</TextDecoration>
                       <Color>#333333</Color>
@@ -1703,7 +2112,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#333333</Color>
@@ -1720,33 +2129,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>1.</Value>
+                    <Value>1.    Finance</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#333333</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve">    </Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>7pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#333333</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>Finance</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#333333</Color>
@@ -1764,33 +2151,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>2.</Value>
+                    <Value>2.    Retail</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#333333</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve">    </Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>7pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#333333</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>Retail</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#333333</Color>
@@ -1808,33 +2173,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>3.</Value>
+                    <Value>3.    Healthcare</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#333333</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve">    </Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>7pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#333333</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>Healthcare</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#333333</Color>
@@ -1852,33 +2195,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>4.</Value>
+                    <Value>4.    Telecom</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#333333</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve">    </Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>7pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#333333</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>Telecom</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#333333</Color>
@@ -1896,33 +2217,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>5.</Value>
+                    <Value>5.    Others</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#333333</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve">    </Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>7pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#333333</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>Others</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#333333</Color>
@@ -1939,9 +2238,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>48.34365cm</Top>
+            <Top>48.02615cm</Top>
             <Left>0.4862cm</Left>
-            <Height>3.775cm</Height>
+            <Height>4.11896cm</Height>
             <Width>19.20918cm</Width>
             <ZIndex>12</ZIndex>
             <Style>
@@ -2000,7 +2299,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Hardware Investment:</Value>
+                    <Value>Hardware Investment :</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
@@ -2150,7 +2449,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>=Parameters!Investment.Value</Value>
+                    <Value>=Format(cint(Parameters!Investment.Value),"#,#")</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
@@ -2203,7 +2502,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Analytics Solution Type:</Value>
+                    <Value>Analytics Solution Type : </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
@@ -2241,7 +2540,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>Open Data Analytics: </Value>
+                    <Value>Open Data Analytics : </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
@@ -2305,7 +2604,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>IBM DB2 Analytics Accelerator: </Value>
+                    <Value>IBM DB2 Analytics Accelerator : </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
@@ -2369,7 +2668,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>IBM Machine Learning:</Value>
+                    <Value>IBM Machine Learning : </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
@@ -2597,7 +2896,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value> drivers. Along the vertical axis, drivers are arranged based on ease of measurability: </Value>
+                    <Value> drivers. Along the vertical axis, drivers are arranged based on ease of measurability : </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
@@ -2824,7 +3123,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#333333</Color>
@@ -2876,7 +3175,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -2892,7 +3191,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -2913,7 +3212,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -2934,7 +3233,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -2955,18 +3254,18 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>Underline</TextDecoration>
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>):</Value>
+                    <Value>) : </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -2977,7 +3276,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -2998,7 +3297,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -3015,11 +3314,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Improved Personnel and Organizational Productivity</Value>
+                    <Value>Improved Personnel and Organizational Productivity </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>Underline</TextDecoration>
                       <Color>#000000</Color>
@@ -3030,7 +3329,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -3041,7 +3340,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -3061,7 +3360,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -3077,11 +3376,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Improved Revenue/Profit</Value>
+                    <Value>Improved Revenue/Profit </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>Underline</TextDecoration>
                       <Color>#000000</Color>
@@ -3092,7 +3391,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -3103,7 +3402,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                     </Style>
@@ -3123,7 +3422,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                     </Style>
@@ -3139,11 +3438,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Faster Time to Value</Value>
+                    <Value>Faster Time to Value </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>Underline</TextDecoration>
                       <Color>#000000</Color>
@@ -3154,25 +3453,14 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>Clients can enhance the productivity of data scientists and improve time to value by deploying Analytics faster and with the most current data and better security and resiliency</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#323232</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>.</Value>
+                    <Value>Clients can enhance the productivity of data scientists and improve time to value by deploying Analytics faster and with the most current data and better security and resiliency.</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
@@ -3212,11 +3500,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Trusted Experience</Value>
+                    <Value>Trusted Experience </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>Underline</TextDecoration>
                       <Color>#000000</Color>
@@ -3227,7 +3515,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -3248,7 +3536,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -3265,11 +3553,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Reduced Downtime:</Value>
+                    <Value>Reduced Downtime : </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>Underline</TextDecoration>
                       <Color>#000000</Color>
@@ -3280,7 +3568,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -3301,7 +3589,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -3318,11 +3606,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>End to End Security:</Value>
+                    <Value>End to End Security : </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>Underline</TextDecoration>
                       <Color>#000000</Color>
@@ -3333,7 +3621,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -3354,7 +3642,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -3371,11 +3659,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Improved Governance and Compliance:</Value>
+                    <Value>Improved Governance and Compliance :</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>Underline</TextDecoration>
                       <Color>#000000</Color>
@@ -3386,7 +3674,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>10.5pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                     </Style>
@@ -3403,7 +3691,7 @@
             <rd:DefaultName>Textbox22</rd:DefaultName>
             <Top>115.69003cm</Top>
             <Left>0.48619cm</Left>
-            <Height>19.59708cm</Height>
+            <Height>25.11805cm</Height>
             <Width>19.20918cm</Width>
             <ZIndex>21</ZIndex>
             <Style>
@@ -3695,7 +3983,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>137.051cm</Top>
+            <Top>141.8135cm</Top>
             <Left>0.48619cm</Left>
             <Height>13.35292cm</Height>
             <Width>19.20919cm</Width>
@@ -4147,419 +4435,6 @@
               <BackgroundGradientType>None</BackgroundGradientType>
             </Style>
           </Chart>
-          <Chart Name="Chart3">
-            <ChartCategoryHierarchy>
-              <ChartMembers>
-                <ChartMember>
-                  <Group Name="Chart2_CategoryGroup2">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!Parameter_Name.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Parameter_Name.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <Label>=Fields!Parameter_Name.Value</Label>
-                </ChartMember>
-              </ChartMembers>
-            </ChartCategoryHierarchy>
-            <ChartSeriesHierarchy>
-              <ChartMembers>
-                <ChartMember>
-                  <Label>X86 Value</Label>
-                </ChartMember>
-                <ChartMember>
-                  <Label>Z14 Value</Label>
-                </ChartMember>
-              </ChartMembers>
-            </ChartSeriesHierarchy>
-            <ChartData>
-              <ChartSeriesCollection>
-                <ChartSeries Name="X86_Value">
-                  <ChartDataPoints>
-                    <ChartDataPoint>
-                      <ChartDataPointValues>
-                        <Y>=Sum(Fields!X86_Value.Value)</Y>
-                      </ChartDataPointValues>
-                      <ChartDataLabel>
-                        <Style>
-                          <FontSize>8pt</FontSize>
-                        </Style>
-                        <UseValueAsLabel>true</UseValueAsLabel>
-                        <Visible>true</Visible>
-                      </ChartDataLabel>
-                      <Style>
-                        <Color>#00ca4c</Color>
-                        <BackgroundGradientEndColor>#00ffffff</BackgroundGradientEndColor>
-                      </Style>
-                      <ChartMarker>
-                        <Style />
-                      </ChartMarker>
-                      <DataElementOutput>Output</DataElementOutput>
-                    </ChartDataPoint>
-                  </ChartDataPoints>
-                  <Style />
-                  <ChartEmptyPoints>
-                    <Style />
-                    <ChartMarker>
-                      <Style />
-                    </ChartMarker>
-                    <ChartDataLabel>
-                      <Style />
-                    </ChartDataLabel>
-                  </ChartEmptyPoints>
-                  <ChartItemInLegend>
-                    <LegendText>X86</LegendText>
-                  </ChartItemInLegend>
-                  <ValueAxisName>Primary</ValueAxisName>
-                  <CategoryAxisName>Primary</CategoryAxisName>
-                  <ChartSmartLabel>
-                    <CalloutLineColor>Black</CalloutLineColor>
-                    <MinMovingDistance>0pt</MinMovingDistance>
-                  </ChartSmartLabel>
-                </ChartSeries>
-                <ChartSeries Name="Z14_Value">
-                  <ChartDataPoints>
-                    <ChartDataPoint>
-                      <ChartDataPointValues>
-                        <Y>=Sum(Fields!Z14_Value.Value)</Y>
-                      </ChartDataPointValues>
-                      <ChartDataLabel>
-                        <Style>
-                          <FontSize>8pt</FontSize>
-                        </Style>
-                        <UseValueAsLabel>true</UseValueAsLabel>
-                        <Visible>true</Visible>
-                      </ChartDataLabel>
-                      <Style>
-                        <Color>#1d82ff</Color>
-                      </Style>
-                      <ChartMarker>
-                        <Style />
-                      </ChartMarker>
-                      <DataElementOutput>Output</DataElementOutput>
-                    </ChartDataPoint>
-                  </ChartDataPoints>
-                  <Style />
-                  <ChartEmptyPoints>
-                    <Style />
-                    <ChartMarker>
-                      <Style />
-                    </ChartMarker>
-                    <ChartDataLabel>
-                      <Style />
-                    </ChartDataLabel>
-                  </ChartEmptyPoints>
-                  <ChartItemInLegend>
-                    <LegendText>Z14</LegendText>
-                  </ChartItemInLegend>
-                  <ValueAxisName>Primary</ValueAxisName>
-                  <CategoryAxisName>Primary</CategoryAxisName>
-                  <ChartSmartLabel>
-                    <CalloutLineColor>Black</CalloutLineColor>
-                    <MinMovingDistance>0pt</MinMovingDistance>
-                  </ChartSmartLabel>
-                </ChartSeries>
-              </ChartSeriesCollection>
-            </ChartData>
-            <ChartAreas>
-              <ChartArea Name="Default">
-                <ChartCategoryAxes>
-                  <ChartAxis Name="Primary">
-                    <Style>
-                      <Border>
-                        <Color>Gainsboro</Color>
-                        <Style>None</Style>
-                      </Border>
-                      <FontSize>8pt</FontSize>
-                      <Color>#5c5c5c</Color>
-                    </Style>
-                    <ChartAxisTitle>
-                      <Caption />
-                      <Style>
-                        <FontSize>9pt</FontSize>
-                        <Color>#5c5c5c</Color>
-                      </Style>
-                    </ChartAxisTitle>
-                    <ChartMajorGridLines>
-                      <Enabled>False</Enabled>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                        </Border>
-                      </Style>
-                    </ChartMajorGridLines>
-                    <ChartMinorGridLines>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                          <Style>Dotted</Style>
-                        </Border>
-                      </Style>
-                    </ChartMinorGridLines>
-                    <ChartMajorTickMarks>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                          <Style>None</Style>
-                        </Border>
-                      </Style>
-                    </ChartMajorTickMarks>
-                    <ChartMinorTickMarks>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                        </Border>
-                      </Style>
-                      <Length>0.5</Length>
-                    </ChartMinorTickMarks>
-                    <CrossAt>NaN</CrossAt>
-                    <Minimum>NaN</Minimum>
-                    <Maximum>NaN</Maximum>
-                    <ChartAxisScaleBreak>
-                      <Style />
-                    </ChartAxisScaleBreak>
-                  </ChartAxis>
-                  <ChartAxis Name="Secondary">
-                    <Style>
-                      <Border>
-                        <Color>Gainsboro</Color>
-                        <Style>None</Style>
-                      </Border>
-                      <FontSize>8pt</FontSize>
-                      <Color>#5c5c5c</Color>
-                    </Style>
-                    <ChartAxisTitle>
-                      <Caption />
-                      <Style>
-                        <FontSize>9pt</FontSize>
-                        <Color>#5c5c5c</Color>
-                      </Style>
-                    </ChartAxisTitle>
-                    <ChartMajorGridLines>
-                      <Enabled>False</Enabled>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                        </Border>
-                      </Style>
-                    </ChartMajorGridLines>
-                    <ChartMinorGridLines>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                          <Style>Dotted</Style>
-                        </Border>
-                      </Style>
-                    </ChartMinorGridLines>
-                    <ChartMajorTickMarks>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                          <Style>None</Style>
-                        </Border>
-                      </Style>
-                    </ChartMajorTickMarks>
-                    <ChartMinorTickMarks>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                        </Border>
-                      </Style>
-                      <Length>0.5</Length>
-                    </ChartMinorTickMarks>
-                    <CrossAt>NaN</CrossAt>
-                    <Location>Opposite</Location>
-                    <Minimum>NaN</Minimum>
-                    <Maximum>NaN</Maximum>
-                    <ChartAxisScaleBreak>
-                      <Style />
-                    </ChartAxisScaleBreak>
-                  </ChartAxis>
-                </ChartCategoryAxes>
-                <ChartValueAxes>
-                  <ChartAxis Name="Primary">
-                    <Style>
-                      <Border>
-                        <Color>Gainsboro</Color>
-                        <Style>None</Style>
-                      </Border>
-                      <FontSize>8pt</FontSize>
-                      <Color>#5c5c5c</Color>
-                    </Style>
-                    <ChartAxisTitle>
-                      <Caption />
-                      <Style>
-                        <FontSize>9pt</FontSize>
-                        <Color>#5c5c5c</Color>
-                      </Style>
-                    </ChartAxisTitle>
-                    <ChartMajorGridLines>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                        </Border>
-                      </Style>
-                    </ChartMajorGridLines>
-                    <ChartMinorGridLines>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                          <Style>Dotted</Style>
-                        </Border>
-                      </Style>
-                    </ChartMinorGridLines>
-                    <ChartMajorTickMarks>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                          <Style>None</Style>
-                        </Border>
-                      </Style>
-                    </ChartMajorTickMarks>
-                    <ChartMinorTickMarks>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                        </Border>
-                      </Style>
-                      <Length>0.5</Length>
-                    </ChartMinorTickMarks>
-                    <CrossAt>NaN</CrossAt>
-                    <Minimum>NaN</Minimum>
-                    <Maximum>NaN</Maximum>
-                    <LabelsAutoFitDisabled>true</LabelsAutoFitDisabled>
-                    <ChartAxisScaleBreak>
-                      <Style />
-                    </ChartAxisScaleBreak>
-                  </ChartAxis>
-                  <ChartAxis Name="Secondary">
-                    <Style>
-                      <Border>
-                        <Color>Gainsboro</Color>
-                        <Style>None</Style>
-                      </Border>
-                      <FontSize>8pt</FontSize>
-                      <Color>#5c5c5c</Color>
-                    </Style>
-                    <ChartAxisTitle>
-                      <Caption />
-                      <Style>
-                        <FontSize>9pt</FontSize>
-                        <Color>#5c5c5c</Color>
-                      </Style>
-                    </ChartAxisTitle>
-                    <ChartMajorGridLines>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                        </Border>
-                      </Style>
-                    </ChartMajorGridLines>
-                    <ChartMinorGridLines>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                          <Style>Dotted</Style>
-                        </Border>
-                      </Style>
-                    </ChartMinorGridLines>
-                    <ChartMajorTickMarks>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                          <Style>None</Style>
-                        </Border>
-                      </Style>
-                    </ChartMajorTickMarks>
-                    <ChartMinorTickMarks>
-                      <Style>
-                        <Border>
-                          <Color>Gainsboro</Color>
-                        </Border>
-                      </Style>
-                      <Length>0.5</Length>
-                    </ChartMinorTickMarks>
-                    <CrossAt>NaN</CrossAt>
-                    <Location>Opposite</Location>
-                    <Minimum>NaN</Minimum>
-                    <Maximum>NaN</Maximum>
-                    <ChartAxisScaleBreak>
-                      <Style />
-                    </ChartAxisScaleBreak>
-                  </ChartAxis>
-                </ChartValueAxes>
-                <Style>
-                  <BackgroundColor>#00ffffff</BackgroundColor>
-                  <BackgroundGradientType>None</BackgroundGradientType>
-                </Style>
-              </ChartArea>
-            </ChartAreas>
-            <ChartLegends>
-              <ChartLegend Name="Default">
-                <Style>
-                  <BackgroundGradientType>None</BackgroundGradientType>
-                  <FontSize>8pt</FontSize>
-                </Style>
-                <Position>TopCenter</Position>
-                <ChartLegendTitle>
-                  <Caption />
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </ChartLegendTitle>
-                <HeaderSeparatorColor>Black</HeaderSeparatorColor>
-                <ColumnSeparatorColor>Black</ColumnSeparatorColor>
-              </ChartLegend>
-            </ChartLegends>
-            <ChartTitles>
-              <ChartTitle Name="Title1">
-                <Caption>1. Costs</Caption>
-                <Style>
-                  <BackgroundGradientType>None</BackgroundGradientType>
-                  <FontWeight>Bold</FontWeight>
-                  <TextAlign>General</TextAlign>
-                  <VerticalAlign>Top</VerticalAlign>
-                </Style>
-                <Position>BottomCenter</Position>
-              </ChartTitle>
-            </ChartTitles>
-            <Palette>Pastel</Palette>
-            <ChartBorderSkin>
-              <Style>
-                <BackgroundColor>Gray</BackgroundColor>
-                <BackgroundGradientType>None</BackgroundGradientType>
-                <Color>White</Color>
-              </Style>
-            </ChartBorderSkin>
-            <ChartNoDataMessage Name="NoDataMessage">
-              <Caption>No Data Available</Caption>
-              <Style>
-                <BackgroundGradientType>None</BackgroundGradientType>
-                <FontWeight>Bold</FontWeight>
-                <TextAlign>General</TextAlign>
-                <VerticalAlign>Top</VerticalAlign>
-              </Style>
-            </ChartNoDataMessage>
-            <DataSetName>DataSet2</DataSetName>
-            <Top>25.2758cm</Top>
-            <Left>10.20409cm</Left>
-            <Height>6.11142cm</Height>
-            <Width>8.46102cm</Width>
-            <ZIndex>26</ZIndex>
-            <Style>
-              <Border>
-                <Color>LightGrey</Color>
-                <Style>Solid</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-              <BackgroundGradientType>None</BackgroundGradientType>
-            </Style>
-          </Chart>
           <Chart Name="Chart4">
             <ChartCategoryHierarchy>
               <ChartMembers>
@@ -4569,11 +4444,6 @@
                       <GroupExpression>=Fields!Parameter_Name.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Parameter_Name.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
                   <Label>=Fields!Parameter_Name.Value</Label>
                 </ChartMember>
               </ChartMembers>
@@ -4964,7 +4834,7 @@
             <Left>1.09947cm</Left>
             <Height>5.63409cm</Height>
             <Width>8.6633cm</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -5377,7 +5247,7 @@
             <Left>10.22138cm</Left>
             <Height>5.63409cm</Height>
             <Width>8.44373cm</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -5408,7 +5278,7 @@
             <Left>8.92387cm</Left>
             <Height>0.67938cm</Height>
             <Width>2.1464cm</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -5535,7 +5405,7 @@
             <Left>0.3175cm</Left>
             <Height>3.16481cm</Height>
             <Width>0.54208cm</Width>
-            <ZIndex>30</ZIndex>
+            <ZIndex>29</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -5674,7 +5544,7 @@
             <Left>19.00544cm</Left>
             <Height>3.58814cm</Height>
             <Width>0.54208cm</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>30</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -5707,7 +5577,7 @@
             <Left>8.93604cm</Left>
             <Height>0.67938cm</Height>
             <Width>2.1464cm</Width>
-            <ZIndex>32</ZIndex>
+            <ZIndex>31</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -6123,7 +5993,7 @@
             <Left>0.23835cm</Left>
             <Height>6.82563cm</Height>
             <Width>9.76818cm</Width>
-            <ZIndex>33</ZIndex>
+            <ZIndex>32</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -6246,7 +6116,7 @@
             <Left>0.4862cm</Left>
             <Height>4.79778cm</Height>
             <Width>19.20918cm</Width>
-            <ZIndex>34</ZIndex>
+            <ZIndex>33</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -6258,7 +6128,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>59.70372in</Height>
+        <Height>61.96414in</Height>
         <Style />
       </Body>
       <Width>7.86634in</Width>
